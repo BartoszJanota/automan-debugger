@@ -1,0 +1,41 @@
+<idea-plugin version="2" xmlns:xi="http://www.w3.org/1999/XSL/Transform">
+  <id>com.yourcompany.unique.plugin.id</id>
+  <name>Plugin display name here</name>
+  <version>1.0</version>
+  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+
+  <description><![CDATA[
+      Enter short description for your plugin here.<br>
+      <em>most HTML tags may be used</em>
+    ]]></description>
+
+  <change-notes><![CDATA[
+      Add change notes here.<br>
+      <em>most HTML tags may be used</em>
+    ]]>
+  </change-notes>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+  </extensions>
+
+  <application-components>
+    <!-- Add your application components here -->
+  </application-components>
+
+  <project-components>
+    <!-- Add your project components here -->
+  </project-components>
+
+  <actions>
+    <group id="JavaPlugin" text="_Java Plugin" description="Java Plugin">
+      <add-to-group group-id="MainMenu" anchor="last"  />
+      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
+    </group>
+    <group id="ScalaPlugin" text="_Scala Plugin" description="Scala Plugin">
+      <add-to-group group-id="MainMenu" anchor="last"  />
+      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
+    </group>
+  </actions>
+
+</idea-plugin>
