@@ -1,4 +1,4 @@
-package com.bartoszjanota.plugin
+package com.bartoszjanota.plugin.automan
 
 import com.intellij.openapi.actionSystem._
 import com.intellij.openapi.ui.Messages

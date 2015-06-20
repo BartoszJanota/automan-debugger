@@ -1,4 +1,4 @@
-<idea-plugin version="2" xmlns:xi="http://www.w3.org/1999/XSL/Transform">
+<idea-plugin version="2">
   <id>com.yourcompany.unique.plugin.id</id>
   <name>Plugin display name here</name>
   <version>1.0</version>
@@ -15,6 +15,15 @@
     ]]>
   </change-notes>
 
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Build+Number+Ranges for description -->
+  <idea-version since-build="131"/>
+
+  <!-- please see https://confluence.jetbrains.com/display/IDEADEV/Plugin+Compatibility+with+IntelliJ+Platform+Products
+       on how to target different products -->
+  <!-- uncomment to enable plugin in all products
+  <depends>com.intellij.modules.lang</depends>
+  -->
+
   <extensions defaultExtensionNs="com.intellij">
     <!-- Add your extensions here -->
   </extensions>
@@ -30,11 +39,11 @@
   <actions>
     <group id="JavaPlugin" text="_Java Plugin" description="Java Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
+      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.automan.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
     </group>
     <group id="ScalaPlugin" text="_Scala Plugin" description="Scala Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
+      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.automan.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
     </group>
   </actions>
 
