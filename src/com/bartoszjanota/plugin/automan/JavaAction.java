@@ -1,9 +1,10 @@
-package com.bartoszjanota.plugin;
+package com.bartoszjanota.plugin.automan;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
+import com.bartoszjanota.plugin.automan.ScalaClass;
 
 /**
  * Created by bj on 24.03.15.
@@ -15,7 +16,8 @@ public class JavaAction extends AnAction{
 
     public void actionPerformed(AnActionEvent event) {
         Project project = event.getData(PlatformDataKeys.PROJECT);
-        Messages.showMessageDialog(project, "Hello From Java Action!", "Dialog", Messages.getInformationIcon());
+        ScalaClass scalaClass = new ScalaClass();
+        Messages.showMessageDialog(project, "Hello From Java Action! This is ScalaClass intro:" + scalaClass.printYourself(), "Dialog", Messages.getInformationIcon());
     }
 
 }
