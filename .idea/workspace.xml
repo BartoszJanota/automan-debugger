@@ -2,15 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c47bd5fc-f00a-4b03-8e6b-0fe8b83c6da7" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_can_2_11_1_3_2.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_can_1_3_1.xml" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/com_typesafe_akka_akka_actor_2_10_2_3_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/com_typesafe_akka_akka_actor_2_11_2_3_11.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_json_2_10_1_3_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_json_2_11_1_3_1.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_routing_1_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/io_spray_spray_routing_2_11_1_3_2.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/scala_sdk_2_10_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/scala_sdk_2_11_4.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/TaskSnapshotResponse.scala" afterPath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/models/TaskSnapshotResponse.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/DebugServerActor.scala" afterPath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/DebugServerActor.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/automan-debugger-scala.iml" afterPath="$PROJECT_DIR$/automan-debugger-scala.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala" afterPath="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/META-INF/plugin.xml" afterPath="$PROJECT_DIR$/META-INF/plugin.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="automan-debugger.iws" />
@@ -38,17 +31,37 @@
         <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/AutoManPlugin.scala">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+              <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DebugServerActor.scala" pinned="false" current-in-tab="true">
+      <file leaf-file-name="DebugServerActor.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/DebugServerActor.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.50092083">
-              <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IdeaPlugin.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.27992633">
+              <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ScalaAction.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/com/bartoszjanota/plugin/example/ScalaAction.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="106" />
               <folding />
             </state>
           </provider>
@@ -78,7 +91,7 @@
         <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -113,12 +126,13 @@
         <option value="$PROJECT_DIR$/src/com/bartoszjanota/plugin/ScalaAction.scala" />
         <option value="$PROJECT_DIR$/src/com/bartoszjanota/plugin/example/JavaAction.java" />
         <option value="$PROJECT_DIR$/src/com/bartoszjanota/plugin/debugger/interface/PluginTraitImpl.scala" />
-        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
         <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/DebugServerActor.scala" />
         <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/TaskSnapshotResponse.scala" />
-        <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/AutoManPlugin.scala" />
         <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/models/TaskSnapshotResponse.scala" />
         <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/DebugServerActor.scala" />
+        <option value="$PROJECT_DIR$/META-INF/plugin.xml" />
+        <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/AutoManPlugin.scala" />
+        <option value="$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala" />
       </list>
     </option>
   </component>
@@ -164,8 +178,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scratches" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,14 +217,6 @@
               <option name="myItemId" value="automandebugger" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TaskSnapshotResponse.scala" />
-              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -228,33 +232,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="automandebugger" />
+              <option name="myItemId" value="plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="idea" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan-debugger-scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan-debugger-scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automandebugger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan" />
+              <option name="myItemId" value="example" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -272,29 +254,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="automandebugger" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="actors" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan-debugger-scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="automan-debugger-scala" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
+              <option name="myItemId" value="plugin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -346,7 +306,9 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -356,7 +318,7 @@
     <property name="MemberChooser.sorted" value="false" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.copyJavadoc" value="false" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2611051" />
     <property name="recentsLimit" value="5" />
@@ -751,12 +713,22 @@
       <workItem from="1435224152257" duration="803000" />
       <workItem from="1435228248014" duration="760000" />
       <workItem from="1435229069903" duration="996000" />
-      <workItem from="1435230115119" duration="224000" />
+      <workItem from="1435230115119" duration="1693000" />
+      <workItem from="1435232056739" duration="48000" />
+      <workItem from="1435232384121" duration="66000" />
+      <workItem from="1435232480861" duration="354000" />
     </task>
+    <task id="LOCAL-00001" summary="components fixed (all related to scala 2.11.4)">
+      <created>1435230416391</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1435230416391</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44652000" />
+    <option name="totallyTimeSpent" value="46589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1920" height="1176" extended-state="6" />
@@ -799,6 +771,10 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="components fixed (all related to scala 2.11.4)" />
+    <option name="LAST_COMMIT_MESSAGE" value="components fixed (all related to scala 2.11.4)" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
     <watches-manager />
@@ -811,7 +787,7 @@
     <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1046,13 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/bartoszjanota/plugin/example/ScalaAction.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/com/bartoszjanota/plugin/debugger/AutoMan.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3106796">
@@ -1071,13 +1040,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35506243">
           <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.110957004">
-          <caret line="5" column="6" selection-start-line="5" selection-start-column="6" selection-end-line="5" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -1122,14 +1084,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/io/spray/spray-util/1.3.1/spray-util-1.3.1.jar!/spray/util/LoggingContext.class">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.015080113">
@@ -1151,14 +1105,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/models/TaskSnapshotResponse.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/automan-debugger-scala.iml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1167,18 +1113,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/models/TaskSnapshotResponse.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="2" column="2" selection-start-line="2" selection-start-column="2" selection-end-line="2" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/bartoszjanota/plugin/example/ScalaAction.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="9" selection-end-column="106" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/META-INF/plugin.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/AutoManPlugin.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <caret line="30" column="48" selection-start-line="30" selection-start-column="48" selection-end-line="30" selection-end-column="48" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/automan/actors/DebugServerActor.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.50092083">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="7" selection-start-line="29" selection-start-column="7" selection-end-line="29" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/edu/umass/cs/plasma/automandebugger/idea/IdeaPlugin.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.27992633">
+          <caret line="20" column="0" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1260,7 +1238,7 @@
       </state>
       <state key="ProjectLibrariesConfigurable.UI">
         <settings>
-          <last-edited>io.spray:spray-json_2.11:1.3.1</last-edited>
+          <last-edited>scala-sdk-2.11.4</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>

@@ -47,7 +47,7 @@
     </group>-->
   <group id="AutoManDebuggerPlugin" text="_AutoMan Debugger" description="AutoMan Debugger Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="AutomanDebugger.menuItem" class="com.bartoszjanota.plugin.debugger.AutoMan" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
+      <action id="AutomanDebugger.menuItem" class="edu.umass.cs.plasma.automandebugger.idea.IdeaPlugin" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
     </group>
   </actions>
 
