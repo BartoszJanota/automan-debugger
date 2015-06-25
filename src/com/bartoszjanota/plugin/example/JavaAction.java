@@ -1,10 +1,10 @@
-package com.bartoszjanota.plugin.automan;
+package com.bartoszjanota.plugin.example;
 import com.intellij.openapi.actionSystem.AnAction;
 import com.intellij.openapi.actionSystem.AnActionEvent;
 import com.intellij.openapi.actionSystem.PlatformDataKeys;
 import com.intellij.openapi.project.Project;
 import com.intellij.openapi.ui.Messages;
-import com.bartoszjanota.plugin.automan.ScalaClass;
+import com.bartoszjanota.plugin.example.ScalaClass;
 
 /**
  * Created by bj on 24.03.15.

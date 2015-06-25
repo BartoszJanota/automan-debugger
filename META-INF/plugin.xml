@@ -37,13 +37,17 @@
   </project-components>
 
   <actions>
-    <group id="JavaPlugin" text="_Java Plugin" description="Java Plugin">
+<!--    <group id="JavaPlugin" text="_Java Plugin" description="Java Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.automan.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
+      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.example.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
     </group>
     <group id="ScalaPlugin" text="_Scala Plugin" description="Scala Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.automan.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
+      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.example.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
+    </group>-->
+  <group id="AutoManDebuggerPlugin" text="_AutoMan Debugger" description="AutoMan Debugger Plugin">
+      <add-to-group group-id="MainMenu" anchor="last"  />
+      <action id="AutomanDebugger.menuItem" class="com.bartoszjanota.plugin.debugger.AutoMan" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
     </group>
   </actions>
 
