@@ -25,7 +25,7 @@
   -->
 
   <extensions defaultExtensionNs="com.intellij">
-    <!-- Add your extensions here -->
+      <toolWindow id="AutoMan IntelliJ Debugger" icon="/resources/AutoMan-logo.png" anchor="right" factoryClass="edu.umass.cs.plasma.automandebugger.idea.IdeaPluginToolWindow"/>
   </extensions>
 
   <application-components>
@@ -37,17 +37,9 @@
   </project-components>
 
   <actions>
-<!--    <group id="JavaPlugin" text="_Java Plugin" description="Java Plugin">
+    <group id="AutoManDebuggerPlugin" text="_AutoMan Debugger" description="AutoMan Debugger Plugin">
       <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="JavaPlugin.menuItem" class="com.bartoszjanota.plugin.example.JavaAction" text="_Connect to Java Plugin server" description="Connect to Java Plugin" />
-    </group>
-    <group id="ScalaPlugin" text="_Scala Plugin" description="Scala Plugin">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="ScalaPlugin.menuItem" class="com.bartoszjanota.plugin.example.ScalaAction" text="_Connect to Scala Plugin server" description="Connect to Scala Plugin" />
-    </group>-->
-  <group id="AutoManDebuggerPlugin" text="_AutoMan Debugger" description="AutoMan Debugger Plugin">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="AutomanDebugger.menuItem" class="edu.umass.cs.plasma.automandebugger.idea.IdeaPlugin" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
+      <action id="AutomanDebugger.menuItem" class="edu.umass.cs.plasma.automandebugger.idea.IdeaPluginDialog" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
     </group>
   </actions>
 
