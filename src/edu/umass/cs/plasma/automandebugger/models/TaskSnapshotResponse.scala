@@ -10,8 +10,8 @@ import spray.json.DefaultJsonProtocol
 object TaskSnapshotJsonProtocol extends DefaultJsonProtocol{
   //def apply(t: TaskSnapshot[_]): TaskSnapshotResponse = new TaskSnapshotResponse(title = t.title, text = t.text)
 
-  implicit val taskSnapshotResponseFormat = jsonFormat2(TaskSnapshotResponse)
-  implicit val tasks = jsonFormat1(Tasks)
+  implicit val taskSnapshotResponseFormat = jsonFormat2(TaskSnapshotResponse.apply)
+  implicit val tasks = jsonFormat1(Tasks.apply)
 }
 
 case class TaskSnapshotResponse(title: String, text: String) {}
