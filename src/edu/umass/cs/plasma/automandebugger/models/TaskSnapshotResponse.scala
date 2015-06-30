@@ -16,7 +16,7 @@ import DefaultJsonProtocol._
 object TaskSnapshotJsonProtocol extends DefaultJsonProtocol {
   //def apply(t: TaskSnapshot[_]): TaskSnapshotResponse = new TaskSnapshotResponse(title = t.title, text = t.text)
 
-  implicit val taskSnapshotResponseFormat = jsonFormat12(TaskSnapshotResponse.apply)
+  implicit val taskSnapshotResponseFormat = jsonFormat13(TaskSnapshotResponse.apply)
   //implicit val tasks = jsonFormat1(Tasks.apply)
 
   implicit object TasksJson extends RootJsonFormat[Tasks] {
@@ -42,7 +42,8 @@ object TaskSnapshotResponse {
                               worker_id = t.worker_id.getOrElse("Unavailable"),
                               answer = t.answer.toString,
                               state_changed_at = t.state_changed_at.getTime,
-                              question_type = t.question_type.toString)
+                              question_type = t.question_type.toString,
+                              task_id = t.task_id.toString)
 }
 
 case class TaskSnapshotResponse(
@@ -57,9 +58,11 @@ case class TaskSnapshotResponse(
                                 worker_id: String,
                                 answer: String,
                                 state_changed_at: Long,
-                                question_type: String) {
+                                question_type: String,
+                                task_id: String) {
   override def toString: String = {
     "\n  * title:   " + title + "\n" +
+    "  * task_id:   " + task_id + "\n" +
     "  * text:   " + text + "\n" +
     "  * round:   " + round + "\n" +
     "  * timeout_in_s:   " + timeout_in_s + "\n" +
@@ -69,7 +72,7 @@ case class TaskSnapshotResponse(
     "  * worker_id:   " + worker_id + "\n" +
     "  * answer:   " + answer + "\n" +
     "  * state_changed_at:   " + new Date(state_changed_at).toGMTString + "\n" +
-    "  * question_type:   " + question_type + "\n\n"
+    "  * question_type:   " + question_type + "\n"
   }
 }
 

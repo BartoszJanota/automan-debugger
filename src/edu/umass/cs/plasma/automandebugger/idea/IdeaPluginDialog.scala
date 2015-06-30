@@ -22,20 +22,9 @@ class IdeaPluginDialog extends AnAction("IDEA_PLUGIN") with httpHelpers{
       case Right(tasks) => showCurrentTasksMessageDialog(project, tasks)
     }
   }
-  
-  def getCurrentTasksSnapshot: Either[Exception, Tasks] = {
-    import spray.json._
-    import DefaultJsonProtocol._
-    import edu.umass.cs.plasma.automandebugger.models.TaskSnapshotJsonProtocol._
-
-    get("http://localhost:8888/state") match {
-      case Left(err) => Left(err)
-      case Right(tasks) => Right(TasksJson.read(tasks.parseJson))
-    }
-  }
 
   def showCurrentTasksMessageDialog(project: Project, taskSnapshots: Tasks): Unit = {
-    val tasksPrettyPrint = taskSnapshots.tasks.zipWithIndex.map(t => "Task no. " + t._2 + " properties:" + t._1.toString).mkString
+    val tasksPrettyPrint = taskSnapshots.tasks.zipWithIndex.map(t => "Task no. " + t._2 + " properties:" + t._1.toString + "\n  ").mkString
 
     Messages.showMessageDialog(project, "This is AutoMan IntelliJ Debugger (AID)!\n\n" +
     "AID is able to show you the current state of your AutoMan program.\n\n" +
