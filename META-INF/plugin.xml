@@ -1,8 +1,8 @@
 <idea-plugin version="2">
-  <id>com.yourcompany.unique.plugin.id</id>
-  <name>Plugin display name here</name>
+  <id>edu.umass.cs.plasma.automandebugger</id>
+  <name>AutoMan IntelliJ Debugger</name>
   <version>1.0</version>
-  <vendor email="support@yourcompany.com" url="http://www.yourcompany.com">YourCompany</vendor>
+  <vendor email="bartosz.janota@gmail.com" url="http://bartoszjanota.com">Bartosz Janota</vendor>
 
   <description><![CDATA[
       Enter short description for your plugin here.<br>

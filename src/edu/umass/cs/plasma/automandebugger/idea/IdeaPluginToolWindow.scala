@@ -1,48 +1,63 @@
 package edu.umass.cs.plasma.automandebugger.idea
 
-import java.awt.{Dimension, GridLayout}
+import java.awt._
+import java.awt.event.{ActionEvent, ActionListener, KeyEvent}
 import javax.swing._
 
-import akka.actor.ActorSystem
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
 import edu.umass.cs.plasma.automandebugger.idea.utils.httpHelpers
-import spray.client.pipelining._
-import edu.umass.cs.plasma.automandebugger.models.Tasks
-import spray.http.HttpResponse
-
-import scala.collection.immutable
-import scala.collection.immutable.Seq
-import scala.concurrent.Future
-import scala.util.Success
 
 /**
  * Created by bj on 25.06.15.
  */
-class IdeaPluginToolWindow extends ToolWindowFactory with httpHelpers{
+class IdeaPluginToolWindow extends ToolWindowFactory with httpHelpers {
   override def createToolWindowContent(project: Project, toolWindow: ToolWindow): Unit = {
     val component: JComponent = toolWindow.getComponent
 
-/*    implicit val system = ActorSystem("system")
-    implicit val executionContext = system.dispatcher
-    import spray.json._
-    import edu.umass.cs.plasma.automandebugger.models.TaskSnapshotJsonProtocol._
+    val panel: RadioButtonTasks = RadioButtonTasks().createRadioButtonTasks("test sting")
+    panel.setVisible(true)
+    component.add(panel)
 
-    val req = getSpray("http://localhost:8888/state").onComplete{
-      case Success(response) => println("*****************************" + response)
-    }*/
+  }
+}
 
-    val res = get("http://localhost:8888/state")
+case class RadioButtonTasks() extends JPanel(new BorderLayout()) with ActionListener {
 
-    val panel = new JPanel()
-    panel.setPreferredSize(new Dimension(200, 400));
-    panel.setLayout(new GridLayout(2,1))
-    panel.add(new JButton("Refresh"))
-    panel.add(new JTextArea("Here you can see your current tasks: \n" + res))
+  val label = new JLabel()
 
-    panel.setVisible(true);
+  def createRadioButtonTasks(test: String): RadioButtonTasks = {
+    val firstButton = new JRadioButton("first task")
+    firstButton.setMnemonic(KeyEvent.VK_B)
+    firstButton.setActionCommand("first task title")
+    firstButton.setSelected(true)
 
-    component.getParent.add(panel)
+    val secondButton = new JRadioButton("second task")
+    secondButton.setMnemonic(KeyEvent.VK_C)
+    secondButton.setActionCommand("second task title")
 
+    val buttonGroup = new ButtonGroup()
+    buttonGroup.add(firstButton)
+    buttonGroup.add(secondButton)
+
+    firstButton.addActionListener(this)
+    secondButton.addActionListener(this)
+
+    label.setPreferredSize(new Dimension(100, 100))
+    label.setText("Choose task you want to display")
+
+    val radioPanel = new JPanel(new GridLayout(0, 1))
+    radioPanel.add(firstButton)
+    radioPanel.add(secondButton)
+
+    val radioButtonTasks = new RadioButtonTasks()
+    radioButtonTasks.add(radioPanel, BorderLayout.LINE_START);
+    radioButtonTasks.add(label, BorderLayout.CENTER);
+    radioButtonTasks.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+    radioButtonTasks
+  }
+
+  override def actionPerformed(e: ActionEvent): Unit = {
+    label.setText("Chosen task title: '" + e.getActionCommand + "'")
   }
 }

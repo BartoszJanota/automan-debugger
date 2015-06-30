@@ -5,6 +5,7 @@ import java.util.{Date, UUID}
 import edu.umass.cs.automan.core.info.QuestionType._
 import edu.umass.cs.automan.core.logging.TaskSnapshot
 import edu.umass.cs.automan.core.scheduler.SchedulerState
+import spray.http.DateTime
 import spray.json._
 
 import DefaultJsonProtocol._
@@ -56,6 +57,20 @@ case class TaskSnapshotResponse(
                                 worker_id: String,
                                 answer: String,
                                 state_changed_at: Long,
-                                question_type: String) {}
+                                question_type: String) {
+  override def toString: String = {
+    "\n  * title:   " + title + "\n" +
+    "  * text:   " + text + "\n" +
+    "  * round:   " + round + "\n" +
+    "  * timeout_in_s:   " + timeout_in_s + "\n" +
+    "  * worker_timeout:   " + worker_timeout + "\n" +
+    "  * created_at:   " + new Date(created_at).toString + "\n" +
+    "  * state:   " + state + "\n" +
+    "  * worker_id:   " + worker_id + "\n" +
+    "  * answer:   " + answer + "\n" +
+    "  * state_changed_at:   " + new Date(state_changed_at).toGMTString + "\n" +
+    "  * question_type:   " + question_type + "\n\n"
+  }
+}
 
 case class Tasks(tasks: List[TaskSnapshotResponse]) {}
