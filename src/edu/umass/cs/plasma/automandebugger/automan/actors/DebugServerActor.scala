@@ -37,7 +37,7 @@ class DebugServerActor(adapter: AutomanAdapter) extends Actor with HttpService w
 
   def getAdapterState: List[TaskSnapshotResponse] = {
     adapter.state_snapshot().map{ taskSnapshot =>
-      TaskSnapshotResponse(taskSnapshot.title, taskSnapshot.text)
+      TaskSnapshotResponse.applyFromTaskSnapshot(taskSnapshot)
     }
   }
 }

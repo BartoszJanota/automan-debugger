@@ -19,17 +19,11 @@ object AutoManPlugin{
 }
 
 class AutoManPlugin extends Plugin{
-  implicit var system: ActorSystem = ActorSystem("AutoManDebugger")
+  implicit val system: ActorSystem = ActorSystem("AutoManDebugger")
   implicit val timeout = akka.util.Timeout(10 seconds)
 
   override def startup(adapter: AutomanAdapter): Unit = {
-    println("Hello from BJ Plugin!")
-    //val snapshots: List[TaskSnapshot[_]] = adapter.state_snapshot()
-
-    //println("received " + snapshots.size + " tasks")
-    //snapshots.foreach{ snapshot =>
-    //  println("task title: " + snapshot.title)
-    //}
+    println("Hello from AID Plugin!")
 
     val debugServerActor = system.actorOf(Props(classOf[DebugServerActor], adapter), "DebugServerActor")
 
@@ -38,7 +32,7 @@ class AutoManPlugin extends Plugin{
   }
 
   override def shutdown(): Unit = {
-    println("Bye bye from BJ Plugin!")
+    println("Bye bye from AID Plugin!")
   }
 
 
