@@ -11,7 +11,11 @@ https://devnet.jetbrains.com/servlet/JiveServlet/download/5546566-22258/Screen%2
 
 ###Let's try AID
 
-Most recent version of AID is availabel on `http` branch. Checkout `http` branch and try this plugin.
+Most recent version of AID is availabel on `http-easy-build` branch. Checkout `http-easy-build` branch and try this plugin.
+
+####Attach Scala SDK
+
+Just righ-click the plugin module in the Project view and select Open Module Settings, choose . Click on the Green Plus Button (+) and choose Scala SDK. You should add (or download) `scala-sdk-2.11.4` library. Other essentail libraries are attached to the repository.
 
 ####Create a plugin archive
 
