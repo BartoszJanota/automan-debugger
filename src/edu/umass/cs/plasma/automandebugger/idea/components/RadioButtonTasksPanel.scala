@@ -1,6 +1,6 @@
 package edu.umass.cs.plasma.automandebugger.idea.components
 
-import java.awt.{GridLayout, Dimension, BorderLayout}
+import java.awt.{Color, GridLayout, Dimension, BorderLayout}
 import java.awt.event.{ActionEvent, KeyEvent, ActionListener}
 import javax.swing._
 
@@ -11,7 +11,9 @@ import edu.umass.cs.plasma.automandebugger.models.{TaskSnapshotResponse, Tasks}
  */
 case class RadioButtonTasksPanel() extends JPanel(new BorderLayout()) with ActionListener {
 
-  val taskArea = new JTextArea()
+  val taskArea = new JTextPane()
+  taskArea.setBackground(Color.darkGray)
+  //taskArea.setBorder(BorderFactory.createEmptyBorder(0, 0, 20 , 0))
 
   var currentTasks = Map[String, TaskSnapshotResponse]().empty
 
@@ -34,7 +36,7 @@ case class RadioButtonTasksPanel() extends JPanel(new BorderLayout()) with Actio
 
     val radioPanel = new JPanel(new GridLayout(0, 1))
     radioPanel.setToolTipText("Tooltip text here")
-    radioPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 20))
+    radioPanel.setBorder(BorderFactory.createEmptyBorder(0, 0, 20 , 20))
     taskButtons.foreach(radioPanel add _)
 
     //taskArea.setPreferredSize(new Dimension(100, 100))
@@ -42,17 +44,21 @@ case class RadioButtonTasksPanel() extends JPanel(new BorderLayout()) with Actio
       " AID is able to show you the current state of your AutoMan program.\n" +
       " Here you can see your " + currentTasks.size + " current tasks. Just choose one on the left hand side.")
 
+    val label: JLabel = new JLabel("AutoMan Intellij Debugger (AID) Tool Window - supervise your tasks easily.")
+    label.setPreferredSize(new Dimension(100, 30))
+    label.setBorder(BorderFactory.createEmptyBorder(0, 0, 20, 0))
+
     val radioButtonTasks = new RadioButtonTasksPanel()
-    radioButtonTasks.add(radioPanel, BorderLayout.LINE_START);
-    radioButtonTasks.add(taskArea, BorderLayout.CENTER);
-    radioButtonTasks.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+    radioButtonTasks.add(label, BorderLayout.NORTH)
+    radioButtonTasks.add(radioPanel, BorderLayout.LINE_START)
+    radioButtonTasks.add(taskArea, BorderLayout.CENTER)
+    radioButtonTasks.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20))
     radioButtonTasks
   }
 
   override def actionPerformed(e: ActionEvent): Unit = {
     val chosenTask = currentTasks(e.getActionCommand)
-    taskArea.setText("\n Chosen Task details: \n" + chosenTask.toString)
-    taskArea.append("\n\n What you can see here is a Swing Panel." +
+    taskArea.setText(" Chosen task details: \n" + chosenTask.toString + "\n\n What you can see here is a Swing Panel." +
     "\n Now only textual details are displayed, but in the nearest future it will be replaced with Swing charts." +
     "\n As a final result it should be replaced with a browser engine and Scala.js (just dreaming :>) charts.\n")
   }
