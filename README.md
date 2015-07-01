@@ -5,7 +5,9 @@ Repository for AutoMan IntelliJ Debugger (*AID*). *AID* is a plugin for *Intelli
 
 ####Prerequisites
 
-TO DO
+Following things you will need to build, deploy and install *AID*:
+ * IntelliJ IDEA 14.* - Community or Ultimate
+ * scala-sdk-2.11.4 jar library
 
 ####Clone repo
 
@@ -24,7 +26,7 @@ IntelliJ shoudl open this project automatically as a IntelliJ Platform Plugin. Y
 
 Firstly, you need to add the mentioned SDK to the Intellij Platform - follow [official JetBrains manual](https://www.jetbrains.com/idea/help/configuring-intellij-platform-plugin-sdk.html).
 Now you should add *Intellij Platform Plugin Project SDK* to the *automan-debugger* project.
-Go to the *automan-debugger Module Settings -> Dependencies* and choose *Module SDK: IntelliJ IDEA Community Edition IC-141.1010.3*.
+Go to the *automan-debugger Module Settings -> Dependencies* and choose *Module SDK: IntelliJ IDEA Community Edition IC-141.1010.3* - the exact name of my IntelliJ IDEA.
 If you add Intellij IDEA Plugin SDK properly, you should be able to import all the classes from `com.intellij.openapi.*` package.
 
 ####Choose a proper branch
