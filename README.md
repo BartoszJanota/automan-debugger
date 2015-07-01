@@ -11,11 +11,37 @@ https://devnet.jetbrains.com/servlet/JiveServlet/download/5546566-22258/Screen%2
 
 ###Let's try AID
 
-Most recent version of AID is availabel on `http-easy-build` branch. Checkout `http-easy-build` branch and try this plugin.
+####Prerequisites
+
+TO DO
+
+####Clone repo
+
+Clone this repo to your local disk, you can use SSH or HTTPS, it doesn't matter.
+If you clone to your home folder, you should see a plugin folder like this:
+```js
+/home/bartoszjanota/automan-debugger
+```
+
+####Open project
+
+I assume you have you IntelliJ IDEA 14 opened. Now go to File -> Open... and choose /automan-debugger folder.
+IntelliJ shoudl open this project automatically as a IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby automan-debugger in the project View.
+
+####Add Intellij IDEA Plugin SDK
+
+Firstly, you need to add the mentioned SDK to the Intellij Platform - follow [official JetBrains manual](https://www.jetbrains.com/idea/help/configuring-intellij-platform-plugin-sdk.html).
+Now you should add Intellij Platform Plugin Project SDK to the automan-debugger project.
+Go to the Module Settings -> Dependencies and choose Module SDK: IntelliJ IDEA Community Edition IC-141.1010.3.
+If you added Intellij IDEA Plugin SDK you should be able to import all the packages from `com.intellij.openapi` package.
+
+####Choose a proper branch
+
+Most recent version of AID is available on `http-easy-build` branch. Checkout `http-easy-build` branch
 
 ####Attach Scala SDK
 
-Just righ-click the plugin module in the Project view and select Open Module Settings, choose . Click on the Green Plus Button (+) and choose Scala SDK. You should add (or download) `scala-sdk-2.11.4` library. Other essentail libraries are attached to the repository.
+Just righ-click the plugin module in the Project view and select Open Module Settings, click on the Green Plus Button (+) and choose Scala SDK. You should add (or download) `scala-sdk-2.11.4` library. Other essentail libraries are attached to the repository.
 
 ####Create a plugin archive
 
