@@ -37,10 +37,7 @@
   </project-components>
 
   <actions>
-    <group id="AutoManDebuggerPlugin" text="_AutoMan Debugger" description="AutoMan Debugger Plugin">
-      <add-to-group group-id="MainMenu" anchor="last"  />
-      <action id="AutomanDebugger.menuItem" class="edu.umass.cs.plasma.automandebugger.idea.IdeaPluginDialog" text="_Run AutoMan Debugger" description="Run AutoMan Debugger" />
-    </group>
+
   </actions>
 
 </idea-plugin>

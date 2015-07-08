@@ -1,15 +1,14 @@
 package edu.umass.cs.plasma.automandebugger.automan
 
 
-import akka.actor.{Props, ActorSystem}
+import akka.actor.{ActorSystem, Props}
 import akka.io.IO
-import edu.umass.cs.automan.core.info.StateInfo
-import edu.umass.cs.automan.core.logging.TaskSnapshot
+import akka.pattern.ask
 import edu.umass.cs.automan.core.{AutomanAdapter, Plugin}
 import edu.umass.cs.plasma.automandebugger.automan.actors.DebugServerActor
 import spray.can.Http
+
 import scala.concurrent.duration._
-import akka.pattern.ask
 
 /**
  * Created by bj on 24.06.15.

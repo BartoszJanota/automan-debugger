@@ -1,63 +1,75 @@
 package edu.umass.cs.plasma.automandebugger.idea
 
 import java.awt._
-import java.awt.event.{ActionEvent, ActionListener, KeyEvent}
-import javax.accessibility.Accessible
+import java.awt.event.{ActionEvent, ActionListener}
 import javax.swing._
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
-import edu.umass.cs.plasma.automandebugger.idea.components.RadioButtonTasksPanel
-import edu.umass.cs.plasma.automandebugger.idea.utils.httpHelpers
-import edu.umass.cs.plasma.automandebugger.models.Tasks
+import edu.umass.cs.plasma.automandebugger.idea.utils.toolWindowHelpers
 
 /**
  * Created by bj on 25.06.15.
  */
-class IdeaPluginToolWindow extends ToolWindowFactory with httpHelpers {
+class IdeaPluginToolWindow extends ToolWindowFactory with toolWindowHelpers {
+
+
   override def createToolWindowContent(project: Project, toolWindow: ToolWindow): Unit = {
     val component: JComponent = toolWindow.getComponent
-    var autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component)
+    var autoManAreaComponent: JComponent = null
 
-    val refreshButton: JButton = new JButton("Refresh AutoMan Program state")
-    refreshButton.setSize(100, 30)
+    val refreshPanel = new JPanel(new BorderLayout())
+    refreshPanel.setBorder(BorderFactory.createEmptyBorder(10, 10, 10, 10))
+
+    val refreshButton: JButton = new JButton("Refresh AutoMan Program now")
     refreshButton.addActionListener(new ActionListener {
       override def actionPerformed(e: ActionEvent): Unit = {
-        if (autoManAreaComponent != null){
-          component.remove(autoManAreaComponent)
-        }
-        refreshButton.setText("Loading...")
-        autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component)
-        refreshButton.setText("Refresh AutoMan Program state")
+        println("refreshing now!")
+        autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component, refreshPanel)
+        //component.add(refreshPanel, BorderLayout.SOUTH)
       }
     })
-    component.add(refreshButton, BorderLayout.SOUTH)
 
-  }
-
-  def tryToGetAnUpdateOfAutoManProgramState(project: Project, mainComponent: JComponent): JComponent= {
-    getCurrentTasksSnapshot match {
-      case Left(exception) =>
-        showErrorPanel(project, mainComponent, exception)
-      case Right(tasks) =>
-        showTasksPanel(project, mainComponent, tasks)
+    def timerListener = new ActionListener() {
+      override def actionPerformed(e: ActionEvent): Unit = {
+        println("refreshing automatically")
+        //clearMainComponent(component, autoManAreaComponent)
+        autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component, refreshPanel)
+        //component.add(refreshPanel, BorderLayout.SOUTH)
+      }
     }
 
+    val displayTimer = new Timer(10000, timerListener)
+
+
+    val refreshAutomaticallyButton: JButton = new JButton("Enable AutoMan Program auto refresh")
+    refreshAutomaticallyButton.addActionListener(new ActionListener {
+      override def actionPerformed(e: ActionEvent): Unit = {
+        if (displayTimer.isRunning) {
+          displayTimer.stop()
+          refreshAutomaticallyButton.setText("Enable AutoMan Program auto refresh (every 20 seconds)")
+          println("stopping auto refresh")
+        } else {
+          displayTimer.start()
+          refreshAutomaticallyButton.setText("Disable AutoMan Program auto refresh")
+          println("starting auto refresh")
+        }
+      }
+    })
+
+
+    refreshPanel.add(refreshButton, BorderLayout.LINE_START)
+    refreshPanel.add(refreshAutomaticallyButton, BorderLayout.LINE_END)
+
+    autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component, refreshPanel)
+
   }
 
-  def showTasksPanel(project: Project, mainComponent: JComponent, tasks: Tasks): RadioButtonTasksPanel = {
-    val panel: RadioButtonTasksPanel = RadioButtonTasksPanel().createRadioButtonTasks(tasks)
-    panel.setVisible(true)
-    mainComponent.add(panel, BorderLayout.CENTER)
-    panel
-  }
 
-  def showErrorPanel(project: Project, mainComponent: JComponent, exception: Exception): JTextPane = {
-    val pane: JTextPane = new JTextPane()
-    pane.setText("Something went wrong, error message:\n\n" + exception.getMessage)
-    pane.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20))
-    mainComponent.add(pane, BorderLayout.CENTER)
-    pane
+  def clearMainComponent(component: JComponent, autoManAreaComponent: JComponent): Unit = {
+    if (autoManAreaComponent != null) {
+      component.remove(autoManAreaComponent)
+    }
   }
 }
 
