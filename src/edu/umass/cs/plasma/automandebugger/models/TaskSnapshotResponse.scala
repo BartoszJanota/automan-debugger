@@ -16,7 +16,7 @@ import DefaultJsonProtocol._
 object TaskSnapshotJsonProtocol extends DefaultJsonProtocol {
   //def apply(t: TaskSnapshot[_]): TaskSnapshotResponse = new TaskSnapshotResponse(title = t.title, text = t.text)
 
-  implicit val taskSnapshotResponseFormat = jsonFormat13(TaskSnapshotResponse.apply)
+  implicit val taskSnapshotResponseFormat = jsonFormat14(TaskSnapshotResponse.apply)
   //implicit val tasks = jsonFormat1(Tasks.apply)
 
   implicit object TasksJson extends RootJsonFormat[Tasks] {
@@ -43,7 +43,8 @@ object TaskSnapshotResponse {
                               answer = t.answer.toString,
                               state_changed_at = t.state_changed_at.getTime,
                               question_type = t.question_type.toString,
-                              task_id = t.task_id.toString)
+                              task_id = t.task_id.toString,
+                              question_id = t.question_id.toString)
 }
 
 case class TaskSnapshotResponse(
@@ -59,10 +60,12 @@ case class TaskSnapshotResponse(
                                 answer: String,
                                 state_changed_at: Long,
                                 question_type: String,
-                                task_id: String) {
+                                task_id: String,
+                                question_id: String) {
   override def toString: String = {
     "\n  * title:   " + title + "\n" +
     "  * task_id:   " + task_id + "\n" +
+    "  * question_id:   " + question_id + "\n" +
     "  * text:   " + text + "\n" +
     "  * round:   " + round + "\n" +
     "  * timeout_in_s:   " + timeout_in_s + "\n" +
