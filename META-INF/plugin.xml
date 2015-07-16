@@ -26,6 +26,7 @@
 
   <extensions defaultExtensionNs="com.intellij">
       <toolWindow id="AutoMan IntelliJ Debugger" icon="/AutoMan-logo.png" anchor="right" factoryClass="edu.umass.cs.plasma.automandebugger.idea.IdeaPluginToolWindow"/>
+      <toolWindow id="AutoMan IntelliJ Browser Debugger" icon="/AutoMan-logo.png" anchor="right" factoryClass="edu.umass.cs.plasma.automandebugger.idea.browser.IdeaPluginToolBrowserWindow"/>
   </extensions>
 
   <application-components>

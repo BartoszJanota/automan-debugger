@@ -2,11 +2,16 @@ package edu.umass.cs.plasma.automandebugger.idea
 
 import java.awt._
 import java.awt.event.{ActionEvent, ActionListener}
+import javafx.application.Platform
+import javafx.embed.swing.JFXPanel
+import javafx.scene.Scene
+import javafx.scene.web.WebView
 import javax.swing._
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
 import edu.umass.cs.plasma.automandebugger.idea.utils.toolWindowHelpers
+
 
 /**
  * Created by bj on 25.06.15.
@@ -57,10 +62,8 @@ class IdeaPluginToolWindow extends ToolWindowFactory with toolWindowHelpers {
       }
     })
 
-
     refreshPanel.add(refreshButton, BorderLayout.LINE_START)
     refreshPanel.add(refreshAutomaticallyButton, BorderLayout.LINE_END)
-
     autoManAreaComponent = tryToGetAnUpdateOfAutoManProgramState(project, component, refreshPanel)
 
   }
