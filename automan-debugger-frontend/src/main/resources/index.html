@@ -3,17 +3,39 @@
 <head>
     <title>AutoMan IntelliJ Debugger</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-
-<h1>AID WebView</h1>
-
-<p>After having compiled and fast-optimized the code for the application
-    (using `sbt fastOptJS`) and injecting JS files here, you should see "AID scripts work well!" herebelow.
-    See README.md for detailed explanations.</p>
-
 <div id="main-component">
 </div>
+
+<div class="container">
+    <h4>Question #2 tasks:</h4>
+    <ul class="nav nav-tabs">
+        <li class="active"><a data-toggle="tab" href="#tasks-completion">Completion</a></li>
+        <li><a data-toggle="tab" href="#tasks-states">States</a></li>
+        <li><a data-toggle="tab" href="#tasks-predictions">Predictions</a></li>
+    </ul>
+
+    <div class="tab-content">
+        <div id="tasks-completion" class="tab-pane fade in active">
+            <h5>Tasks Completion</h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        <div id="tasks-states" class="tab-pane fade">
+            <h5>Tasks States</h5>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+        </div>
+        <div id="tasks-predictions" class="tab-pane fade">
+            <h5>Tasks Predictions</h5>
+            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+    </div>
+</div>
+
 
 </body>
 </html>

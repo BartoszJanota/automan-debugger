@@ -1,6 +1,6 @@
 package edu.umass.cs.plasma.automandebugger.idea.browser
 
-import java.awt.BorderLayout
+import java.awt.{Dimension, BorderLayout}
 import java.io._
 import java.util.Scanner
 import javafx.application.Platform
@@ -25,10 +25,10 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val component: JComponent = toolWindow.getComponent
 
     val mainPanel = new JPanel(new BorderLayout())
-    mainPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2))
+    mainPanel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3))
+    mainPanel.setPreferredSize(new Dimension(150, 450))
 
     val browserPanel = new JPanel(new BorderLayout())
-    //browserPanel.setBorder(BorderFactory.createEmptyBorder(2, 2, 2, 2))
 
     val jfxPanel = new JFXPanel()
 
@@ -40,7 +40,7 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
         stage.setResizable(true)
 
         val root = new Group()
-        val scene = new Scene(root,300,300)
+        val scene = new Scene(root, 150, 450)
         stage.setScene(scene)
 
         val webView = new WebView()
