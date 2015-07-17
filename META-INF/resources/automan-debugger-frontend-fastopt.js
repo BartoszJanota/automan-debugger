@@ -1677,10 +1677,33 @@ $c_Lfront_AIDBrowserScripts$.prototype.init___ = (function() {
   $n_Lfront_AIDBrowserScripts$ = this;
   return this
 });
+$c_Lfront_AIDBrowserScripts$.prototype.createChatTab__Lorg_scalajs_dom_raw_HTMLDocument__V = (function(d) {
+  var li = d["createElement"]("li");
+  var a = d["createElement"]("a");
+  a["setAttribute"]("data-toggle", "tab");
+  a["setAttribute"]("href", "#chat");
+  a["innerHTML"] = "Chat";
+  li["appendChild"](a);
+  d["getElementById"]("navs")["appendChild"](li)
+});
 $c_Lfront_AIDBrowserScripts$.prototype.main__V = (function() {
-  var paragraph = $g["document"]["createElement"]("p");
-  paragraph["innerHTML"] = "<strong>AID scripts work well!</strong>";
-  $g["document"]["getElementById"]("main-component")["appendChild"](paragraph)
+  var d = $g["document"];
+  this.createChatTab__Lorg_scalajs_dom_raw_HTMLDocument__V(d);
+  this.createChatContent__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(d)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.createChatContent__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element = (function(d) {
+  var div = d["getElementById"]("chat");
+  div["setAttribute"]("id", "chat");
+  div["setAttribute"]("class", "tab-pane fade");
+  var h4 = d["createElement"]("h4");
+  h4["innerHTML"] = "Chat";
+  var p = d["createElement"]("p");
+  p["innerHTML"] = "This is a container prepared for WebSockets chat!";
+  var firstChild = div["firstChild"];
+  div["insertBefore"](p, firstChild);
+  div["insertBefore"](h4, p);
+  d["getElementById"]("tab-contents")["appendChild"](div);
+  return div
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$main__O = (function() {
   this.main__V()

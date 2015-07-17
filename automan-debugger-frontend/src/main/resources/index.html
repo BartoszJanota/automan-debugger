@@ -4,38 +4,51 @@
     <title>AutoMan IntelliJ Debugger</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-<div id="main-component">
-</div>
 
 <div class="container">
     <h4>Question #2 tasks:</h4>
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs" id="navs">
         <li class="active"><a data-toggle="tab" href="#tasks-completion">Completion</a></li>
         <li><a data-toggle="tab" href="#tasks-states">States</a></li>
         <li><a data-toggle="tab" href="#tasks-predictions">Predictions</a></li>
     </ul>
 
-    <div class="tab-content">
+    <div class="tab-content" id ="tab-contents">
         <div id="tasks-completion" class="tab-pane fade in active">
-            <h5>Tasks Completion</h5>
+            <h4>Tasks Completion</h4>
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         </div>
         <div id="tasks-states" class="tab-pane fade">
-            <h5>Tasks States</h5>
+            <h4>Tasks States</h4>
             <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         </div>
         <div id="tasks-predictions" class="tab-pane fade">
-            <h5>Tasks Predictions</h5>
+            <h4>Tasks Predictions</h4>
             <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+        </div>
+        <div id="chat" class="tab-pane fade">
+            <form action="#">
+                <label for="name">Name: </label><input id="name" type="text" />
+                <input id="join" type="button" value="Join!"/>
+            </form>
+
+            <form action="#">
+                <label for="message">Say something: </label><input id="message" type="text" />
+                <input id="send" type="button" value="Send" disabled="true"/>
+            </form>
+
+            <div id="playground"/>
         </div>
     </div>
 </div>
 
+<script type="text/javascript" src="target/scala-2.11/automan-debugger-frontend-fastopt.js"></script>
+<script type="text/javascript" src="target/scala-2.11/automan-debugger-frontend-launcher.js"></script>
 
 </body>
 </html>

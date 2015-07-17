@@ -23,7 +23,7 @@ class DebugServerActor(adapter: AutomanAdapter) extends Actor with HttpService w
 
   override def receive: Receive = runRoute(routes)
 
-  import edu.umass.cs.plasma.automandebugger.models.TaskSnapshotJsonProtocol._
+  import TaskSnapshotJsonProtocol._
 
   val routes: Route = path("state") {
     pathEndOrSingleSlash {

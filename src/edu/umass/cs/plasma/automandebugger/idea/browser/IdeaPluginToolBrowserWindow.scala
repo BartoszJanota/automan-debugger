@@ -40,12 +40,15 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
         stage.setResizable(true)
 
         val root = new Group()
-        val scene = new Scene(root, 150, 450)
+        val scene = new Scene(root, 100, 450)
         stage.setScene(scene)
-
+        //scene.getStylesheets.
+        //val css = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/bootstrap.css")).mkString
+        //scene.getStylesheets.add(css)
         val webView = new WebView()
-        val webEngine = webView.getEngine
+        //webView.getStylesheets.add(css)
 
+        val webEngine = webView.getEngine
         val text = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/index.html")).mkString
         val debuggerJsFastopt = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-fastopt.js")).mkString
         val debuggerJsLauncher = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-launcher.js")).mkString
