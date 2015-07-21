@@ -13,5 +13,6 @@ libraryDependencies ++= Seq(
   "edu.umass.cs" %% "automan" % "0.5-SNAPSHOT",
   "io.spray" %% "spray-json" % "1.3.1",
   "io.spray" %% "spray-client" % "1.3.3",
-  "io.spray" %% "spray-routing" % "1.3.2"
+  "io.spray" %% "spray-routing" % "1.3.2",
+  "io.backchat.hookup" % "hookup_2.11" % "0.3.0"
 )

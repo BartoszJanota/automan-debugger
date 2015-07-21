@@ -1,10 +1,11 @@
 package front
 
-import org.scalajs.dom.raw.{Element, HTMLDocument}
+import org.scalajs.dom.raw._
 
 import scala.scalajs.js
 import js.annotation.JSExport
 import org.scalajs.dom
+import scala.scalajs.js.Dynamic.global
 
 object AIDBrowserScripts extends js.JSApp {
   def main(): Unit = {
@@ -12,6 +13,35 @@ object AIDBrowserScripts extends js.JSApp {
 
     createChatTab(d)
     val chatDiv = createChatContent(d)
+    val div = d getElementById "tasks-completion"
+
+    val chat = new WebSocket("ws://localhost:8128/")
+
+    global.console.log("chat has been created")
+
+    chat.onopen = { (event: Event) ⇒
+      chat.send("chat has been opened")
+      global.console.log("chat has been opened")
+      val p = d createElement "p"
+      p innerHTML = "chat has been opened"
+      div.appendChild(p)
+      event
+    }
+    chat.onerror = { (event: ErrorEvent) ⇒
+      global.console.log(s"Failed: code: ${event.colno}")
+    }
+    chat.onmessage = { (event: MessageEvent) ⇒
+      global.console.log(s"Got a mess: ${event.data.toString}")
+      val p = d createElement "p"
+      p innerHTML = event.data.toString
+      div.appendChild(p)
+    }
+    chat.onclose = { (event: Event) ⇒
+      global.console.log("Connection to chat lost. You can try to rejoin manually.")
+      val p = d createElement "p"
+      p innerHTML = "Connection to chat lost. You can try to rejoin manually."
+      div.appendChild(p)
+    }
   }
 
   def createChatContent(d: HTMLDocument): Element = {
