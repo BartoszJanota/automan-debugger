@@ -1,19 +1,54 @@
 package front
 
+import org.scalajs.dom
 import org.scalajs.dom.raw._
 
 import scala.scalajs.js
-import js.annotation.JSExport
-import org.scalajs.dom
 import scala.scalajs.js.Dynamic.global
+import scala.scalajs.js.annotation.JSExportAll
 
+@JSExportAll
 object AIDBrowserScripts extends js.JSApp {
-  def main(): Unit = {
-    val d = dom.document
 
-    createChatTab(d)
-    val chatDiv = createChatContent(d)
+  val d = dom.document
+
+  val qMap = Map("question_1" -> List("task 1 a", "task 1 b", "task 1 c"),
+    "question_2" -> List("task 2 a", "task 2 b", "task 2 c"),
+    "question_3" -> List("task 3 a", "task 3 b", "task 3 c"),
+    "question_4" -> List("task 4 a", "task 4 b", "task 4 c"))
+
+  def displayQuestionTasks(question: String): Unit = {
+    global.console.log("logValue: " + question)
+    val t_select = d getElementById "t_select"
+    while (t_select.firstChild != null) {
+      t_select.removeChild(t_select.firstChild)
+    }
+    qMap(question).foreach{t =>
+      val select = d createElement "option"
+      select setAttribute("value", t)
+      select.innerHTML = t
+      t_select appendChild select
+    }
+  }
+
+  def main(): Unit = {
+    /*    import TaskSnapshotJsonProtocol._
+        import spray.json._
+        import DefaultJsonProtocol._*/
+
     val div = d getElementById "tasks-completion"
+
+    val q_select = d getElementById "q_select"
+    q_select setAttribute("onchange", "front.AIDBrowserScripts().displayQuestionTasks(value)")
+
+    qMap.foreach{ q =>
+      val select = d createElement "option"
+      select setAttribute("value", q._1)
+      select.innerHTML = q._1
+      q_select appendChild select
+    }
+
+    displayQuestionTasks(qMap.head._1)
 
     val chat = new WebSocket("ws://localhost:8128/")
 
@@ -35,6 +70,8 @@ object AIDBrowserScripts extends js.JSApp {
       val p = d createElement "p"
       p innerHTML = event.data.toString
       div.appendChild(p)
+      //val tasks = TasksJson.read(event.data.toString.parseJson)
+      //tasks.tasks.foreach(t => global.console.log(t.toString))
     }
     chat.onclose = { (event: Event) ⇒
       global.console.log("Connection to chat lost. You can try to rejoin manually.")
@@ -44,33 +81,5 @@ object AIDBrowserScripts extends js.JSApp {
     }
   }
 
-  def createChatContent(d: HTMLDocument): Element = {
-    val div = d getElementById "chat"
-
-    div.setAttribute("id", "chat")
-    div.setAttribute("class", "tab-pane fade")
-    val h4 = d createElement "h4"
-    h4 innerHTML = "Chat"
-    val p = d createElement "p"
-    p innerHTML = "This is a container prepared for WebSockets chat!"
-
-    val firstChild = div.firstChild
-    div.insertBefore(p, firstChild)
-    div.insertBefore(h4, p)
-
-    d.getElementById("tab-contents").appendChild(div)
-    div
-  }
-
-  def createChatTab(d: HTMLDocument): Unit = {
-    val li = d createElement "li"
-    val a = d createElement "a"
-    a setAttribute("data-toggle", "tab")
-    a setAttribute("href", "#chat")
-    a innerHTML = "Chat"
-    li appendChild a
-
-    d.getElementById("navs") appendChild li
-  }
 }
 

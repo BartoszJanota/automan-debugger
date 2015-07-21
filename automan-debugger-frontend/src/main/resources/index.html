@@ -7,42 +7,43 @@
     <link rel="stylesheet" href="https://bootswatch.com/darkly/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <style>
+        .top-margin { margin-top:10px; }
+    </style>
 </head>
 <body>
 
 <div class="container">
-    <h4>Question #2 tasks:</h4>
-    <ul class="nav nav-tabs" id="navs">
-        <li class="active"><a data-toggle="tab" href="#tasks-completion">Completion</a></li>
-        <li><a data-toggle="tab" href="#tasks-states">States</a></li>
-        <li><a data-toggle="tab" href="#tasks-predictions">Predictions</a></li>
-    </ul>
-
-    <div class="tab-content" id ="tab-contents">
-        <div id="tasks-completion" class="tab-pane fade in active">
-            <h4>Tasks Completion</h4>
-            <!--<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>-->
+    <div class="row">
+        <h5>Navigate through your program's Questions and Tasks:</h5>
+        <div class="selects" style="float: left">
+            <div style="display: inline-block;">
+                <select id="q_select" class="form-control" style="height: 50%;">
+                </select>
+            </div>
+            <div style="display: inline-block">
+                <select id="t_select" class="form-control" style="height: 50%; margin-left: 5px">
+                </select>
+            </div>
         </div>
-        <div id="tasks-states" class="tab-pane fade">
-            <h4>Tasks States</h4>
-            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        </div>
-        <div id="tasks-predictions" class="tab-pane fade">
-            <h4>Tasks Predictions</h4>
-            <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
-        </div>
-        <div id="chat" class="tab-pane fade">
-            <form action="#">
-                <label for="name">Name: </label><input id="name" type="text" />
-                <input id="join" type="button" value="Join!"/>
-            </form>
+    </div>
+    <div class="row top-margin">
+        <ul class="nav nav-tabs" id="navs">
+            <li class="active"><a data-toggle="tab" href="#tasks-completion">Completion</a></li>
+            <li><a data-toggle="tab" href="#tasks-states">States</a></li>
+            <li><a data-toggle="tab" href="#tasks-predictions">Predictions</a></li>
+        </ul>
 
-            <form action="#">
-                <label for="message">Say something: </label><input id="message" type="text" />
-                <input id="send" type="button" value="Send" disabled="true"/>
-            </form>
-
-            <div id="playground"/>
+        <div class="tab-content" id ="tab-contents">
+            <div id="tasks-completion" class="tab-pane fade in active">
+                <h5>Tasks Completion</h5>
+            </div>
+            <div id="tasks-states" class="tab-pane fade">
+                <h5>Tasks States</h5>
+            </div>
+            <div id="tasks-predictions" class="tab-pane fade">
+                <h5>Tasks Predictions</h5>
+            </div>
         </div>
     </div>
 </div>
