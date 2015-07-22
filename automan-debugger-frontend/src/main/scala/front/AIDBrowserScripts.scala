@@ -1,11 +1,15 @@
 package front
 
+import models.{TaskSnapshotResponse, Tasks}
 import org.scalajs.dom
 import org.scalajs.dom.raw._
 
 import scala.scalajs.js
 import scala.scalajs.js.Dynamic.global
+import upickle._
+
 import scala.scalajs.js.annotation.JSExportAll
+import scala.util.Try
 
 @JSExportAll
 object AIDBrowserScripts extends js.JSApp {
@@ -32,9 +36,6 @@ object AIDBrowserScripts extends js.JSApp {
   }
 
   def main(): Unit = {
-    /*    import TaskSnapshotJsonProtocol._
-        import spray.json._
-        import DefaultJsonProtocol._*/
 
     val div = d getElementById "tasks-completion"
 
@@ -67,11 +68,15 @@ object AIDBrowserScripts extends js.JSApp {
     }
     chat.onmessage = { (event: MessageEvent) ⇒
       global.console.log(s"Got a mess: ${event.data.toString}")
-      val p = d createElement "p"
-      p innerHTML = event.data.toString
-      div.appendChild(p)
-      //val tasks = TasksJson.read(event.data.toString.parseJson)
-      //tasks.tasks.foreach(t => global.console.log(t.toString))
+      Try{
+        val tasks = read[Tasks](event.data.toString)
+        tasks.tasks.foreach{ t =>
+          val p = d createElement "p"
+          p innerHTML = t.toString
+          div.appendChild(p)
+        }
+      }
+
     }
     chat.onclose = { (event: Event) ⇒
       global.console.log("Connection to chat lost. You can try to rejoin manually.")
