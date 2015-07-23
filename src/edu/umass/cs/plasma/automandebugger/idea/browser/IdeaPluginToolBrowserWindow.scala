@@ -31,7 +31,7 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
 
     val jfxPanel: JFXPanel = new JFXPanel()
 
-    Platform.setImplicitExit(false);
+    Platform.setImplicitExit(false)
 
     Platform.runLater(new Runnable {
       override def run(): Unit = {
