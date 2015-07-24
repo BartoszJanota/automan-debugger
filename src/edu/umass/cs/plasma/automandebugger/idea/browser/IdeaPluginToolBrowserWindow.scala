@@ -30,6 +30,8 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     //mainPanel.setPreferredSize(new Dimension(300, 450))
 
     val jfxPanel: JFXPanel = new JFXPanel()
+    //jfxPanel.setPreferredSize(new Dimension(500, 800))
+    jfxPanel.setSize(500, 800)
 
     Platform.setImplicitExit(false)
 
@@ -63,9 +65,11 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val stage = new Stage()
     stage.setTitle("StageJava FX")
     stage.setResizable(true)
+    stage.setHeight(800)
+    stage.setWidth(500)
 
     val root = new Group()
-    val scene = new Scene(root, 500, 500)
+    val scene = new Scene(root, 500, 800)
     stage.setScene(scene)
     val webView = new WebView()
 
@@ -73,6 +77,7 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val text = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/index.html")).mkString
     val debuggerJsFastopt = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-fastopt.js")).mkString
     val debuggerJsLauncher = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-launcher.js")).mkString
+    val debuggerJsDeps = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-jsdeps.js")).mkString
 
     webEngine.setJavaScriptEnabled(true)
     webEngine.loadContent(text)
@@ -82,6 +87,7 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     webEngine.getLoadWorker.stateProperty.addListener(new ChangeListener[State]() {
       override def changed(observableValue: ObservableValue[_ <: State], t: State, t1: State): Unit = {
         if (t1 == Worker.State.SUCCEEDED) {
+          webEngine.executeScript(debuggerJsDeps)
           webEngine.executeScript(debuggerJsFastopt)
           webEngine.executeScript(debuggerJsLauncher)
         }

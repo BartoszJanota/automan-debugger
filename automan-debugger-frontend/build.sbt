@@ -17,5 +17,12 @@ libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "0.8.0",
   "com.lihaoyi" %%% "utest" % "0.3.0" % "test",
   "edu.umass.cs" %% "automan" % "0.5-SNAPSHOT",
-  "com.lihaoyi" %%% "upickle" % "0.2.8"
+  "com.lihaoyi" %%% "upickle" % "0.2.8",
+  "eu.unicredit" %%% "paths-scala-js" % "0.3.2",
+  "com.github.japgolly.scalajs-react" %%% "core" % "0.9.0"
 )
+
+jsDependencies += "org.webjars" % "paths-js" % "0.3.2" / "paths.js"
+
+jsDependencies +=
+  "org.webjars" % "react" % "0.12.2" / "react-with-addons.js" commonJSName "React"
