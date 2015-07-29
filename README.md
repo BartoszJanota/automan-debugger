@@ -177,6 +177,6 @@ If you followed all the steps above, you should have *AID* plugin installed prop
 
 To initialize AID, just go to the list of your Tool Windows (point your mouse on the left bottom corner of your IntelliJ) and click on *AutoMan IntelliJ Debugger*.
 
-Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
+Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program questions and tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
 
-You can lets you see your current AutoMan program state, it shows all the tasks. You can refresh its state whenever you want (in the nearest future it will be refreshing itself periodically, every 20 seconds)
+IT lets you see your current AutoMan program state, it shows all the tasks per question and general overview. It refreshes its state everytime when new update is emited to the WebSocket channel.
