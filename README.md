@@ -16,6 +16,15 @@ If you clone to your home folder, you should see a plugin folder like this:
 ```js
 /home/bartoszjanota/automan-debugger
 ```
+This is the root folder for `automan-debugger` project. It is a IntelliJ Platform Plugin which contains two sub-modules, both of them are autonomous SBT projects:
+```js
+/home/bartoszjanota/automan-debugger-server
+```
+and
+```js
+/home/bartoszjanota/automan-debugger-frontend
+```
+I'll describe them later.
 
 ####Open project
 
@@ -31,11 +40,64 @@ If you add Intellij IDEA Plugin SDK properly, you should be able to import all t
 
 ####Choose a proper branch
 
-Most recent version of AID is available on `http-easy-build` branch. Checkout `http-easy-build` branch
+Most recent version of AID is available on `ws-and-browser-poc` branch. Checkout `ws-and-browser-poc` branch
 
 ####Attach Scala SDK
 
 Go to the *automan-debugger Module Settings -> Libraries*, click on the Green Plus Button (+) and choose *Scala SDK*. You should add (or download) `scala-sdk-2.11.4` library. Other essential libraries are attached to the repository.
+
+####automan-debugger-server
+
+This module is an SBT project. It can be developed independently. 
+The main class of this module implements AutoMan API:
+```Scala
+import edu.umass.cs.automan.core.logging.TaskSnapshot
+import edu.umass.cs.automan.core.{AutomanAdapter, Plugin}
+...
+
+class AutoManPlugin extends Plugin with WebSocketUtils {
+  ...
+
+  override def startup(adapter: AutomanAdapter): Unit = {
+    ...
+  }
+
+  override def shutdown(): Unit = {
+    ...
+  }
+
+  override def state_updates(tasks: List[TaskSnapshot[_]]): Unit = {
+    ...
+  }
+}
+```
+
+Object of this class should be passed to your AutoMan program, more configuration details will be descrobed later. It is a WebSocket server and implements a callback method `state_updates` which emits updates of your AutoMan program to the opened WS connection, thanks to that - AID clients are able to receive most recent data.
+
+As it is an SBT project and if you want to use it, it should be deployed somewhere. For development purposes it can be deployed locally:
+```js
+$ cd automan-debugger-server
+$ sbt publishLocal
+```
+Check your `automan-debugger-server` module version in `build.sbt` file, i.e.,
+```Scala
+...
+
+name := "automan-debugger-server"
+
+version := "1.0-SNAPSHOT"
+
+organization := "edu.umass.cs.plasma"
+
+scalaVersion := "2.11.4"
+...
+```
+Then you would add a dependecy to your AutoMan program like this:
+```Scala
+"edu.umass.cs.plasma"  %%  "automan-debugger-server" % "1.0-SNAPSHOT"
+```
+
+Now your AutoMan program is able to use your `automan-debugger-server` classes.
 
 ####Deploy *automan-debugger* plugin locally
 
