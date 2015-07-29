@@ -16,11 +16,20 @@ If you clone to your home folder, you should see a plugin folder like this:
 ```js
 /home/bartoszjanota/automan-debugger
 ```
+This is the root folder for `automan-debugger` project. It is a IntelliJ Platform Plugin which contains two sub-modules, both of them are autonomous SBT projects:
+```js
+/home/bartoszjanota/automan-debugger-server
+```
+and
+```js
+/home/bartoszjanota/automan-debugger-frontend
+```
+I'll describe them later.
 
 ####Open project
 
 I assume you have you IntelliJ IDEA 14 opened. Now go to *File -> Open...* and choose */automan-debugger* folder.
-IntelliJ shoudl open this project automatically as a IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby *automan-debugger* in the project View.
+IntelliJ shoudl open this project automatically as an IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby *automan-debugger* in the project View.
 
 ####Add *Intellij Platform Plugin Project SDK*
 
@@ -31,11 +40,88 @@ If you add Intellij IDEA Plugin SDK properly, you should be able to import all t
 
 ####Choose a proper branch
 
-Most recent version of AID is available on `http-easy-build` branch. Checkout `http-easy-build` branch
+Most recent version of AID is available on `ws-and-browser-poc` branch. Checkout `ws-and-browser-poc` branch
 
 ####Attach Scala SDK
 
 Go to the *automan-debugger Module Settings -> Libraries*, click on the Green Plus Button (+) and choose *Scala SDK*. You should add (or download) `scala-sdk-2.11.4` library. Other essential libraries are attached to the repository.
+
+####automan-debugger-server
+
+This module is an SBT project. It can be developed independently. 
+The main class of this module implements AutoMan API:
+```Scala
+import edu.umass.cs.automan.core.logging.TaskSnapshot
+import edu.umass.cs.automan.core.{AutomanAdapter, Plugin}
+...
+
+class AutoManPlugin extends Plugin with WebSocketUtils {
+  ...
+
+  override def startup(adapter: AutomanAdapter): Unit = {
+    ...
+  }
+
+  override def shutdown(): Unit = {
+    ...
+  }
+
+  override def state_updates(tasks: List[TaskSnapshot[_]]): Unit = {
+    ...
+  }
+}
+```
+
+Object of this class should be passed to your AutoMan program, more configuration details will be descrobed later. It is a WebSocket server and implements a callback method `state_updates` which emits updates of your AutoMan program to the opened WS connection, thanks to that - AID clients are able to receive most recent data.
+
+It is an SBT project, so if you want to have all the dependencies downloaded, it should be resolved by Idea as an SBT project. Idea probably will automatically find this module as an SBT and will open a Dialog which will ask you to *Import SBT project*, if not, just open *build.sbt* file, the same Dialog must be then opened.
+
+As it is an SBT project and if you want to use it, it should be deployed somewhere. For development purposes it can be deployed locally:
+```js
+$ cd automan-debugger-server
+$ sbt publishLocal
+```
+Check your `automan-debugger-server` module version in `build.sbt` file, i.e.,
+```Scala
+...
+
+name := "automan-debugger-server"
+
+version := "1.0-SNAPSHOT"
+
+organization := "edu.umass.cs.plasma"
+
+scalaVersion := "2.11.4"
+...
+```
+Then you would add a dependecy to your AutoMan program like this:
+```Scala
+"edu.umass.cs.plasma"  %%  "automan-debugger-server" % "1.0-SNAPSHOT"
+```
+Now your AutoMan program is able to use your `automan-debugger-server` classes.
+
+####automan-debugger-frontend
+
+This module is a ScalaJS project, as it is an SBT project too, it must be resolved by Idea, have a look at the last parapgraph to see more details.
+
+`automan-debugger` is an IntelliJ Platform Plugin, its graphcical layer is a JavaFx WebView, so in fact it is built on the top of web development components - HTML with CSS and JS.
+
+ScalaJS allows to develop web components using Scala only. This module contains an `index.html` which is a static template and many Scala files which are compiled to JS files then. To do it, just follow these steps:
+```js
+$ cd automan-debugger-frontend
+$ sbt fastOptJS
+```
+After that, check */target/scala-2.11/* folder, you should find there all the necessary files:
+* *classes/index.html*
+* *automan-debugger-frontend-fastopt.js*
+* *automan-debugger-frontend-jsdeps.js*
+* *automan-debugger-frontend-launcher.js*
+
+If you want to see what it looks like, just simply *Run* the *index.hmtl* file. Idea will open a browser and this web page.
+
+These four files are very important, all of them must be copied to the */META-INF/resources/* folder in `automan-debugger` project. Only this way they can be packed with plugin and then used. Do it right now, please. You can overwrite existing files.
+
+Now your plugin is ready to be deployed!
 
 ####Deploy *automan-debugger* plugin locally
 
@@ -55,22 +141,19 @@ Once you have created ZIP archive, now you shuld add AID to InelliJ IDEA. Open *
 
 and click OK. You will be promted to restart IntelliJ, just do it please.
 
-####Attach AID JAR and dependencies
+####Attach AID Server dependencies
 
-Ok, open your AutoMan program project. You will use `edu.umass.cs.plasma.automandebugger.automan.AutoManPlugin` class, so now, you should add *AID* Scala dependencies. Go to the *automan-debugger Module Settings -> Libraries*, click on the Green Plus Button (+) and choose *JARs or directories...*
+Ok, open your AutoMan program project. You will use `edu.umass.cs.plasma.automandebugger.automan.AutoManPlugin` class, so now, you should add *AID* Scala dependencies.
 
-Find *automan-debugger-scala* folder installed in a local directory of your IntelliJ IDEA, on Ubuntu:
-
-```js
-~/.IntelliJIdea14/config/plugins/automan-debugger-scala/lib/
+Open `build.sbt` file and add something like that:
+```Scala
+libraryDependencies ++=
+  Seq(
+    ...
+    "edu.umass.cs.plasma"  %%  "automan-debugger-server" % "1.0-SNAPSHOT"
+  )
 ```
-or on Mac:
-
-```js
-~/Library/Application Support/IdeaIC14/automan-debugger-scala/lib/
-```
-
-and add thw whole */lib/* directory, it contains the plugin JAR and all required Scala dependencies.
+version number is up to you, it must be deployed somewhere. You probably deployed it locally few steps before:
 
 After that you should be able to add AutoManPlugin to your program:
 
@@ -94,6 +177,6 @@ If you followed all the steps above, you should have *AID* plugin installed prop
 
 To initialize AID, just go to the list of your Tool Windows (point your mouse on the left bottom corner of your IntelliJ) and click on *AutoMan IntelliJ Debugger*.
 
-Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
+Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program questions and tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
 
-You can lets you see your current AutoMan program state, it shows all the tasks. You can refresh its state whenever you want (in the nearest future it will be refreshing itself periodically, every 20 seconds)
+IT lets you see your current AutoMan program state, it shows all the tasks per question and general overview. It refreshes its state everytime when new update is emited to the WebSocket channel.
