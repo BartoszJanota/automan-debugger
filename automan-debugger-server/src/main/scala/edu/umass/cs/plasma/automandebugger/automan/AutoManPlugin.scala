@@ -37,10 +37,10 @@ class AutoManPlugin extends Plugin with WebSocketUtils {
     IO(Http) ? Http.Bind(debugServerActor, interface = "localhost", port = 8888)
 
     server onStop {
-      println("Server is stopped")
+      println("AID Server has stopped")
     }
     server onStart {
-      println("Server is started")
+      println("AID Server has started")
     }
     server.start
 
@@ -51,25 +51,17 @@ class AutoManPlugin extends Plugin with WebSocketUtils {
   }
 
   override def state_updates(tasks: List[TaskSnapshot[_]]): Unit = {
-    println("AID callback state_update has been called now!\nGot " + tasks.size + " tasks updates:")
     //tasks.foreach{t => println(TaskSnapshotResponse.applyFromTaskSnapshot(t).toString)}
     AutoManPlugin.mostRecentAutomanState = tasks.map{ taskSnapshot =>
       TaskSnapshotResponse.applyFromTaskSnapshot(taskSnapshot)
     }
-    
+
     if (AID.isActive){
-      println("Aid is active now, sending message!")
+      println("AID Server state_update has been called now!\nReceived " + tasks.size + " tasks updates")
       client.send(TasksJson.write(Tasks(AutoManPlugin.mostRecentAutomanState)).toString)
     } else {
-      println("Aid is not active now!")
+      println("AID Server is not active now!")
     }
 
   }
-
-
-
-
-
-
-
 }

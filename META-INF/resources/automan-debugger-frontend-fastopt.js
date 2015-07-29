@@ -7737,14 +7737,10 @@ $c_Lfront_AIDBrowserScripts$.prototype.renderTaskAnswers__Ljapgolly_scalajs_reac
   var this$1 = $m_sci_Iterable$();
   var bf = this$1.ReusableCBFInstance$2;
   var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
-  var this$4 = $m_Lfront_components_piechart$().PieChart$1;
-  var x$2 = new $c_Lfront_components_piechart$TaskAnswer().init___T__I("Bike", 2);
-  var x$1 = new $c_Lfront_components_piechart$TaskAnswer().init___T__I("Car", 4);
-  var this$3 = new $c_sci_$colon$colon().init___O__sci_List(x$1, args);
-  var props = new $c_sci_$colon$colon().init___O__sci_List(x$2, this$3);
+  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
   var array = [];
-  var jsx$4 = this$4.jsCtor$2;
-  var jsx$3 = this$4.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(props);
+  var jsx$4 = this$3.jsCtor$2;
+  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
   matchEnd5: {
     var jsx$2;
     var jsx$2 = array;
@@ -13496,9 +13492,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$4 !== null)) {
     var k = $as_T(x0$4.$$und1__O());
     var v = $as_sc_Seq(x0$4.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
-      var x$10 = $as_T2(x$10$2);
-      return $as_T(x$10.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
+      var x$8 = $as_T2(x$8$2);
+      return $as_T(x$8.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
@@ -13538,9 +13534,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$1 !== null)) {
     var k = $as_T(x0$1.$$und1__O());
     var v = $as_sc_Seq(x0$1.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
-      var x$4 = $as_T2(x$4$2);
-      return $as_T(x$4.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
+      var x$2 = $as_T2(x$2$2);
+      return $as_T(x$2.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
@@ -13580,9 +13576,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$2 !== null)) {
     var k = $as_T(x0$2.$$und1__O());
     var v = $as_sc_Seq(x0$2.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
-      var x$6 = $as_T2(x$6$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$6.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
+      var x$4 = $as_T2(x$4$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$4.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
@@ -13622,9 +13618,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$3 !== null)) {
     var k = $as_T(x0$3.$$und1__O());
     var v = $as_sc_Seq(x0$3.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
-      var x$8 = $as_T2(x$8$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$8.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
+      var x$6 = $as_T2(x$6$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$6.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
@@ -19814,9 +19810,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   var this$7 = $m_sc_Seq$();
   var questionNamesTuples = $as_sc_Seq(jsx$4.map__F1__scg_CanBuildFrom__O(jsx$3, this$7.ReusableCBFInstance$2));
   var jsx$5 = $m_Lfront_AIDBrowserScripts$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
-    var x$3 = $as_T2(x$3$2);
-    return $as_T(x$3.$$und1__O())
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
+    var x$1 = $as_T2(x$1$2);
+    return $as_T(x$1.$$und1__O())
   }));
   var this$9 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionNamesTuples, f);
   var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$3().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19832,9 +19828,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$12 = $m_sc_Seq$();
   var this$13 = $as_sc_TraversableLike(jsx$7.map__F1__scg_CanBuildFrom__O(jsx$6, this$12.ReusableCBFInstance$2));
-  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
-    var x$5 = $as_T2(x$5$2);
-    return $as_T(x$5.$$und1__O())
+  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
+    var x$3 = $as_T2(x$3$2);
+    return $as_T(x$3.$$und1__O())
   }));
   var this$15 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$13, f$2);
   var f$3 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$6().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19850,9 +19846,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$18 = $m_sc_Seq$();
   var this$19 = $as_sc_TraversableLike(jsx$10.map__F1__scg_CanBuildFrom__O(jsx$9, this$18.ReusableCBFInstance$2));
-  var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
-    var x$7 = $as_T2(x$7$2);
-    return $as_T(x$7.$$und1__O())
+  var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
+    var x$5 = $as_T2(x$5$2);
+    return $as_T(x$5.$$und1__O())
   }));
   var this$21 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$19, f$4);
   var f$5 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$9().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19861,9 +19857,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   jsx$11.taskAnswersCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$21, f$5, bf$2));
   $m_Lfront_AIDBrowserScripts$().renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM();
   var jsx$12 = $m_Lfront_AIDBrowserScripts$();
-  var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
-    var x$9 = $as_T2(x$9$2);
-    return $as_T(x$9.$$und1__O())
+  var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
+    var x$7 = $as_T2(x$7$2);
+    return $as_T(x$7.$$und1__O())
   }));
   var this$23 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f$6);
   var f$7 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);

@@ -124,7 +124,8 @@ object AIDBrowserScripts extends js.JSApp {
     val args: List[TaskAnswer] = taskAnswersCount.map(t => TaskAnswer(t._1, t._2)).toList
 
     //global.console.log(args.size)
-    val chart = PieChart(TaskAnswer("Bike", 2) :: TaskAnswer("Car", 4) :: args)
+    //val chart = PieChart(TaskAnswer("TestAnswer1", 10) :: TaskAnswer("TestAnswer2", 14) :: args)
+    val chart = PieChart(args)
     React.render(chart, parentDiv)
 
 /*
