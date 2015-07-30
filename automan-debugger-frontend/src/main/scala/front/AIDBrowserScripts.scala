@@ -3,7 +3,7 @@ package front
 import java.util.Date
 
 import front.components.piechart._
-import front.components.piechart.TaskAnswer
+import front.components.piechart.StringIntVal
 import japgolly.scalajs.react.{React, ReactComponentU, TopNode}
 import models.{TaskSnapshotResponse, Tasks}
 import org.scalajs.dom
@@ -24,6 +24,7 @@ object AIDBrowserScripts extends js.JSApp {
   var questionNames: Map[String, String] = Map.empty
   var tasksMap: Map[String, TaskSnapshotResponse] = Map.empty
   var taskAnswersCount: Map[String, Int] = Map.empty
+  var taskStatesCount: Map[String, Int] = Map.empty
 
   def displayQuestionTasks(question: String): Unit = {
     global.console.log("logValue: " + question)
@@ -121,7 +122,7 @@ object AIDBrowserScripts extends js.JSApp {
   def renderTaskAnswers() = {
     val parentDiv = d getElementById ("tasks-completion")
 
-    val args: List[TaskAnswer] = taskAnswersCount.map(t => TaskAnswer(t._1, t._2)).toList
+    val args: List[StringIntVal] = taskAnswersCount.map(t => StringIntVal(t._1, t._2)).toList
 
     //global.console.log(args.size)
     //val chart = PieChart(TaskAnswer("TestAnswer1", 10) :: TaskAnswer("TestAnswer2", 14) :: args)
@@ -137,6 +138,13 @@ object AIDBrowserScripts extends js.JSApp {
     }
 */
 
+  }
+
+  def renderTaskStates() = {
+    val parentDiv = d getElementById ("tasks-states")
+    val args: List[StringIntVal] = taskStatesCount.map(t => StringIntVal(t._1, t._2)).toList
+    val chart = PieChart(args)
+    React.render(chart, parentDiv)
   }
 
   def main(): Unit = {
@@ -183,7 +191,12 @@ object AIDBrowserScripts extends js.JSApp {
           case (k, v) => (k, v.map(_._2).size)
         }
 
+        taskStatesCount = parsedTasks.tasks.map(t => t.state -> t).groupBy(_._1).map {
+          case (k, v) => (k, v.map(_._2).size)
+        }
+
         renderTaskAnswers()
+        renderTaskStates()
 
         tasksPerQuestionMap = questionTaskTuples.groupBy(_._1).map {
           case (k, v) => (k, v.map(_._2).toList)

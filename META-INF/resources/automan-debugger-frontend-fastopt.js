@@ -7652,7 +7652,8 @@ var $c_Lfront_AIDBrowserScripts$ = (function() {
   this.tasksPerQuestionMap$1 = null;
   this.questionNames$1 = null;
   this.tasksMap$1 = null;
-  this.taskAnswersCount$1 = null
+  this.taskAnswersCount$1 = null;
+  this.taskStatesCount$1 = null
 });
 $c_Lfront_AIDBrowserScripts$.prototype = new $h_O();
 $c_Lfront_AIDBrowserScripts$.prototype.constructor = $c_Lfront_AIDBrowserScripts$;
@@ -7673,13 +7674,40 @@ $c_Lfront_AIDBrowserScripts$.prototype.init___ = (function() {
   this.questionNames$1 = $m_sci_Map$EmptyMap$();
   this.tasksMap$1 = $m_sci_Map$EmptyMap$();
   this.taskAnswersCount$1 = $m_sci_Map$EmptyMap$();
+  this.taskStatesCount$1 = $m_sci_Map$EmptyMap$();
   return this
+});
+$c_Lfront_AIDBrowserScripts$.prototype.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM = (function() {
+  var parentDiv = this.d$1["getElementById"]("tasks-states");
+  var this$2 = this.taskStatesCount$1;
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_T2(t$2);
+    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
+  }));
+  var this$1 = $m_sci_Iterable$();
+  var bf = this$1.ReusableCBFInstance$2;
+  var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
+  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
+  var array = [];
+  var jsx$4 = this$3.jsCtor$2;
+  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
+  matchEnd5: {
+    var jsx$2;
+    var jsx$2 = array;
+    break matchEnd5
+  };
+  var jsx$1 = [jsx$3]["concat"](jsx$2);
+  var chart = jsx$4["apply"]((void 0), jsx$1);
+  return $g["React"]["render"](chart, parentDiv)
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$d__O = (function() {
   return this.d$1
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__O = (function() {
   return this.tasksMap$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskStates__O = (function() {
+  return this.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM()
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__O = (function() {
   return this.questionNames$1
@@ -7732,7 +7760,7 @@ $c_Lfront_AIDBrowserScripts$.prototype.renderTaskAnswers__Ljapgolly_scalajs_reac
   var this$2 = this.taskAnswersCount$1;
   var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
     var t = $as_T2(t$2);
-    return new $c_Lfront_components_piechart$TaskAnswer().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
+    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
   }));
   var this$1 = $m_sci_Iterable$();
   var bf = this$1.ReusableCBFInstance$2;
@@ -7761,6 +7789,9 @@ $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$createRow__O = (functi
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__sci_Map__O = (function(x$1) {
   this.tasksPerQuestionMap$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__O = (function() {
+  return this.taskStatesCount$1
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskAnswers__O = (function() {
   return this.renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM()
@@ -7808,11 +7839,11 @@ $c_Lfront_AIDBrowserScripts$.prototype.renderSelectBoxes__V = (function() {
   var this$1 = this.tasksPerQuestionMap$1;
   this.displayQuestionTasks__T__V($as_T($as_T2(this$1.iterator__sc_Iterator().next__O()).$$und1__O()))
 });
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__sci_Map__O = (function(x$1) {
-  this.questionNames$1 = x$1
-});
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__sci_Map__O = (function(x$1) {
   this.tasksMap$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__sci_Map__O = (function(x$1) {
+  this.questionNames$1 = x$1
 });
 $c_Lfront_AIDBrowserScripts$.prototype.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node = (function(labelName, value) {
   var div = this.d$1["createElement"]("div");
@@ -7830,6 +7861,9 @@ $c_Lfront_AIDBrowserScripts$.prototype.displayInfoLabel__T__T__Lorg_scalajs_dom_
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$main__O = (function() {
   this.main__V()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__sci_Map__O = (function(x$1) {
+  this.taskStatesCount$1 = x$1
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayTaskInfo__T__O = (function(taskId) {
   return this.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node(taskId)
@@ -7906,6 +7940,16 @@ Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskAnswersCou
   }),
   "enumerable": true
 });
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskStatesCount", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$taskStatesCount__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$taskStatesCount__O()
+  }),
+  "enumerable": true
+});
 $c_Lfront_AIDBrowserScripts$.prototype["displayQuestionTasks"] = (function(arg$1) {
   var prep0 = $as_T(arg$1);
   return this.$$js$exported$meth$displayQuestionTasks__T__O(prep0)
@@ -7937,6 +7981,9 @@ Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "renderSelectBo
 });
 $c_Lfront_AIDBrowserScripts$.prototype["renderTaskAnswers"] = (function() {
   return this.$$js$exported$meth$renderTaskAnswers__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["renderTaskStates"] = (function() {
+  return this.$$js$exported$meth$renderTaskStates__O()
 });
 $c_Lfront_AIDBrowserScripts$.prototype["main"] = (function() {
   return this.$$js$exported$meth$main__O()
@@ -13392,23 +13439,23 @@ var $d_Lfront_AIDBrowserScripts$$anonfun$main$3 = new $TypeData().initClass({
 });
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3;
 /** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2 = (function() {
+var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = (function() {
   $c_sr_AbstractFunction1.call(this)
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3;
 /** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2 = (function() {
+var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = (function() {
   /*<skip>*/
 });
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype.apply__O__O = (function(v1) {
+$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.apply__O__O = (function(v1) {
   return this.apply__Lupickle_Knot$R__Lupickle_Reader($as_Lupickle_Knot$R(v1))
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
   return this
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype.apply__Lupickle_Knot$R__Lupickle_Reader = (function(i$macro$1) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.apply__Lupickle_Knot$R__Lupickle_Reader = (function(i$macro$1) {
   var this$5 = $m_Lupickle_Internal$();
   var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(tasks$2) {
     var tasks = $as_sc_Seq(tasks$2);
@@ -13463,59 +13510,101 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototyp
   i$macro$1.$$undread$1 = $s_Lupickle_Reader$class__read__Lupickle_Reader__s_PartialFunction(x$macro$2);
   return x$macro$2
 });
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2: 1,
+var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3: 0
+}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3", {
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3;
 /** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = (function() {
+var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = (function() {
   $c_sr_AbstractFunction1.call(this)
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12;
 /** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = (function() {
+var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = (function() {
   /*<skip>*/
 });
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.apply__O__O = (function(v1) {
+$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.apply__O__O = (function(v1) {
   return this.apply__T2__T2($as_T2(v1))
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.apply__T2__T2 = (function(x0$4) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.apply__T2__T2 = (function(x0$4) {
   if ((x0$4 !== null)) {
     var k = $as_T(x0$4.$$und1__O());
     var v = $as_sc_Seq(x0$4.$$und2__O());
     var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
       var x$8 = $as_T2(x$8$2);
-      return $as_T(x$8.$$und2__O())
+      return $as_Lmodels_TaskSnapshotResponse(x$8.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
+    return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
   } else {
     throw new $c_s_MatchError().init___O(x0$4)
   }
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
   return this
 });
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11: 1,
+var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12: 0
+}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12", {
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype.apply__T2__T2 = (function(x0$5) {
+  if ((x0$5 !== null)) {
+    var k = $as_T(x0$5.$$und1__O());
+    var v = $as_sc_Seq(x0$5.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
+      var x$10 = $as_T2(x$10$2);
+      return $as_T(x$10.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$5)
+  }
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
+  return this
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14: 0
+}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14", {
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14;
 /** @constructor */
 var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$3 = (function() {
   $c_sr_AbstractFunction1.call(this)
@@ -13759,7 +13848,7 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
   var this$3 = this$2.outVar$2;
   $as_Ljava_io_PrintStream(this$3.tl$1.get__O()).println__O__V(tasks);
   var x$3 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
-    var x$1 = $as_Lfront_components_piechart$TaskAnswer(x$1$2);
+    var x$1 = $as_Lfront_components_piechart$StringIntVal(x$1$2);
     return x$1.count$1
   }));
   matchEnd3: {
@@ -13798,7 +13887,7 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
     return (function(arg1$1) {
       return f.apply__O__O(arg1$1)
     })
-  })(x$3), [x$2, y$2], 10.0, 80.0));
+  })(x$3), [x$2, y$2], 10.0, 90.0));
   var this$10 = $m_s_Console$();
   var this$11 = this$10.outVar$2;
   $as_Ljava_io_PrintStream(this$11.tl$1.get__O()).println__O__V("rendering");
@@ -13812,7 +13901,7 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
     var arg1$2 = array[index];
     var jsx$23 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().g$4;
     var this$15 = $m_Ljapgolly_scalajs_react_vdom_package$all$().key$4;
-    var v = $as_Lfront_components_piechart$TaskAnswer(arg1$2["item"]).answer$1;
+    var v = $as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).label$1;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
     var jsx$22 = jsx$23.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$15, v, ev)]));
@@ -13873,9 +13962,9 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
     var this$37 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().fontSize$4;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$10 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$4 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$37, "small", ev$10);
+    var jsx$4 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$37, "10px", ev$10);
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
-    var v$7 = ((($as_Lfront_components_piechart$TaskAnswer(arg1$2["item"]).answer$1 + " (") + $as_Lfront_components_piechart$TaskAnswer(arg1$2["item"]).count$1) + ")");
+    var v$7 = ((($as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).label$1 + " (") + $as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).count$1) + ")");
     var elem = jsx$22.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$11, jsx$8, jsx$7.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$6, jsx$5, jsx$4, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$ReactNodeFrag().init___Ljapgolly_scalajs_react_ReactNode(($m_Ljapgolly_scalajs_react_package$(), v$7))]))]));
     array$1["push"](elem);
     i = ((1 + i) | 0)
@@ -13925,38 +14014,38 @@ var $d_Lfront_components_piechart$$anonfun$1 = new $TypeData().initClass({
 });
 $c_Lfront_components_piechart$$anonfun$1.prototype.$classData = $d_Lfront_components_piechart$$anonfun$1;
 /** @constructor */
-var $c_Lfront_components_piechart$TaskAnswer = (function() {
+var $c_Lfront_components_piechart$StringIntVal = (function() {
   $c_O.call(this);
-  this.answer$1 = null;
+  this.label$1 = null;
   this.count$1 = 0
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype = new $h_O();
-$c_Lfront_components_piechart$TaskAnswer.prototype.constructor = $c_Lfront_components_piechart$TaskAnswer;
+$c_Lfront_components_piechart$StringIntVal.prototype = new $h_O();
+$c_Lfront_components_piechart$StringIntVal.prototype.constructor = $c_Lfront_components_piechart$StringIntVal;
 /** @constructor */
-var $h_Lfront_components_piechart$TaskAnswer = (function() {
+var $h_Lfront_components_piechart$StringIntVal = (function() {
   /*<skip>*/
 });
-$h_Lfront_components_piechart$TaskAnswer.prototype = $c_Lfront_components_piechart$TaskAnswer.prototype;
-$c_Lfront_components_piechart$TaskAnswer.prototype.productPrefix__T = (function() {
-  return "TaskAnswer"
+$h_Lfront_components_piechart$StringIntVal.prototype = $c_Lfront_components_piechart$StringIntVal.prototype;
+$c_Lfront_components_piechart$StringIntVal.prototype.productPrefix__T = (function() {
+  return "StringIntVal"
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.productArity__I = (function() {
+$c_Lfront_components_piechart$StringIntVal.prototype.productArity__I = (function() {
   return 2
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.equals__O__Z = (function(x$1) {
+$c_Lfront_components_piechart$StringIntVal.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
-  } else if ($is_Lfront_components_piechart$TaskAnswer(x$1)) {
-    var TaskAnswer$1 = $as_Lfront_components_piechart$TaskAnswer(x$1);
-    return ((this.answer$1 === TaskAnswer$1.answer$1) && (this.count$1 === TaskAnswer$1.count$1))
+  } else if ($is_Lfront_components_piechart$StringIntVal(x$1)) {
+    var StringIntVal$1 = $as_Lfront_components_piechart$StringIntVal(x$1);
+    return ((this.label$1 === StringIntVal$1.label$1) && (this.count$1 === StringIntVal$1.count$1))
   } else {
     return false
   }
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.productElement__I__O = (function(x$1) {
+$c_Lfront_components_piechart$StringIntVal.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
-      return this.answer$1;
+      return this.label$1;
       break
     }
     case 1: {
@@ -13968,46 +14057,46 @@ $c_Lfront_components_piechart$TaskAnswer.prototype.productElement__I__O = (funct
     }
   }
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.toString__T = (function() {
+$c_Lfront_components_piechart$StringIntVal.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.init___T__I = (function(answer, count) {
-  this.answer$1 = answer;
+$c_Lfront_components_piechart$StringIntVal.prototype.init___T__I = (function(label, count) {
+  this.label$1 = label;
   this.count$1 = count;
   return this
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.hashCode__I = (function() {
+$c_Lfront_components_piechart$StringIntVal.prototype.hashCode__I = (function() {
   var acc = (-889275714);
-  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.answer$1));
+  acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().anyHash__O__I(this.label$1));
   acc = $m_sr_Statics$().mix__I__I__I(acc, this.count$1);
   return $m_sr_Statics$().finalizeHash__I__I__I(acc, 2)
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.productIterator__sc_Iterator = (function() {
+$c_Lfront_components_piechart$StringIntVal.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-var $is_Lfront_components_piechart$TaskAnswer = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lfront_components_piechart$TaskAnswer)))
+var $is_Lfront_components_piechart$StringIntVal = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lfront_components_piechart$StringIntVal)))
 });
-var $as_Lfront_components_piechart$TaskAnswer = (function(obj) {
-  return (($is_Lfront_components_piechart$TaskAnswer(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "front.components.piechart$TaskAnswer"))
+var $as_Lfront_components_piechart$StringIntVal = (function(obj) {
+  return (($is_Lfront_components_piechart$StringIntVal(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "front.components.piechart$StringIntVal"))
 });
-var $isArrayOf_Lfront_components_piechart$TaskAnswer = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lfront_components_piechart$TaskAnswer)))
+var $isArrayOf_Lfront_components_piechart$StringIntVal = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lfront_components_piechart$StringIntVal)))
 });
-var $asArrayOf_Lfront_components_piechart$TaskAnswer = (function(obj, depth) {
-  return (($isArrayOf_Lfront_components_piechart$TaskAnswer(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lfront.components.piechart$TaskAnswer;", depth))
+var $asArrayOf_Lfront_components_piechart$StringIntVal = (function(obj, depth) {
+  return (($isArrayOf_Lfront_components_piechart$StringIntVal(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lfront.components.piechart$StringIntVal;", depth))
 });
-var $d_Lfront_components_piechart$TaskAnswer = new $TypeData().initClass({
-  Lfront_components_piechart$TaskAnswer: 0
-}, false, "front.components.piechart$TaskAnswer", {
-  Lfront_components_piechart$TaskAnswer: 1,
+var $d_Lfront_components_piechart$StringIntVal = new $TypeData().initClass({
+  Lfront_components_piechart$StringIntVal: 0
+}, false, "front.components.piechart$StringIntVal", {
+  Lfront_components_piechart$StringIntVal: 1,
   O: 1,
   s_Product: 1,
   s_Equals: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lfront_components_piechart$TaskAnswer.prototype.$classData = $d_Lfront_components_piechart$TaskAnswer;
+$c_Lfront_components_piechart$StringIntVal.prototype.$classData = $d_Lfront_components_piechart$StringIntVal;
 /** @constructor */
 var $c_Ljapgolly_scalajs_react_ReactComponentB$Builder$$anonfun$2 = (function() {
   $c_sr_AbstractFunction1.call(this);
@@ -19781,7 +19870,7 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.init___Lf
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV$sp__V = (function() {
   var this$1 = $m_Lupickle_package$();
   var expr = $objectToString(this.event$1$3["data"]);
-  var evidence$3 = $m_Lupickle_Internal$().validateReader__T__Lupickle_Reader__Lupickle_Reader("Tagged Object models.Tasks", $as_Lupickle_Reader($m_Lupickle_Internal$().knotR__F1__O(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$2().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this))));
+  var evidence$3 = $m_Lupickle_Internal$().validateReader__T__Lupickle_Reader__Lupickle_Reader("Tagged Object models.Tasks", $as_Lupickle_Reader($m_Lupickle_Internal$().knotR__F1__O(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this))));
   var parsedTasks = $as_Lmodels_Tasks($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Reader__O(this$1, expr, evidence$3));
   parsedTasks.tasks$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
     return (function(t$2) {
@@ -19855,17 +19944,36 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   var this$20 = $m_sci_Map$();
   var bf$2 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$20);
   jsx$11.taskAnswersCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$21, f$5, bf$2));
-  $m_Lfront_AIDBrowserScripts$().renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM();
-  var jsx$12 = $m_Lfront_AIDBrowserScripts$();
+  var jsx$14 = $m_Lfront_AIDBrowserScripts$();
+  var jsx$13 = parsedTasks.tasks$1;
+  var jsx$12 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2$5) {
+    var t$6 = $as_Lmodels_TaskSnapshotResponse(t$2$5);
+    var $$this$4 = t$6.state$1;
+    return new $c_T2().init___O__O($$this$4, t$6)
+  }));
+  var this$24 = $m_sc_Seq$();
+  var this$25 = $as_sc_TraversableLike(jsx$13.map__F1__scg_CanBuildFrom__O(jsx$12, this$24.ReusableCBFInstance$2));
   var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
     var x$7 = $as_T2(x$7$2);
     return $as_T(x$7.$$und1__O())
   }));
-  var this$23 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f$6);
-  var f$7 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$22 = $m_sci_Map$();
-  var bf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$22);
-  jsx$12.tasksPerQuestionMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$23, f$7, bf$3));
+  var this$27 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$25, f$6);
+  var f$7 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
+  var this$26 = $m_sci_Map$();
+  var bf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$26);
+  jsx$14.taskStatesCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$27, f$7, bf$3));
+  $m_Lfront_AIDBrowserScripts$().renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM();
+  $m_Lfront_AIDBrowserScripts$().renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM();
+  var jsx$15 = $m_Lfront_AIDBrowserScripts$();
+  var f$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
+    var x$9 = $as_T2(x$9$2);
+    return $as_T(x$9.$$und1__O())
+  }));
+  var this$29 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f$8);
+  var f$9 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
+  var this$28 = $m_sci_Map$();
+  var bf$4 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$28);
+  jsx$15.tasksPerQuestionMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$29, f$9, bf$4));
   if ((!$m_Lfront_AIDBrowserScripts$().tasksMap$1.isEmpty__Z())) {
     $m_Lfront_AIDBrowserScripts$().renderSelectBoxes__V()
   }

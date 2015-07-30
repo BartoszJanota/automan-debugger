@@ -16,24 +16,24 @@ import colors._
 
 
 object piechart {
-  case class TaskAnswer(answer: String, count: Int)
+  case class StringIntVal(label: String, count: Int)
 
   private def move(p: js.Array[Double]) = s"translate(${ p(0) },${ p(1) })"
   private val palette = mix(Color(130, 140, 210), Color(180, 205, 150))
 
-  val PieChart: ReqProps[List[TaskAnswer], Unit, Unit, TopNode] = ReactComponentB[List[TaskAnswer]]("Pie chart")
+  val PieChart: ReqProps[List[StringIntVal], Unit, Unit, TopNode] = ReactComponentB[List[StringIntVal]]("Pie chart")
     .render(tasks => {
     println(tasks)
-    val pie = Pie[TaskAnswer](
+    val pie = Pie[StringIntVal](
       data = tasks,
       accessor = _.count,
       r = 10,
-      R = 80,
+      R = 90,
       center = (0, 0)
     )
     println("rendering")
     val slices = pie.curves map { curve =>
-      g(key := curve.item.answer)(
+      g(key := curve.item.label)(
         lineargradient(
           id := s"grad-${ curve.index }",
           stop(stopColor := string(palette(curve.index)), offset := "10%"),
@@ -43,8 +43,8 @@ object piechart {
         text(
           transform := move(curve.sector.centroid),
           textAnchor := "middle",
-          fontSize := "small",
-          curve.item.answer + " (" + curve.item.count + ")"
+          fontSize := "10px",
+          curve.item.label + " (" + curve.item.count + ")"
         )
       )
     }
