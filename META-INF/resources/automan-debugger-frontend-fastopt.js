@@ -4638,6 +4638,30 @@ var $s_s_Proxy$class__toString__s_Proxy__T = (function($$this) {
 var $s_s_Proxy$class__equals__s_Proxy__O__Z = (function($$this, that) {
   return ((that !== null) && (((that === $$this) || (that === $$this.self$1)) || $objectEquals(that, $$this.self$1)))
 });
+var $s_s_math_Numeric$ByteIsIntegral$class__fromInt__s_math_Numeric$ByteIsIntegral__I__B = (function($$this, x) {
+  return ((x << 24) >> 24)
+});
+var $s_s_math_Numeric$ByteIsIntegral$class__plus__s_math_Numeric$ByteIsIntegral__B__B__B = (function($$this, x, y) {
+  return ((((x + y) | 0) << 24) >> 24)
+});
+var $s_s_math_Numeric$DoubleIsConflicted$class__plus__s_math_Numeric$DoubleIsConflicted__D__D__D = (function($$this, x, y) {
+  return (x + y)
+});
+var $s_s_math_Numeric$FloatIsConflicted$class__plus__s_math_Numeric$FloatIsConflicted__F__F__F = (function($$this, x, y) {
+  return $fround((x + y))
+});
+var $s_s_math_Numeric$FloatIsConflicted$class__fromInt__s_math_Numeric$FloatIsConflicted__I__F = (function($$this, x) {
+  return $fround(x)
+});
+var $s_s_math_Numeric$IntIsIntegral$class__plus__s_math_Numeric$IntIsIntegral__I__I__I = (function($$this, x, y) {
+  return ((x + y) | 0)
+});
+var $s_s_math_Numeric$ShortIsIntegral$class__plus__s_math_Numeric$ShortIsIntegral__S__S__S = (function($$this, x, y) {
+  return ((((x + y) | 0) << 16) >> 16)
+});
+var $s_s_math_Numeric$ShortIsIntegral$class__fromInt__s_math_Numeric$ShortIsIntegral__I__S = (function($$this, x) {
+  return ((x << 16) >> 16)
+});
 /** @constructor */
 var $c_s_math_Ordered$ = (function() {
   $c_O.call(this)
@@ -5390,6 +5414,19 @@ var $s_sc_GenSetLike$class__equals__sc_GenSetLike__O__Z = (function($$this, that
 var $s_sc_IndexedSeqOptimized$class__lengthCompare__sc_IndexedSeqOptimized__I__I = (function($$this, len) {
   return (($$this.length__I() - len) | 0)
 });
+var $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O = (function($$this, start, end, z, op) {
+  _foldl: while (true) {
+    if ((start === end)) {
+      return z
+    } else {
+      var temp$start = ((1 + start) | 0);
+      var temp$z = op.apply__O__O__O(z, $$this.apply__I__O(start));
+      start = temp$start;
+      z = temp$z;
+      continue _foldl
+    }
+  }
+});
 var $s_sc_IndexedSeqOptimized$class__copyToArray__sc_IndexedSeqOptimized__O__I__I__V = (function($$this, xs, start, len) {
   var i = 0;
   var j = start;
@@ -5548,6 +5585,15 @@ var $s_sc_LinearSeqOptimized$class__isDefinedAt__sc_LinearSeqOptimized__I__Z = (
 });
 var $s_sc_LinearSeqOptimized$class__lengthCompare__sc_LinearSeqOptimized__I__I = (function($$this, len) {
   return ((len < 0) ? 1 : $s_sc_LinearSeqOptimized$class__loop$1__p0__sc_LinearSeqOptimized__I__sc_LinearSeqOptimized__I__I($$this, 0, $$this, len))
+});
+var $s_sc_LinearSeqOptimized$class__foldLeft__sc_LinearSeqOptimized__O__F2__O = (function($$this, z, f) {
+  var acc = z;
+  var these = $$this;
+  while ((!these.isEmpty__Z())) {
+    acc = f.apply__O__O__O(acc, these.head__O());
+    these = $as_sc_LinearSeqOptimized(these.tail__O())
+  };
+  return acc
 });
 var $s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O = (function($$this, n) {
   var rest = $$this.drop__I__sc_LinearSeqOptimized(n);
@@ -5832,6 +5878,15 @@ var $s_sc_TraversableOnce$class__toMap__sc_TraversableOnce__s_Predef$$less$colon
   })($$this, b, ev)));
   return $as_sci_Map(b.elems$1)
 });
+var $s_sc_TraversableOnce$class__foldLeft__sc_TraversableOnce__O__F2__O = (function($$this, z, op) {
+  var result = new $c_sr_ObjectRef().init___O(z);
+  $$this.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function($$this$1, result$1, op$1) {
+    return (function(x$2) {
+      result$1.elem$1 = op$1.apply__O__O__O(result$1.elem$1, x$2)
+    })
+  })($$this, result, op)));
+  return result.elem$1
+});
 var $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T = (function($$this, start, sep, end) {
   var this$1 = $$this.addString__scm_StringBuilder__T__T__T__scm_StringBuilder(new $c_scm_StringBuilder().init___(), start, sep, end);
   var this$2 = this$1.underlying$5;
@@ -5848,6 +5903,13 @@ var $s_sc_TraversableOnce$class__size__sc_TraversableOnce__I = (function($$this)
     })
   })($$this, result)));
   return result.elem$1
+});
+var $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O = (function($$this, num) {
+  return $$this.foldLeft__O__F2__O(num.fromInt__I__O(0), new $c_sjsr_AnonFunction2().init___sjs_js_Function2((function($$this$1, num$1) {
+    return (function(x$2, y$2) {
+      return num$1.plus__O__O__O(x$2, y$2)
+    })
+  })($$this, num)))
 });
 /** @constructor */
 var $c_scg_GenMapFactory = (function() {
@@ -7784,6 +7846,27 @@ $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayQuestionTasks__
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$removeChildren__Lorg_scalajs_dom_raw_Element__O = (function(el) {
   this.removeChildren__Lorg_scalajs_dom_raw_Element__V(el)
 });
+$c_Lfront_AIDBrowserScripts$.prototype.displayGeneralInfo__Lorg_scalajs_dom_raw_Node = (function() {
+  var generalInfo = this.d$1["getElementById"]("general-info");
+  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(generalInfo);
+  var firstRow = this.createRow__Lorg_scalajs_dom_raw_Element();
+  var this$1 = this.questionNames$1.size__I();
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of questions", ("" + this$1)));
+  var this$3 = this.tasksMap$1.size__I();
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of tasks", ("" + this$3)));
+  generalInfo["appendChild"](firstRow);
+  var this$6 = this.tasksMap$1;
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
+    var x$1 = $as_T2(x$1$2);
+    return $as_Lmodels_TaskSnapshotResponse(x$1.$$und2__O()).cost$1
+  }));
+  var this$5 = $m_sci_Iterable$();
+  var bf = this$5.ReusableCBFInstance$2;
+  var avgTaskCost = ($uD($as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f, bf)).sum__s_math_Numeric__O($m_s_math_Numeric$DoubleIsFractional$())) / this.tasksMap$1.size__I());
+  var secondRow = this.createRow__Lorg_scalajs_dom_raw_Element();
+  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Average task cost", ("" + avgTaskCost)));
+  return generalInfo["appendChild"](secondRow)
+});
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$createRow__O = (function() {
   return this.createRow__Lorg_scalajs_dom_raw_Element()
 });
@@ -7870,6 +7953,9 @@ $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayTaskInfo__T__O 
 });
 $c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__O = (function() {
   return this.tasksPerQuestionMap$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayGeneralInfo__O = (function() {
+  return this.displayGeneralInfo__Lorg_scalajs_dom_raw_Node()
 });
 $c_Lfront_AIDBrowserScripts$.prototype.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node = (function(taskId) {
   $g["console"]["log"](taskId);
@@ -7984,6 +8070,9 @@ $c_Lfront_AIDBrowserScripts$.prototype["renderTaskAnswers"] = (function() {
 });
 $c_Lfront_AIDBrowserScripts$.prototype["renderTaskStates"] = (function() {
   return this.$$js$exported$meth$renderTaskStates__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["displayGeneralInfo"] = (function() {
+  return this.$$js$exported$meth$displayGeneralInfo__O()
 });
 $c_Lfront_AIDBrowserScripts$.prototype["main"] = (function() {
   return this.$$js$exported$meth$main__O()
@@ -12853,6 +12942,9 @@ $c_sc_AbstractIterator.prototype.toString__T = (function() {
 $c_sc_AbstractIterator.prototype.foreach__F1__V = (function(f) {
   $s_sc_Iterator$class__foreach__sc_Iterator__F1__V(this, f)
 });
+$c_sc_AbstractIterator.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_TraversableOnce$class__foldLeft__sc_TraversableOnce__O__F2__O(this, z, op)
+});
 $c_sc_AbstractIterator.prototype.size__I = (function() {
   return $s_sc_TraversableOnce$class__size__sc_TraversableOnce__I(this)
 });
@@ -12864,6 +12956,9 @@ $c_sc_AbstractIterator.prototype.addString__scm_StringBuilder__T__T__T__scm_Stri
 });
 $c_sc_AbstractIterator.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function(ev) {
   return $s_sc_TraversableOnce$class__toMap__sc_TraversableOnce__s_Predef$$less$colon$less__sci_Map(this, ev)
+});
+$c_sc_AbstractIterator.prototype.sum__s_math_Numeric__O = (function(num) {
+  return $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O(this, num)
 });
 /** @constructor */
 var $c_scg_SetFactory = (function() {
@@ -13354,6 +13449,9 @@ $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.toString__T = (function
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.foreach__F1__V = (function(f) {
   $s_sc_Iterator$class__foreach__sc_Iterator__F1__V(this, f)
 });
+$c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_TraversableOnce$class__foldLeft__sc_TraversableOnce__O__F2__O(this, z, op)
+});
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.size__I = (function() {
   return $s_sc_TraversableOnce$class__size__sc_TraversableOnce__I(this)
 });
@@ -13380,6 +13478,9 @@ $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.addString__scm_StringBu
 });
 $c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function(ev) {
   return $s_sc_TraversableOnce$class__toMap__sc_TraversableOnce__s_Predef$$less$colon$less__sci_Map(this, ev)
+});
+$c_sjs_js_WrappedDictionary$DictionaryIterator.prototype.sum__s_math_Numeric__O = (function(num) {
+  return $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O(this, num)
 });
 var $d_sjs_js_WrappedDictionary$DictionaryIterator = new $TypeData().initClass({
   sjs_js_WrappedDictionary$DictionaryIterator: 0
@@ -13439,23 +13540,23 @@ var $d_Lfront_AIDBrowserScripts$$anonfun$main$3 = new $TypeData().initClass({
 });
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3;
 /** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = (function() {
+var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4 = (function() {
   $c_sr_AbstractFunction1.call(this)
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4;
 /** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = (function() {
+var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4 = (function() {
   /*<skip>*/
 });
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.apply__O__O = (function(v1) {
+$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.apply__O__O = (function(v1) {
   return this.apply__Lupickle_Knot$R__Lupickle_Reader($as_Lupickle_Knot$R(v1))
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
   return this
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.apply__Lupickle_Knot$R__Lupickle_Reader = (function(i$macro$1) {
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.apply__Lupickle_Knot$R__Lupickle_Reader = (function(i$macro$1) {
   var this$5 = $m_Lupickle_Internal$();
   var f$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(tasks$2) {
     var tasks = $as_sc_Seq(tasks$2);
@@ -13510,17 +13611,17 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototyp
   i$macro$1.$$undread$1 = $s_Lupickle_Reader$class__read__Lupickle_Reader__s_PartialFunction(x$macro$2);
   return x$macro$2
 });
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3: 1,
+var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4: 0
+}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4", {
+  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4: 1,
   sr_AbstractFunction1: 1,
   O: 1,
   F1: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3;
+$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4;
 /** @constructor */
 var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = (function() {
   $c_sr_AbstractFunction1.call(this)
@@ -13539,9 +13640,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$4 !== null)) {
     var k = $as_T(x0$4.$$und1__O());
     var v = $as_sc_Seq(x0$4.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
-      var x$8 = $as_T2(x$8$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$8.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
+      var x$9 = $as_T2(x$9$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$9.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
@@ -13581,9 +13682,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$5 !== null)) {
     var k = $as_T(x0$5.$$und1__O());
     var v = $as_sc_Seq(x0$5.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
-      var x$10 = $as_T2(x$10$2);
-      return $as_T(x$10.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$11$2) {
+      var x$11 = $as_T2(x$11$2);
+      return $as_T(x$11.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
@@ -13623,9 +13724,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$1 !== null)) {
     var k = $as_T(x0$1.$$und1__O());
     var v = $as_sc_Seq(x0$1.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
-      var x$2 = $as_T2(x$2$2);
-      return $as_T(x$2.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
+      var x$3 = $as_T2(x$3$2);
+      return $as_T(x$3.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
@@ -13665,9 +13766,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$2 !== null)) {
     var k = $as_T(x0$2.$$und1__O());
     var v = $as_sc_Seq(x0$2.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
-      var x$4 = $as_T2(x$4$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$4.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
+      var x$5 = $as_T2(x$5$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$5.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
@@ -13707,9 +13808,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$
   if ((x0$3 !== null)) {
     var k = $as_T(x0$3.$$und1__O());
     var v = $as_sc_Seq(x0$3.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
-      var x$6 = $as_T2(x$6$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$6.$$und2__O())
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
+      var x$7 = $as_T2(x$7$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$7.$$und2__O())
     }));
     var this$1 = $m_sc_Seq$();
     return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
@@ -13899,70 +14000,73 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
   while ((i < len)) {
     var index = i;
     var arg1$2 = array[index];
+    var this$15 = $m_s_Console$();
+    var this$16 = this$15.outVar$2;
+    $as_Ljava_io_PrintStream(this$16.tl$1.get__O()).println__O__V("curving");
     var jsx$23 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().g$4;
-    var this$15 = $m_Ljapgolly_scalajs_react_vdom_package$all$().key$4;
+    var this$18 = $m_Ljapgolly_scalajs_react_vdom_package$all$().key$4;
     var v = $as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).label$1;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$22 = jsx$23.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$15, v, ev)]));
+    var jsx$22 = jsx$23.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$18, v, ev)]));
     var jsx$21 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().lineargradient$4;
-    var this$17 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().id$4;
+    var this$20 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().id$4;
     var v$1 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["grad-", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$uI(arg1$2["index"])]));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$1 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$20 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$17, v$1, ev$1);
+    var jsx$20 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$20, v$1, ev$1);
     var jsx$19 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stop$4;
-    var this$20 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
+    var this$23 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
     var jsx$17 = $m_Lfront_components_colors$();
-    var this$18 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
+    var this$21 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
     var n = $uI(arg1$2["index"]);
-    var v$2 = jsx$17.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$18, n)));
+    var v$2 = jsx$17.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$21, n)));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$2 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$18 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$20, v$2, ev$2);
-    var this$22 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().offset$4;
+    var jsx$18 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$23, v$2, ev$2);
+    var this$25 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().offset$4;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$3 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$16 = jsx$19.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$18, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$22, "10%", ev$3)]));
+    var jsx$16 = jsx$19.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$18, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$25, "0%", ev$3)]));
     var jsx$15 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stop$4;
-    var this$25 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
+    var this$28 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
     var jsx$13 = $m_Lfront_components_colors$();
     var jsx$12 = $m_Lfront_components_colors$().lighten$1;
-    var this$23 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
+    var this$26 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
     var n$1 = $uI(arg1$2["index"]);
-    var v$3 = jsx$13.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color(jsx$12.apply__O__O($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$23, n$1))));
+    var v$3 = jsx$13.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color(jsx$12.apply__O__O($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$26, n$1))));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$4 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$14 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$25, v$3, ev$4);
-    var this$27 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().offset$4;
+    var jsx$14 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$28, v$3, ev$4);
+    var this$30 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().offset$4;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$5 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$11 = jsx$21.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$20, jsx$16, jsx$15.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$14, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$27, "100%", ev$5)]))]));
+    var jsx$11 = jsx$21.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$20, jsx$16, jsx$15.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$14, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$30, "100%", ev$5)]))]));
     var jsx$10 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().path$4;
-    var this$29 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().d$4;
+    var this$32 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().d$4;
     var v$4 = $as_T(arg1$2["sector"]["path"]["print"]());
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$6 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$9 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$29, v$4, ev$6);
-    var this$31 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().fill$4;
+    var jsx$9 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$32, v$4, ev$6);
+    var this$34 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().fill$4;
     var v$5 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["url(#grad-", ")"])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$uI(arg1$2["index"])]));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$7 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$8 = jsx$10.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$9, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$31, v$5, ev$7)]));
+    var jsx$8 = jsx$10.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$9, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$34, v$5, ev$7)]));
     var jsx$7 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().text$4;
-    var this$33 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().transform$4;
+    var this$36 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().transform$4;
     var v$6 = $m_Lfront_components_piechart$().front$components$piechart$$move__sjs_js_Array__T(arg1$2["sector"]["centroid"]);
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$8 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$6 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$33, v$6, ev$8);
-    var this$35 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().textAnchor$4;
+    var jsx$6 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$36, v$6, ev$8);
+    var this$38 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().textAnchor$4;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$9 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$5 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$35, "middle", ev$9);
-    var this$37 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().fontSize$4;
+    var jsx$5 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$38, "middle", ev$9);
+    var this$40 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().fontSize$4;
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$10 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-    var jsx$4 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$37, "10px", ev$10);
+    var jsx$4 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$40, "10px", ev$10);
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var v$7 = ((($as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).label$1 + " (") + $as_Lfront_components_piechart$StringIntVal(arg1$2["item"]).count$1) + ")");
     var elem = jsx$22.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$11, jsx$8, jsx$7.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$6, jsx$5, jsx$4, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$ReactNodeFrag().init___Ljapgolly_scalajs_react_ReactNode(($m_Ljapgolly_scalajs_react_package$(), v$7))]))]));
@@ -13971,21 +14075,21 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
   };
   $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
   var jsx$28 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().svg$4;
-  var this$40 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().width$4;
+  var this$43 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().width$4;
   var ev$11 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().$$undreact$undattrInt$2;
-  var jsx$27 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$40, 400, ev$11);
-  var this$41 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().height$4;
+  var jsx$27 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$43, 400, ev$11);
+  var this$44 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().height$4;
   var ev$12 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().$$undreact$undattrInt$2;
-  var jsx$26 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$41, 200, ev$12);
+  var jsx$26 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$44, 200, ev$12);
   var jsx$25 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().g$4;
-  var this$43 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().transform$4;
+  var this$46 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().transform$4;
   var v$8 = $m_Lfront_components_piechart$().front$components$piechart$$move__sjs_js_Array__T([200.0, 110.0]);
   $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
   var ev$13 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
-  var jsx$24 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$43, v$8, ev$13);
+  var jsx$24 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$46, v$8, ev$13);
   $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
   $m_Ljapgolly_scalajs_react_package$();
-  var this$48 = $m_sjs_js_Any$();
+  var this$51 = $m_sjs_js_Any$();
   var array$2 = [];
   $uI(array$1["length"]);
   var i$1 = 0;
@@ -19870,7 +19974,7 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.init___Lf
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV$sp__V = (function() {
   var this$1 = $m_Lupickle_package$();
   var expr = $objectToString(this.event$1$3["data"]);
-  var evidence$3 = $m_Lupickle_Internal$().validateReader__T__Lupickle_Reader__Lupickle_Reader("Tagged Object models.Tasks", $as_Lupickle_Reader($m_Lupickle_Internal$().knotR__F1__O(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$3().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this))));
+  var evidence$3 = $m_Lupickle_Internal$().validateReader__T__Lupickle_Reader__Lupickle_Reader("Tagged Object models.Tasks", $as_Lupickle_Reader($m_Lupickle_Internal$().knotR__F1__O(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this))));
   var parsedTasks = $as_Lmodels_Tasks($s_Lupickle_Types$class__read__Lupickle_Types__T__Lupickle_Reader__O(this$1, expr, evidence$3));
   parsedTasks.tasks$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(arg$outer) {
     return (function(t$2) {
@@ -19899,9 +20003,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   var this$7 = $m_sc_Seq$();
   var questionNamesTuples = $as_sc_Seq(jsx$4.map__F1__scg_CanBuildFrom__O(jsx$3, this$7.ReusableCBFInstance$2));
   var jsx$5 = $m_Lfront_AIDBrowserScripts$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
-    var x$1 = $as_T2(x$1$2);
-    return $as_T(x$1.$$und1__O())
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2$2) {
+    var x$2 = $as_T2(x$2$2);
+    return $as_T(x$2.$$und1__O())
   }));
   var this$9 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionNamesTuples, f);
   var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$3().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19917,9 +20021,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$12 = $m_sc_Seq$();
   var this$13 = $as_sc_TraversableLike(jsx$7.map__F1__scg_CanBuildFrom__O(jsx$6, this$12.ReusableCBFInstance$2));
-  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
-    var x$3 = $as_T2(x$3$2);
-    return $as_T(x$3.$$und1__O())
+  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
+    var x$4 = $as_T2(x$4$2);
+    return $as_T(x$4.$$und1__O())
   }));
   var this$15 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$13, f$2);
   var f$3 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$6().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19935,9 +20039,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$18 = $m_sc_Seq$();
   var this$19 = $as_sc_TraversableLike(jsx$10.map__F1__scg_CanBuildFrom__O(jsx$9, this$18.ReusableCBFInstance$2));
-  var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
-    var x$5 = $as_T2(x$5$2);
-    return $as_T(x$5.$$und1__O())
+  var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
+    var x$6 = $as_T2(x$6$2);
+    return $as_T(x$6.$$und1__O())
   }));
   var this$21 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$19, f$4);
   var f$5 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$9().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19953,9 +20057,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$24 = $m_sc_Seq$();
   var this$25 = $as_sc_TraversableLike(jsx$13.map__F1__scg_CanBuildFrom__O(jsx$12, this$24.ReusableCBFInstance$2));
-  var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
-    var x$7 = $as_T2(x$7$2);
-    return $as_T(x$7.$$und1__O())
+  var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
+    var x$8 = $as_T2(x$8$2);
+    return $as_T(x$8.$$und1__O())
   }));
   var this$27 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$25, f$6);
   var f$7 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -19964,10 +20068,11 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   jsx$14.taskStatesCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$27, f$7, bf$3));
   $m_Lfront_AIDBrowserScripts$().renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM();
   $m_Lfront_AIDBrowserScripts$().renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM();
+  $m_Lfront_AIDBrowserScripts$().displayGeneralInfo__Lorg_scalajs_dom_raw_Node();
   var jsx$15 = $m_Lfront_AIDBrowserScripts$();
-  var f$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
-    var x$9 = $as_T2(x$9$2);
-    return $as_T(x$9.$$und1__O())
+  var f$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
+    var x$10 = $as_T2(x$10$2);
+    return $as_T(x$10.$$und1__O())
   }));
   var this$29 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f$8);
   var f$9 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$14().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
@@ -22658,6 +22763,14 @@ $c_s_math_Numeric$ByteIsIntegral$.prototype.toDouble__O__D = (function(x) {
   var x$1 = $uB(x);
   return x$1
 });
+$c_s_math_Numeric$ByteIsIntegral$.prototype.plus__O__O__O = (function(x, y) {
+  var x$1 = $uB(x);
+  var y$1 = $uB(y);
+  return $s_s_math_Numeric$ByteIsIntegral$class__plus__s_math_Numeric$ByteIsIntegral__B__B__B(this, x$1, y$1)
+});
+$c_s_math_Numeric$ByteIsIntegral$.prototype.fromInt__I__O = (function(x) {
+  return $s_s_math_Numeric$ByteIsIntegral$class__fromInt__s_math_Numeric$ByteIsIntegral__I__B(this, x)
+});
 var $d_s_math_Numeric$ByteIsIntegral$ = new $TypeData().initClass({
   s_math_Numeric$ByteIsIntegral$: 0
 }, false, "scala.math.Numeric$ByteIsIntegral$", {
@@ -22700,6 +22813,14 @@ $c_s_math_Numeric$IntIsIntegral$.prototype.init___ = (function() {
 $c_s_math_Numeric$IntIsIntegral$.prototype.toDouble__O__D = (function(x) {
   var x$1 = $uI(x);
   return x$1
+});
+$c_s_math_Numeric$IntIsIntegral$.prototype.plus__O__O__O = (function(x, y) {
+  var x$1 = $uI(x);
+  var y$1 = $uI(y);
+  return $s_s_math_Numeric$IntIsIntegral$class__plus__s_math_Numeric$IntIsIntegral__I__I__I(this, x$1, y$1)
+});
+$c_s_math_Numeric$IntIsIntegral$.prototype.fromInt__I__O = (function(x) {
+  return x
 });
 var $d_s_math_Numeric$IntIsIntegral$ = new $TypeData().initClass({
   s_math_Numeric$IntIsIntegral$: 0
@@ -22744,6 +22865,14 @@ $c_s_math_Numeric$ShortIsIntegral$.prototype.toDouble__O__D = (function(x) {
   var x$1 = $uS(x);
   return x$1
 });
+$c_s_math_Numeric$ShortIsIntegral$.prototype.plus__O__O__O = (function(x, y) {
+  var x$1 = $uS(x);
+  var y$1 = $uS(y);
+  return $s_s_math_Numeric$ShortIsIntegral$class__plus__s_math_Numeric$ShortIsIntegral__S__S__S(this, x$1, y$1)
+});
+$c_s_math_Numeric$ShortIsIntegral$.prototype.fromInt__I__O = (function(x) {
+  return $s_s_math_Numeric$ShortIsIntegral$class__fromInt__s_math_Numeric$ShortIsIntegral__I__S(this, x)
+});
 var $d_s_math_Numeric$ShortIsIntegral$ = new $TypeData().initClass({
   s_math_Numeric$ShortIsIntegral$: 0
 }, false, "scala.math.Numeric$ShortIsIntegral$", {
@@ -22787,6 +22916,9 @@ $c_sc_AbstractTraversable.prototype.toList__sci_List = (function() {
 $c_sc_AbstractTraversable.prototype.mkString__T__T__T__T = (function(start, sep, end) {
   return $s_sc_TraversableOnce$class__mkString__sc_TraversableOnce__T__T__T__T(this, start, sep, end)
 });
+$c_sc_AbstractTraversable.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_TraversableOnce$class__foldLeft__sc_TraversableOnce__O__F2__O(this, z, op)
+});
 $c_sc_AbstractTraversable.prototype.size__I = (function() {
   return $s_sc_TraversableOnce$class__size__sc_TraversableOnce__I(this)
 });
@@ -22801,6 +22933,9 @@ $c_sc_AbstractTraversable.prototype.toMap__s_Predef$$less$colon$less__sci_Map = 
 });
 $c_sc_AbstractTraversable.prototype.map__F1__scg_CanBuildFrom__O = (function(f, bf) {
   return $s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this, f, bf)
+});
+$c_sc_AbstractTraversable.prototype.sum__s_math_Numeric__O = (function(num) {
+  return $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O(this, num)
 });
 $c_sc_AbstractTraversable.prototype.newBuilder__scm_Builder = (function() {
   return this.companion__scg_GenericCompanion().newBuilder__scm_Builder()
@@ -22838,6 +22973,14 @@ $c_s_math_Numeric$DoubleIsFractional$.prototype.init___ = (function() {
 $c_s_math_Numeric$DoubleIsFractional$.prototype.toDouble__O__D = (function(x) {
   var x$1 = $uD(x);
   return x$1
+});
+$c_s_math_Numeric$DoubleIsFractional$.prototype.plus__O__O__O = (function(x, y) {
+  var x$1 = $uD(x);
+  var y$1 = $uD(y);
+  return $s_s_math_Numeric$DoubleIsConflicted$class__plus__s_math_Numeric$DoubleIsConflicted__D__D__D(this, x$1, y$1)
+});
+$c_s_math_Numeric$DoubleIsFractional$.prototype.fromInt__I__O = (function(x) {
+  return x
 });
 var $d_s_math_Numeric$DoubleIsFractional$ = new $TypeData().initClass({
   s_math_Numeric$DoubleIsFractional$: 0
@@ -22882,6 +23025,14 @@ $c_s_math_Numeric$FloatIsFractional$.prototype.init___ = (function() {
 $c_s_math_Numeric$FloatIsFractional$.prototype.toDouble__O__D = (function(x) {
   var x$1 = $uF(x);
   return x$1
+});
+$c_s_math_Numeric$FloatIsFractional$.prototype.plus__O__O__O = (function(x, y) {
+  var x$1 = $uF(x);
+  var y$1 = $uF(y);
+  return $s_s_math_Numeric$FloatIsConflicted$class__plus__s_math_Numeric$FloatIsConflicted__F__F__F(this, x$1, y$1)
+});
+$c_s_math_Numeric$FloatIsFractional$.prototype.fromInt__I__O = (function(x) {
+  return $s_s_math_Numeric$FloatIsConflicted$class__fromInt__s_math_Numeric$FloatIsConflicted__I__F(this, x)
 });
 var $d_s_math_Numeric$FloatIsFractional$ = new $TypeData().initClass({
   s_math_Numeric$FloatIsFractional$: 0
@@ -23079,6 +23230,10 @@ $c_sci_StringOps.prototype.toString__T = (function() {
 $c_sci_StringOps.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
 });
+$c_sci_StringOps.prototype.foldLeft__O__F2__O = (function(z, op) {
+  var $$this = this.repr$1;
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, $uI($$this["length"]), z, op)
+});
 $c_sci_StringOps.prototype.reverse__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
 });
@@ -23118,6 +23273,9 @@ $c_sci_StringOps.prototype.init___T = (function(repr) {
 });
 $c_sci_StringOps.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function(ev) {
   return $s_sc_TraversableOnce$class__toMap__sc_TraversableOnce__s_Predef$$less$colon$less__sci_Map(this, ev)
+});
+$c_sci_StringOps.prototype.sum__s_math_Numeric__O = (function(num) {
+  return $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O(this, num)
 });
 $c_sci_StringOps.prototype.toCollection__O__sc_Seq = (function(repr) {
   this.repr$1;
@@ -25658,6 +25816,9 @@ $c_sci_List.prototype.foreach__F1__V = (function(f) {
     these = this$1.tail__sci_List()
   }
 });
+$c_sci_List.prototype.foldLeft__O__F2__O = (function(z, f) {
+  return $s_sc_LinearSeqOptimized$class__foldLeft__sc_LinearSeqOptimized__O__F2__O(this, z, f)
+});
 $c_sci_List.prototype.reverse__O = (function() {
   return this.reverse__sci_List()
 });
@@ -26070,6 +26231,20 @@ $c_sci_Stream.prototype.foreach__F1__V = (function(f) {
         continue _foreach
       };
       break x
+    }
+  }
+});
+$c_sci_Stream.prototype.foldLeft__O__F2__O = (function(z, op) {
+  var _$this = this;
+  _foldLeft: while (true) {
+    if (_$this.isEmpty__Z()) {
+      return z
+    } else {
+      var temp$_$this = $as_sci_Stream(_$this.tail__O());
+      var temp$z = op.apply__O__O__O(z, _$this.head__O());
+      _$this = temp$_$this;
+      z = temp$z;
+      continue _foldLeft
     }
   }
 });
@@ -27063,6 +27238,10 @@ $c_sci_WrappedString.prototype.toString__T = (function() {
 $c_sci_WrappedString.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
 });
+$c_sci_WrappedString.prototype.foldLeft__O__F2__O = (function(z, op) {
+  var thiz = this.self$4;
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, $uI(thiz["length"]), z, op)
+});
 $c_sci_WrappedString.prototype.reverse__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
 });
@@ -27605,6 +27784,9 @@ $c_scm_WrappedArray.prototype.companion__scg_GenericCompanion = (function() {
 });
 $c_scm_WrappedArray.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
+});
+$c_scm_WrappedArray.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, this.length__I(), z, op)
 });
 $c_scm_WrappedArray.prototype.reverse__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
@@ -28972,6 +29154,10 @@ $c_scm_ListBuffer.prototype.foreach__F1__V = (function(f) {
     these = this$2.tail__sci_List()
   }
 });
+$c_scm_ListBuffer.prototype.foldLeft__O__F2__O = (function(z, op) {
+  var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
+  return $s_sc_LinearSeqOptimized$class__foldLeft__sc_LinearSeqOptimized__O__F2__O(this$1, z, op)
+});
 $c_scm_ListBuffer.prototype.size__I = (function() {
   return this.len$6
 });
@@ -29026,6 +29212,10 @@ $c_scm_ListBuffer.prototype.sizeHint__I__V = (function(size) {
 $c_scm_ListBuffer.prototype.toMap__s_Predef$$less$colon$less__sci_Map = (function(ev) {
   var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
   return $s_sc_TraversableOnce$class__toMap__sc_TraversableOnce__s_Predef$$less$colon$less__sci_Map(this$1, ev)
+});
+$c_scm_ListBuffer.prototype.sum__s_math_Numeric__O = (function(num) {
+  var this$1 = this.scala$collection$mutable$ListBuffer$$start$6;
+  return $s_sc_TraversableOnce$class__sum__sc_TraversableOnce__s_math_Numeric__O(this$1, num)
 });
 $c_scm_ListBuffer.prototype.clear__V = (function() {
   this.scala$collection$mutable$ListBuffer$$start$6 = $m_sci_Nil$();
@@ -29191,6 +29381,11 @@ $c_scm_StringBuilder.prototype.toString__T = (function() {
 });
 $c_scm_StringBuilder.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
+});
+$c_scm_StringBuilder.prototype.foldLeft__O__F2__O = (function(z, op) {
+  var this$1 = this.underlying$5;
+  var thiz = this$1.content$1;
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, $uI(thiz["length"]), z, op)
 });
 $c_scm_StringBuilder.prototype.reverse__O = (function() {
   return this.reverse__scm_StringBuilder()
@@ -29390,6 +29585,9 @@ $c_sjs_js_WrappedArray.prototype.companion__scg_GenericCompanion = (function() {
 $c_sjs_js_WrappedArray.prototype.foreach__F1__V = (function(f) {
   $s_sc_IndexedSeqOptimized$class__foreach__sc_IndexedSeqOptimized__F1__V(this, f)
 });
+$c_sjs_js_WrappedArray.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, $uI(this.array$6["length"]), z, op)
+});
 $c_sjs_js_WrappedArray.prototype.reverse__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)
 });
@@ -29564,6 +29762,9 @@ $c_scm_ArrayBuffer.prototype.companion__scg_GenericCompanion = (function() {
 });
 $c_scm_ArrayBuffer.prototype.foreach__F1__V = (function(f) {
   $s_scm_ResizableArray$class__foreach__scm_ResizableArray__F1__V(this, f)
+});
+$c_scm_ArrayBuffer.prototype.foldLeft__O__F2__O = (function(z, op) {
+  return $s_sc_IndexedSeqOptimized$class__foldl__p0__sc_IndexedSeqOptimized__I__I__O__F2__O(this, 0, this.size0$6, z, op)
 });
 $c_scm_ArrayBuffer.prototype.reverse__O = (function() {
   return $s_sc_IndexedSeqOptimized$class__reverse__sc_IndexedSeqOptimized__O(this)

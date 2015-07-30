@@ -33,10 +33,11 @@ object piechart {
     )
     println("rendering")
     val slices = pie.curves map { curve =>
+      println("curving")
       g(key := curve.item.label)(
         lineargradient(
-          id := s"grad-${ curve.index }",
-          stop(stopColor := string(palette(curve.index)), offset := "10%"),
+          id := s"grad-${ curve.index}",
+          stop(stopColor := string(palette(curve.index)), offset := "0%"),
           stop(stopColor := string(lighten(palette(curve.index))), offset := "100%")
         ),
         path(d := curve.sector.path.print, fill := s"url(#grad-${ curve.index })"),

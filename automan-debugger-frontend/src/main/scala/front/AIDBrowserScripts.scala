@@ -147,6 +147,23 @@ object AIDBrowserScripts extends js.JSApp {
     React.render(chart, parentDiv)
   }
 
+  def displayGeneralInfo() = {
+    val generalInfo: Element = d.getElementById("general-info")
+
+    removeChildren(generalInfo)
+
+    val firstRow = createRow
+    firstRow appendChild displayInfoLabel("Number of questions", questionNames.size.toString)
+    firstRow appendChild displayInfoLabel("Number of tasks", tasksMap.size.toString)
+    generalInfo appendChild firstRow
+
+    val avgTaskCost = tasksMap.map(_._2.cost).sum / tasksMap.size
+
+    val secondRow = createRow
+    secondRow appendChild displayInfoLabel("Average task cost", avgTaskCost.toString)
+    generalInfo appendChild secondRow
+  }
+
   def main(): Unit = {
 
     val consoleDebug = d getElementById "console-debug"
@@ -197,6 +214,7 @@ object AIDBrowserScripts extends js.JSApp {
 
         renderTaskAnswers()
         renderTaskStates()
+        displayGeneralInfo()
 
         tasksPerQuestionMap = questionTaskTuples.groupBy(_._1).map {
           case (k, v) => (k, v.map(_._2).toList)
