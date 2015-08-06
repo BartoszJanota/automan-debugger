@@ -157,10 +157,15 @@ object AIDBrowserScripts extends js.JSApp {
     firstRow appendChild displayInfoLabel("Number of tasks", tasksMap.size.toString)
     generalInfo appendChild firstRow
 
-    val avgTaskCost = tasksMap.map(_._2.cost).sum / tasksMap.size
+    val totalTasksCost: Double = tasksMap.map(_._2.cost).sum
+    val avgTaskCost = totalTasksCost / tasksMap.size
+
+    val roundedAvgTaskCost = BigDecimal(avgTaskCost).setScale(2, BigDecimal.RoundingMode.HALF_UP)
+    val roundedTotalTasksCost = BigDecimal(totalTasksCost).setScale(2, BigDecimal.RoundingMode.HALF_UP)
 
     val secondRow = createRow
-    secondRow appendChild displayInfoLabel("Average task cost", avgTaskCost.toString)
+    secondRow appendChild displayInfoLabel("Average task cost", "$" + roundedAvgTaskCost.toString)
+    secondRow appendChild displayInfoLabel("Total tasks cost", "$" + roundedTotalTasksCost.toString)
     generalInfo appendChild secondRow
   }
 
