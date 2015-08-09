@@ -1,7 +1,8 @@
 package front
 
-import java.util.Date
+import java.util.{Properties, Date}
 
+import com.typesafe.config.{Config, ConfigFactory}
 import front.components.piechart._
 import front.components.piechart.StringIntVal
 import japgolly.scalajs.react.{React, ReactComponentU, TopNode}
@@ -14,6 +15,7 @@ import scala.scalajs.js
 import scala.scalajs.js.Dynamic.global
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.Try
+import net.ceedubs.ficus.Ficus._
 
 @JSExportAll
 object AIDBrowserScripts extends js.JSApp {

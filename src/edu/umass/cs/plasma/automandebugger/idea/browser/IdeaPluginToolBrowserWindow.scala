@@ -3,6 +3,8 @@ package edu.umass.cs.plasma.automandebugger.idea.browser
 import java.awt.event.{ActionEvent, ActionListener}
 import java.awt.{Dimension, BorderLayout}
 import java.io._
+import java.util
+import java.util.Map.Entry
 import java.util.Scanner
 import javafx.application.Platform
 import javafx.beans.value.{ObservableValue, ChangeListener}
@@ -16,13 +18,16 @@ import javafx.concurrent.Worker.State;
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
+import com.typesafe.config.{ConfigValue, Config, ConfigFactory}
+import net.ceedubs.ficus.Ficus._
 
 /**
  * Created by bj on 13.07.15.
  */
 class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
-
   override def createToolWindowContent(project: Project, toolWindow: ToolWindow): Unit = {
+
+
     val component: JComponent = toolWindow.getComponent
 
     val mainPanel = new JPanel(new BorderLayout())
@@ -62,6 +67,11 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
   }
 
   def loadPage(jfxPanel: JFXPanel): Unit = {
+
+    val configFile = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/application.conf")).mkString
+    val config = ConfigFactory.parseString(configFile)
+    val tabsToBeHidden: List[String] = config.as[Option[List[String]]]("tabs.toBeHidden").getOrElse(List.empty)
+
     val stage = new Stage()
     stage.setTitle("StageJava FX")
     stage.setResizable(true)
@@ -90,6 +100,10 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
           webEngine.executeScript(debuggerJsDeps)
           webEngine.executeScript(debuggerJsFastopt)
           webEngine.executeScript(debuggerJsLauncher)
+
+          tabsToBeHidden.foreach{ tab =>
+            webEngine.getDocument.getElementById(tab).setAttribute("style", "display:none")
+          }
         }
 
       }

@@ -13,13 +13,19 @@ persistLauncher in Test := false
 
 testFrameworks += new TestFramework("utest.runner.Framework")
 
+resolvers ++= Seq(
+  "Sonatype OSS Releases"  at "http://oss.sonatype.org/content/repositories/releases/"
+)
+
 libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "0.8.0",
   "com.lihaoyi" %%% "utest" % "0.3.0" % "test",
   "edu.umass.cs" %% "automan" % "0.5-SNAPSHOT",
   "com.lihaoyi" %%% "upickle" % "0.2.8",
   "eu.unicredit" %%% "paths-scala-js" % "0.3.2",
-  "com.github.japgolly.scalajs-react" %%% "core" % "0.9.0"
+  "com.github.japgolly.scalajs-react" %%% "core" % "0.9.0",
+  "com.typesafe" % "config" % "1.3.0",
+  "net.ceedubs" %% "ficus" % "1.1.2"
 )
 
 jsDependencies += "org.webjars" % "paths-js" % "0.3.2" / "paths.js"
