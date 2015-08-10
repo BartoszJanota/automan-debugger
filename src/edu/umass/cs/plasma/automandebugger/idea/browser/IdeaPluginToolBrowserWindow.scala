@@ -19,11 +19,17 @@ import javafx.concurrent.Worker.State;
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
 import com.typesafe.config.{ConfigValue, Config, ConfigFactory}
+import edu.umass.cs.plasma.automandebugger.idea.browser.IdeaPluginToolBrowserWindow.Tab
 import net.ceedubs.ficus.Ficus._
 
 /**
  * Created by bj on 13.07.15.
  */
+
+object IdeaPluginToolBrowserWindow{
+  case class Tab(id: String, visible: Boolean)
+}
+
 class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
   override def createToolWindowContent(project: Project, toolWindow: ToolWindow): Unit = {
 
@@ -68,10 +74,6 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
 
   def loadPage(jfxPanel: JFXPanel): Unit = {
 
-    val configFile = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/application.conf")).mkString
-    val config = ConfigFactory.parseString(configFile)
-    val tabsToBeHidden: List[String] = config.as[Option[List[String]]]("tabs.toBeHidden").getOrElse(List.empty)
-
     val stage = new Stage()
     stage.setTitle("StageJava FX")
     stage.setResizable(true)
@@ -101,13 +103,23 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
           webEngine.executeScript(debuggerJsFastopt)
           webEngine.executeScript(debuggerJsLauncher)
 
-          tabsToBeHidden.foreach{ tab =>
-            webEngine.getDocument.getElementById(tab).setAttribute("style", "display:none")
+          val tabsToBeHidden: List[Tab] = getConfig
+          tabsToBeHidden.filter(!_.visible)foreach{ tab =>
+              webEngine.getDocument.getElementById(tab.id).setAttribute("style", "display:none")
           }
         }
 
       }
     })
     jfxPanel.setScene(scene)
+  }
+
+  def getConfig: List[Tab] = {
+    val configFile = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/application.conf")).mkString
+    val config = ConfigFactory.parseString(configFile)
+
+    import net.ceedubs.ficus.readers.ArbitraryTypeReader._
+    val tabs: List[Tab] = config.as[List[Tab]]("tabs.visibility")
+    tabs
   }
 }
