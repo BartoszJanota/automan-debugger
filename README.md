@@ -1,13 +1,7 @@
 # automan-debugger
 Repository for AutoMan IntelliJ Debugger (*AID*). *AID* is a plugin for *IntelliJ IDEA*, written in Scala mostly. It is designed to make developing AutoMan tasks easier.
 
-###Let's try AID
-
-####Prerequisites
-
-Following things you will need to build, deploy and install *AID*:
- * IntelliJ IDEA 14.* - Community or Ultimate
- * scala-sdk-2.11.4 jar library
+###First steps
 
 ####Clone repo
 
@@ -31,6 +25,33 @@ I'll describe them later.
 I assume you have you IntelliJ IDEA 14 opened. Now go to *File -> Open...* and choose */automan-debugger* folder.
 IntelliJ shoudl open this project automatically as an IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby *automan-debugger* in the project View.
 
+###Try AID
+
+Complete and ready to use AID is a `automan-debugger-scala.zip` file. You can find it at the root of this repo.
+This zip file contains all you need to run AID: compiled Scala code, config files, html and JavaScript files and all the necessary libraries.
+
+####Run AID
+
+`automan-debugger-scala.zip` file is an Intellij IDEA Plugin. To see how it works you need to install it firstly. Open *Settings -> Plugins* tab and then click *Install plugin from disk...*, navigate to the root of this repo and choose `automan-debugger-scala.zip`. Click OK and agree to restart your IntelliJ IDEA.
+
+### How to use AID plugin once you have it installed
+
+If you followed all the steps above, you should have *AID* plugin installed properly. *AID* is a *Tool Window*, so you can find it in the list of your IntelliJ Tool Windows.
+
+To initialize AID, just go to the list of your Tool Windows (point your mouse on the left bottom corner of your IntelliJ) and click on *AutoMan IntelliJ Debugger*.
+
+Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program questions and tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
+
+It lets you see your current AutoMan program state, it shows all the tasks per question and general overview. It refreshes its state everytime when new update is emited to the WebSocket channel.
+
+If this is your first try with AID you probably don't have `automan-debugger-server` deployed. See [how to do it](#automan-debugger-server-deployment).
+
+####Prerequisites
+
+Following things you will need to build, deploy and install *AID*:
+ * IntelliJ IDEA 14.* - Community or Ultimate
+ * scala-sdk-2.11.4 jar library
+
 ####Add *Intellij Platform Plugin Project SDK*
 
 Firstly, you need to add the mentioned SDK to the Intellij Platform - follow [official JetBrains manual](https://www.jetbrains.com/idea/help/configuring-intellij-platform-plugin-sdk.html).
@@ -46,7 +67,7 @@ Most recent version of AID is available on `ws-and-browser-poc` branch. Checkout
 
 Go to the *automan-debugger Module Settings -> Libraries*, click on the Green Plus Button (+) and choose *Scala SDK*. You should add (or download) `scala-sdk-2.11.4` library. Other essential libraries are attached to the repository.
 
-####automan-debugger-server
+####<a name="automan-debugger-server-deployment"></a>automan-debugger-server
 
 This module is an SBT project. It can be developed independently. 
 The main class of this module implements AutoMan API:
@@ -169,14 +190,4 @@ val a = MTurkAdapter { mt =>
 }
 ```
 
-If you followed all the steps, now you can run program and enjoy AID.
-
-### How to use AID plugin once you have it installed
-
-If you followed all the steps above, you should have *AID* plugin installed properly. *AID* is a *Tool Window*, so you can find it in the list of your IntelliJ Tool Windows.
-
-To initialize AID, just go to the list of your Tool Windows (point your mouse on the left bottom corner of your IntelliJ) and click on *AutoMan IntelliJ Debugger*.
-
-Once you have clicked it, *AID* is being initialized. *AID* will show you your current AutoMan program questions and tasks if you have your AutoMan program running or will display an error if your AutoMan program is not working. So then you should run your AutoMan program and click refresh button.
-
-IT lets you see your current AutoMan program state, it shows all the tasks per question and general overview. It refreshes its state everytime when new update is emited to the WebSocket channel.
+If you followed all the steps, now you can run your program and enjoy AID.
