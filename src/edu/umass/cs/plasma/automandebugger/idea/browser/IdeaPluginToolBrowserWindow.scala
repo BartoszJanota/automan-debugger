@@ -119,7 +119,7 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val config = ConfigFactory.parseString(configFile)
 
     import net.ceedubs.ficus.readers.ArbitraryTypeReader._
-    val tabs: List[Tab] = config.as[List[Tab]]("tabs.visibility")
+    val tabs: List[Tab] = config.as[List[Tab]]("aid.tabs")
     tabs
   }
 }
