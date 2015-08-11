@@ -30,11 +30,11 @@ IntelliJ shoudl open this project automatically as an IntelliJ Platform Plugin. 
 Complete and ready to use AID is a `automan-debugger-scala.zip` file. You can find it at the root of this repo.
 This zip file contains all you need to run AID: compiled Scala code, config files, html and JavaScript files and all the necessary libraries.
 
-####Run AID
+####Install AID
 
 `automan-debugger-scala.zip` file is an Intellij IDEA Plugin. To see how it works you need to install it firstly. Open *Settings -> Plugins* tab and then click *Install plugin from disk...*, navigate to the root of this repo and choose `automan-debugger-scala.zip`. Click OK and agree to restart your IntelliJ IDEA.
 
-### How to use AID plugin once you have it installed
+###How to run AID plugin once you have it installed
 
 If you followed all the steps above, you should have *AID* plugin installed properly. *AID* is a *Tool Window*, so you can find it in the list of your IntelliJ Tool Windows.
 
@@ -45,6 +45,47 @@ Once you have clicked it, *AID* is being initialized. *AID* will show you your c
 It lets you see your current AutoMan program state, it shows all the tasks per question and general overview. It refreshes its state everytime when new update is emited to the WebSocket channel.
 
 If this is your first try with AID you probably don't have `automan-debugger-server` deployed. See [how to do it](#automan-debugger-server-deployment).
+
+###Configure AID
+
+###Tabs management
+
+AID allows you to show/hide tabs displaying on the main screen of AID. The main screen is a kind of grid view, it contains 7 tabs (areas), each of them is independent and can be either shown or hidden. To adjust the layout of AID you can use `application.conf` file:
+
+```conf
+aid {
+  tabs = [
+    {
+      id: "tab-completion", visible: true
+    },
+    {
+      id: "tab-states", visible: true
+    },
+    {
+      id: "tab-predictions", visible: true
+    },
+    {
+      id: "div-task-details", visible: true
+    },
+    {
+      id: "tab-general", visible: true
+    },
+    {
+      id: "tab-timeline", visible: true
+    },
+    {
+      id: "tab-console", visible: true
+    }
+  ]
+}
+```
+As you can guess, set *visibility* to *false* to hide any of the tabs.
+
+The biggest pros of this config file is the fact, that you can adjust youe layout and you don't need to recompile the whole project :).
+
+`application.conf` is located on the top of `automan-debugger-scala.zip` file after build, so you can edit this file inside your zip file and reinstall plugin.
+
+###Build AID
 
 ####Prerequisites
 
