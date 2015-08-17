@@ -40,7 +40,7 @@ object TaskSnapshotResponse {
                               created_at = t.created_at.getTime,
                               state = t.state.toString,
                               worker_id = t.worker_id.getOrElse("Unavailable"),
-                              answer = t.answer.toString,
+                              answer = t.answer.getOrElse("None").toString,
                               state_changed_at = t.state_changed_at.getTime,
                               question_type = t.question_type.toString,
                               task_id = t.task_id.toString,

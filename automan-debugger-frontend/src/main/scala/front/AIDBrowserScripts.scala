@@ -1,13 +1,12 @@
 package front
 
-import java.util.{Properties, Date}
+import java.util.Date
 
-import com.typesafe.config.{Config, ConfigFactory}
-import front.components.piechart._
-import front.components.piechart.StringIntVal
-import japgolly.scalajs.react.{React, ReactComponentU, TopNode}
+import front.components.piechart.{StringIntVal, _}
+import japgolly.scalajs.react.React
 import models.{TaskSnapshotResponse, Tasks}
 import org.scalajs.dom
+import org.scalajs.dom.ext.Color
 import org.scalajs.dom.raw._
 import upickle._
 
@@ -15,7 +14,6 @@ import scala.scalajs.js
 import scala.scalajs.js.Dynamic.global
 import scala.scalajs.js.annotation.JSExportAll
 import scala.util.Try
-import net.ceedubs.ficus.Ficus._
 
 @JSExportAll
 object AIDBrowserScripts extends js.JSApp {
@@ -27,6 +25,21 @@ object AIDBrowserScripts extends js.JSApp {
   var tasksMap: Map[String, TaskSnapshotResponse] = Map.empty
   var taskAnswersCount: Map[String, Int] = Map.empty
   var taskStatesCount: Map[String, Int] = Map.empty
+  var tasksTimelineData = scala.collection.mutable.Map[String, List[(Double, String)]]()
+
+  val palette: Map[String, String] = Map("READY" -> getHex(Color.Blue),
+                                          "RUNNING" -> getHex(Color.Green),
+                                          "ANSWERED" -> getHex(Color.White),
+                                          "DUPLICATE" -> getHex(Color.Cyan),
+                                          "ACCEPTED" -> getHex(Color.Magenta),
+                                          "REJECTED" -> getHex(Color.Yellow),
+                                          "TIMEOUT" -> getHex(Color.Red),
+                                          "CANCELLED" -> getHex(Color.Black)
+  )
+
+  def getHex(c: Color): String = {
+    String.format("#%02x%02x%02x", new Integer(c.r), new Integer(c.g), new Integer(c.b))
+  }
 
   def displayQuestionTasks(question: String): Unit = {
     global.console.log("logValue: " + question)
@@ -126,19 +139,8 @@ object AIDBrowserScripts extends js.JSApp {
 
     val args: List[StringIntVal] = taskAnswersCount.map(t => StringIntVal(t._1, t._2)).toList
 
-    //global.console.log(args.size)
-    //val chart = PieChart(TaskAnswer("TestAnswer1", 10) :: TaskAnswer("TestAnswer2", 14) :: args)
     val chart = PieChart(args)
     React.render(chart, parentDiv)
-
-/*
-    taskAnswersCount.foreach { t =>
-      val firstRow = createRow
-      firstRow appendChild displayInfoLabel("Answer", t._1)
-      firstRow appendChild displayInfoLabel("Tasks", t._2.toString)
-      parentDiv appendChild firstRow
-    }
-*/
 
   }
 
@@ -171,6 +173,88 @@ object AIDBrowserScripts extends js.JSApp {
     generalInfo appendChild secondRow
   }
 
+  def renderTimeline() = {
+    val tab = d getElementById "timeline-tab"
+    removeChildren(tab)
+    createTableHeaders(tab)
+
+    val now = System.currentTimeMillis() / 1000
+    val minuteAgo = now - 60
+
+    tasksTimelineData.foreach{ taskData =>
+      val tr = d createElement "tr"
+      val td = d createElement "td"
+      td.setAttribute("width", "10%")
+      td.setAttribute("style", "font-size: 9px")
+      td.innerHTML = taskData._1.substring(0,8) + "..."
+      tr appendChild td
+      var offset = 0
+      taskData._2.filter(_._1 / 1000 >= minuteAgo).reverse.foreach{ state =>
+        val cellsCount: Int = ((state._1 / 1000) - minuteAgo).toInt
+        val cellsCountWithOffset: Int = cellsCount - offset
+        offset = cellsCount
+        0 to cellsCountWithOffset - 1 foreach { i =>
+          val td: Element = createTd(state)
+          tr appendChild td
+        }
+      }
+
+
+      val lastState = taskData._2.head
+      0 to 60 - offset - 1 foreach { i =>
+        val td = createTd(lastState)
+        tr appendChild td
+      }
+
+      tab appendChild tr
+    }
+  }
+
+  def createTableHeaders(tab: Element): Node = {
+    val tr = d createElement "tr"
+    tr appendChild createTh("Task Id", 1)
+    tr appendChild createTh("Last 60 seconds", 60)
+    tab appendChild tr
+  }
+
+  def createTh(text: String, colspan: Int)= {
+    val th = d createElement "th"
+    th.setAttribute("style", "font-size: 9px")
+    th.setAttribute("colspan", colspan.toString)
+    th.innerHTML = text
+    th
+  }
+
+  def createBlankTd() = {
+    val td = d createElement "td"
+    td.setAttribute("width", "1.5%")
+    td.setAttribute("style", "font-size: 9px")
+    td
+  }
+
+  def createTd(state: (Double, String)): Element = {
+    val td = d createElement "td"
+    td.setAttribute("width", "1.5%")
+    td.setAttribute("style", "font-size: 10px")
+    td.setAttribute("bgcolor", palette(state._2))
+    //td.innerHTML = state._2.substring(0, 1)
+    td
+  }
+
+  def renderTimelineLegend() = {
+    val legend = d getElementById "timeline-legend"
+    val span = d createElement "span"
+    span.setAttribute("style", "font-size:9px;margin-right: 5px")
+    span.innerHTML = "Task States:"
+    legend appendChild span
+    palette.foreach{ color =>
+      val span = d createElement "span"
+      span.setAttribute("style", "color:" + color._2 + ";font-size:9px;margin-right: 5px")
+      span.innerHTML = color._1
+      legend appendChild span
+    }
+  }
+
   def main(): Unit = {
 
     val consoleDebug = d getElementById "console-debug"
@@ -178,6 +262,8 @@ object AIDBrowserScripts extends js.JSApp {
     val ws = new WebSocket("ws://localhost:8128/")
 
     global.console.log("chat has been created")
+
+    renderTimelineLegend()
 
     ws.onopen = { (event: Event) ⇒
       //ws.send("chat has been opened")
@@ -191,14 +277,14 @@ object AIDBrowserScripts extends js.JSApp {
       global.console.log(s"Failed: code: ${event.colno}")
     }
     ws.onmessage = { (event: MessageEvent) ⇒
-      global.console.log(s"Got a mess: ${event.data.toString}")
+      //global.console.log(s"Got a mess: ${event.data.toString}")
       Try {
         val parsedTasks = read[Tasks](event.data.toString)
-        parsedTasks.tasks.foreach { t =>
-          val p = d createElement "p"
-          p innerHTML = t.toString
-          consoleDebug.appendChild(p)
-        }
+//        parsedTasks.tasks.foreach { t =>
+//          val p = d createElement "p"
+//          p innerHTML = t.toString
+//          consoleDebug.appendChild(p)
+//        }
         val questionTaskTuples = parsedTasks.tasks.map(t => t.question_id -> t.task_id)
 
         val questionNamesTuples = parsedTasks.tasks.map(t => t.question_id -> t.title)
@@ -219,6 +305,22 @@ object AIDBrowserScripts extends js.JSApp {
           case (k, v) => (k, v.map(_._2).size)
         }
 
+        parsedTasks.tasks.foreach{ task =>
+          tasksTimelineData.get(task.task_id) match {
+            case Some(t) =>
+              if (t.head._1 != task.state_changed_at){
+                tasksTimelineData = update(tasksTimelineData, task.task_id)(t => (task.state_changed_at, task.state) :: t)
+              }
+            case None =>
+              tasksTimelineData = tasksTimelineData + (task.task_id -> List(task.state_changed_at -> task.state))
+          }
+        }
+
+        println("taskTimeLineData size is " + tasksTimelineData.size)
+        tasksTimelineData.foreach(println)
+        println("end of timeline data")
+
+        renderTimeline()
         renderTaskAnswers()
         renderTaskStates()
         displayGeneralInfo()
@@ -239,6 +341,8 @@ object AIDBrowserScripts extends js.JSApp {
       consoleDebug.appendChild(p)
     }
   }
+
+  def update[A, B](m: scala.collection.mutable.Map[A, B], k: A)(f: B => B) = m.updated(k, f(m(k)))
 
 }
 

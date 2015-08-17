@@ -19,6 +19,10 @@
         .left-margin { margin-left:40px; }
         .bottom-margin { margin-bottom:10px; }
 
+        table, th, td {
+            border: 1px solid black;
+        }
+
     </style>
 </head>
 <body style="height: 600px">
@@ -65,7 +69,7 @@
     <div class="row center-div">
         <ul class="nav nav-tabs" id="general-navs">
             <li id="tab-general" class="active"><a data-toggle="tab" href="#general">General</a></li>
-            <li id="tab-timeline"><a data-toggle="tab" href="#timeline">Timeline</a></li>
+            <li id="tab-timeline"><a data-toggle="tab" href="#timeline">Tasks Timeline</a></li>
             <li id="tab-console"><a data-toggle="tab" href="#console-debug">Console</a></li>
         </ul>
 
@@ -74,7 +78,8 @@
                 <div id="general-info" class="top-margin"></div>
             </div>
             <div id="timeline" class="tab-pane fade">
-                <h6>Timeline</h6>
+                <h6 id="timeline-legend"></h6>
+                <table id="timeline-tab" style="width:64%"></table>
             </div>
             <div id="console-debug" class="tab-pane fade">
                 <h6>Console (debug messages from WebSocket)</h6>

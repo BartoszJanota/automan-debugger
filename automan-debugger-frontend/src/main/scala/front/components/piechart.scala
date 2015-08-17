@@ -23,7 +23,6 @@ object piechart {
 
   val PieChart: ReqProps[List[StringIntVal], Unit, Unit, TopNode] = ReactComponentB[List[StringIntVal]]("Pie chart")
     .render(tasks => {
-    println(tasks)
     val pie = Pie[StringIntVal](
       data = tasks,
       accessor = _.count,
@@ -31,9 +30,7 @@ object piechart {
       R = 90,
       center = (0, 0)
     )
-    println("rendering")
     val slices = pie.curves map { curve =>
-      println("curving")
       g(key := curve.item.label)(
         lineargradient(
           id := s"grad-${ curve.index}",
