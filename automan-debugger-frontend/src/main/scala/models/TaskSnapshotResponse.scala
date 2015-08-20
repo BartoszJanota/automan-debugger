@@ -22,6 +22,7 @@ case class TaskSnapshotResponse(
                                  question_type: String,
                                  task_id: String,
                                  question_id: String) {
+
   override def toString: String = {
     "\n  * title:   " + title + "\n" +
       "  * task_id:   " + task_id + "\n" +
@@ -38,6 +39,5 @@ case class TaskSnapshotResponse(
       "  * question_type:   " + question_type + "\n"
   }
 }
-
 
 case class Tasks(tasks: Seq[TaskSnapshotResponse])

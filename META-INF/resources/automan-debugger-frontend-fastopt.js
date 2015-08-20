@@ -1127,37 +1127,29 @@ var $d_scm_HashEntry = new $TypeData().initClass({
   scm_HashEntry: 1
 });
 /** @constructor */
-var $c_Lfront_components_colors$ = (function() {
+var $c_Lfront_components_chartColors$ = (function() {
   $c_O.call(this);
   this.lighten$1 = null;
   this.darken$1 = null
 });
-$c_Lfront_components_colors$.prototype = new $h_O();
-$c_Lfront_components_colors$.prototype.constructor = $c_Lfront_components_colors$;
+$c_Lfront_components_chartColors$.prototype = new $h_O();
+$c_Lfront_components_chartColors$.prototype.constructor = $c_Lfront_components_chartColors$;
 /** @constructor */
-var $h_Lfront_components_colors$ = (function() {
+var $h_Lfront_components_chartColors$ = (function() {
   /*<skip>*/
 });
-$h_Lfront_components_colors$.prototype = $c_Lfront_components_colors$.prototype;
-$c_Lfront_components_colors$.prototype.init___ = (function() {
-  $n_Lfront_components_colors$ = this;
+$h_Lfront_components_chartColors$.prototype = $c_Lfront_components_chartColors$.prototype;
+$c_Lfront_components_chartColors$.prototype.init___ = (function() {
+  $n_Lfront_components_chartColors$ = this;
   this.lighten$1 = this.multiply__D__F1(1.2);
   this.darken$1 = this.multiply__D__F1(0.8);
   return this
 });
-$c_Lfront_components_colors$.prototype.cut__D__D = (function(x) {
+$c_Lfront_components_chartColors$.prototype.cut__D__D = (function(x) {
   var $$this = $uD($g["Math"]["floor"](x));
   return (($$this < 255.0) ? $$this : 255.0)
 });
-$c_Lfront_components_colors$.prototype.multiply__D__F1 = (function(factor) {
-  return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(factor$1) {
-    return (function(c$2) {
-      var c = $as_Lfront_components_colors$Color(c$2);
-      return new $c_Lfront_components_colors$Color().init___D__D__D__D($m_Lfront_components_colors$().cut__D__D((factor$1 * c.r$1)), $m_Lfront_components_colors$().cut__D__D((factor$1 * c.g$1)), $m_Lfront_components_colors$().cut__D__D((factor$1 * c.b$1)), c.alpha$1)
-    })
-  })(factor))
-});
-$c_Lfront_components_colors$.prototype.string__Lfront_components_colors$Color__T = (function(c) {
+$c_Lfront_components_chartColors$.prototype.string__Lfront_components_chartColors$Color__T = (function(c) {
   if ((c.alpha$1 === 1)) {
     var jsx$3 = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["rgb(", ",", ",", ")"]));
     var $$this = c.r$1;
@@ -1176,30 +1168,84 @@ $c_Lfront_components_colors$.prototype.string__Lfront_components_colors$Color__T
     return jsx$6.s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$5, jsx$4, $uD($g["Math"]["floor"]($$this$5)), c.alpha$1]))
   }
 });
-$c_Lfront_components_colors$.prototype.average__Lfront_components_colors$Color__Lfront_components_colors$Color__Lfront_components_colors$Color = (function(c1, c2) {
-  return new $c_Lfront_components_colors$Color().init___D__D__D__D(this.cut__D__D(((c1.r$1 + c2.r$1) / 2)), this.cut__D__D(((c1.g$1 + c2.g$1) / 2)), this.cut__D__D(((c1.b$1 + c2.b$1) / 2)), (c1.alpha$1 + (c2.alpha$1 / 2)))
+$c_Lfront_components_chartColors$.prototype.multiply__D__F1 = (function(factor) {
+  return new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(factor$1) {
+    return (function(c$2) {
+      var c = $as_Lfront_components_chartColors$Color(c$2);
+      return new $c_Lfront_components_chartColors$Color().init___D__D__D__D($m_Lfront_components_chartColors$().cut__D__D((factor$1 * c.r$1)), $m_Lfront_components_chartColors$().cut__D__D((factor$1 * c.g$1)), $m_Lfront_components_chartColors$().cut__D__D((factor$1 * c.b$1)), c.alpha$1)
+    })
+  })(factor))
 });
-$c_Lfront_components_colors$.prototype.mix__Lfront_components_colors$Color__Lfront_components_colors$Color__sci_List = (function(c1, c2) {
-  var c3 = this.average__Lfront_components_colors$Color__Lfront_components_colors$Color__Lfront_components_colors$Color(c1, c2);
+$c_Lfront_components_chartColors$.prototype.mix__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color__sci_List = (function(c1, c2) {
+  var c3 = this.average__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color(c1, c2);
   $m_sci_List$();
-  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_Lfront_components_colors$Color(this.lighten$1.apply__O__O(c1)), c1, $as_Lfront_components_colors$Color(this.darken$1.apply__O__O(c1)), $as_Lfront_components_colors$Color(this.lighten$1.apply__O__O(c3)), c3, $as_Lfront_components_colors$Color(this.darken$1.apply__O__O(c3)), $as_Lfront_components_colors$Color(this.lighten$1.apply__O__O(c2)), c2, $as_Lfront_components_colors$Color(this.darken$1.apply__O__O(c2))]);
+  var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([$as_Lfront_components_chartColors$Color(this.lighten$1.apply__O__O(c1)), c1, $as_Lfront_components_chartColors$Color(this.darken$1.apply__O__O(c1)), $as_Lfront_components_chartColors$Color(this.lighten$1.apply__O__O(c3)), c3, $as_Lfront_components_chartColors$Color(this.darken$1.apply__O__O(c3)), $as_Lfront_components_chartColors$Color(this.lighten$1.apply__O__O(c2)), c2, $as_Lfront_components_chartColors$Color(this.darken$1.apply__O__O(c2))]);
   var this$2 = $m_sci_List$();
   var cbf = this$2.ReusableCBFInstance$2;
   return $as_sci_List($s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(xs, cbf))
 });
-var $d_Lfront_components_colors$ = new $TypeData().initClass({
-  Lfront_components_colors$: 0
-}, false, "front.components.colors$", {
-  Lfront_components_colors$: 1,
+$c_Lfront_components_chartColors$.prototype.average__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color = (function(c1, c2) {
+  return new $c_Lfront_components_chartColors$Color().init___D__D__D__D(this.cut__D__D(((c1.r$1 + c2.r$1) / 2)), this.cut__D__D(((c1.g$1 + c2.g$1) / 2)), this.cut__D__D(((c1.b$1 + c2.b$1) / 2)), (c1.alpha$1 + (c2.alpha$1 / 2)))
+});
+var $d_Lfront_components_chartColors$ = new $TypeData().initClass({
+  Lfront_components_chartColors$: 0
+}, false, "front.components.chartColors$", {
+  Lfront_components_chartColors$: 1,
   O: 1
 });
-$c_Lfront_components_colors$.prototype.$classData = $d_Lfront_components_colors$;
-var $n_Lfront_components_colors$ = (void 0);
-var $m_Lfront_components_colors$ = (function() {
-  if ((!$n_Lfront_components_colors$)) {
-    $n_Lfront_components_colors$ = new $c_Lfront_components_colors$().init___()
+$c_Lfront_components_chartColors$.prototype.$classData = $d_Lfront_components_chartColors$;
+var $n_Lfront_components_chartColors$ = (void 0);
+var $m_Lfront_components_chartColors$ = (function() {
+  if ((!$n_Lfront_components_chartColors$)) {
+    $n_Lfront_components_chartColors$ = new $c_Lfront_components_chartColors$().init___()
   };
-  return $n_Lfront_components_colors$
+  return $n_Lfront_components_chartColors$
+});
+var $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V = (function($$this, el) {
+  while ((el["firstChild"] !== null)) {
+    el["removeChild"](el["firstChild"])
+  }
+});
+var $s_Lfront_components_htmlDOMUtils$class__createTh__Lfront_components_htmlDOMUtils__T__I__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element = (function($$this, text, colspan, d) {
+  var th = d["createElement"]("th");
+  th["setAttribute"]("style", "font-size: 9px");
+  th["setAttribute"]("colspan", ("" + colspan));
+  th["innerHTML"] = text;
+  return th
+});
+var $s_Lfront_components_htmlDOMUtils$class__createTd__Lfront_components_htmlDOMUtils__T2__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element = (function($$this, state, d) {
+  var td = d["createElement"]("td");
+  td["setAttribute"]("width", "1.5%");
+  td["setAttribute"]("style", "font-size: 10px");
+  td["setAttribute"]("bgcolor", $as_T($$this.stateColorPalette__sci_Map().apply__O__O(state.$$und2__O())));
+  return td
+});
+var $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element = (function($$this, d) {
+  var row = d["createElement"]("div");
+  row["setAttribute"]("class", "row left-margin");
+  return row
+});
+var $s_Lfront_components_htmlDOMUtils$class__createTableHeaders__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Node = (function($$this, tab, d) {
+  var tr = d["createElement"]("tr");
+  tr["appendChild"]($$this.createTh__T__I__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element("Task Id", 1, d));
+  tr["appendChild"]($$this.createTh__T__I__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element("Last 60 seconds", 60, d));
+  return tab["appendChild"](tr)
+});
+var $s_Lfront_components_htmlDOMUtils$class__renderTimelineLegend__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__V = (function($$this, d) {
+  var legend = d["getElementById"]("timeline-legend");
+  var span = d["createElement"]("span");
+  span["setAttribute"]("style", "font-size:9px;margin-right: 4px");
+  span["innerHTML"] = "Task States:";
+  legend["appendChild"](span);
+  $$this.stateColorPalette__sci_Map().foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(legend$1, d$1) {
+    return (function(color$2) {
+      var color = $as_T2(color$2);
+      var span$1 = d$1["createElement"]("span");
+      span$1["setAttribute"]("style", (("color:" + color.$$und2__O()) + ";font-size:9px;margin-right: 4px"));
+      span$1["innerHTML"] = $as_T(color.$$und1__O());
+      return legend$1["appendChild"](span$1)
+    })
+  })(legend, d)))
 });
 /** @constructor */
 var $c_Lfront_components_piechart$ = (function() {
@@ -1216,7 +1262,7 @@ var $h_Lfront_components_piechart$ = (function() {
 $h_Lfront_components_piechart$.prototype = $c_Lfront_components_piechart$.prototype;
 $c_Lfront_components_piechart$.prototype.init___ = (function() {
   $n_Lfront_components_piechart$ = this;
-  this.front$components$piechart$$palette$1 = $m_Lfront_components_colors$().mix__Lfront_components_colors$Color__Lfront_components_colors$Color__sci_List(new $c_Lfront_components_colors$Color().init___D__D__D__D(130.0, 140.0, 210.0, 1.0), new $c_Lfront_components_colors$Color().init___D__D__D__D(180.0, 205.0, 150.0, 1.0));
+  this.front$components$piechart$$palette$1 = $m_Lfront_components_chartColors$().mix__Lfront_components_chartColors$Color__Lfront_components_chartColors$Color__sci_List(new $c_Lfront_components_chartColors$Color().init___D__D__D__D(130.0, 140.0, 210.0, 1.0), new $c_Lfront_components_chartColors$Color().init___D__D__D__D(180.0, 205.0, 150.0, 1.0));
   this.PieChart$1 = $as_Ljapgolly_scalajs_react_package$ReactComponentC$ReqProps($m_Ljapgolly_scalajs_react_ReactComponentB$().defaultDomTypeAndProps__Ljapgolly_scalajs_react_ReactComponentB$PSBN__Ljapgolly_scalajs_react_ReactComponentB$Builder(new $c_Ljapgolly_scalajs_react_ReactComponentB$P().init___T("Pie chart").render__F1__Ljapgolly_scalajs_react_ReactComponentB$PSBN(new $c_Lfront_components_piechart$$anonfun$1().init___())).build__O());
   return this
 });
@@ -1236,6 +1282,48 @@ var $m_Lfront_components_piechart$ = (function() {
     $n_Lfront_components_piechart$ = new $c_Lfront_components_piechart$().init___()
   };
   return $n_Lfront_components_piechart$
+});
+var $s_Lfront_components_stateColors$class__$$init$__Lfront_components_stateColors__V = (function($$this) {
+  var c = $m_Lorg_scalajs_dom_ext_Color$().Blue$1;
+  var y = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c);
+  var jsx$7 = new $c_T2().init___O__O("READY", y);
+  var c$1 = $m_Lorg_scalajs_dom_ext_Color$().Green$1;
+  var y$1 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$1);
+  var jsx$6 = new $c_T2().init___O__O("RUNNING", y$1);
+  var c$2 = $m_Lorg_scalajs_dom_ext_Color$().White$1;
+  var y$2 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$2);
+  var jsx$5 = new $c_T2().init___O__O("ANSWERED", y$2);
+  var c$3 = $m_Lorg_scalajs_dom_ext_Color$().Cyan$1;
+  var y$3 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$3);
+  var jsx$4 = new $c_T2().init___O__O("DUPLICATE", y$3);
+  var c$4 = $m_Lorg_scalajs_dom_ext_Color$().Magenta$1;
+  var y$4 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$4);
+  var jsx$3 = new $c_T2().init___O__O("ACCEPTED", y$4);
+  var c$5 = $m_Lorg_scalajs_dom_ext_Color$().Yellow$1;
+  var y$5 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$5);
+  var jsx$2 = new $c_T2().init___O__O("REJECTED", y$5);
+  var c$6 = $m_Lorg_scalajs_dom_ext_Color$().Red$1;
+  var y$6 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$6);
+  var jsx$1 = new $c_T2().init___O__O("TIMEOUT", y$6);
+  var c$7 = $m_Lorg_scalajs_dom_ext_Color$().Black$1;
+  var y$7 = $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T($$this, c$7);
+  var array = [jsx$7, jsx$6, jsx$5, jsx$4, jsx$3, jsx$2, jsx$1, new $c_T2().init___O__O("CANCELLED", y$7)];
+  var this$18 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
+  matchEnd4: {
+    var i = 0;
+    var len = $uI(array["length"]);
+    while ((i < len)) {
+      var index = i;
+      var arg1 = array[index];
+      this$18.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
+      i = ((1 + i) | 0)
+    };
+    break matchEnd4
+  };
+  $$this.stateColorPalette$1 = $as_sci_Map(this$18.elems$1)
+});
+var $s_Lfront_components_stateColors$class__getHex__Lfront_components_stateColors__Lorg_scalajs_dom_ext_Color__T = (function($$this, c) {
+  return $m_sjsr_RuntimeString$().format__T__AO__T("#%02x%02x%02x", $makeNativeArrayWrapper($d_O.getArrayOf(), [c.r$1, c.g$1, c.b$1]))
 });
 /** @constructor */
 var $c_Ljapgolly_scalajs_react_ReactComponentB = (function() {
@@ -9701,575 +9789,6 @@ var $m_sr_Statics$ = (function() {
   return $n_sr_Statics$
 });
 /** @constructor */
-var $c_Lfront_AIDBrowserScripts$ = (function() {
-  $c_O.call(this);
-  this.d$1 = null;
-  this.tasksPerQuestionMap$1 = null;
-  this.questionNames$1 = null;
-  this.tasksMap$1 = null;
-  this.taskAnswersCount$1 = null;
-  this.taskStatesCount$1 = null;
-  this.tasksTimelineData$1 = null;
-  this.palette$1 = null
-});
-$c_Lfront_AIDBrowserScripts$.prototype = new $h_O();
-$c_Lfront_AIDBrowserScripts$.prototype.constructor = $c_Lfront_AIDBrowserScripts$;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$ = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$.prototype = $c_Lfront_AIDBrowserScripts$.prototype;
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksTimelineData__O = (function() {
-  return this.tasksTimelineData$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksTimelineData__scm_Map__O = (function(x$1) {
-  this.tasksTimelineData$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.createRow__Lorg_scalajs_dom_raw_Element = (function() {
-  var row = this.d$1["createElement"]("div");
-  row["setAttribute"]("class", "row left-margin");
-  return row
-});
-$c_Lfront_AIDBrowserScripts$.prototype.init___ = (function() {
-  $n_Lfront_AIDBrowserScripts$ = this;
-  this.d$1 = $g["document"];
-  this.tasksPerQuestionMap$1 = $m_sci_Map$EmptyMap$();
-  this.questionNames$1 = $m_sci_Map$EmptyMap$();
-  this.tasksMap$1 = $m_sci_Map$EmptyMap$();
-  this.taskAnswersCount$1 = $m_sci_Map$EmptyMap$();
-  this.taskStatesCount$1 = $m_sci_Map$EmptyMap$();
-  this.tasksTimelineData$1 = $as_scm_Map($m_scm_Map$().apply__sc_Seq__sc_GenMap($m_sci_Nil$()));
-  var y = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Blue$1);
-  var jsx$7 = new $c_T2().init___O__O("READY", y);
-  var y$1 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Green$1);
-  var jsx$6 = new $c_T2().init___O__O("RUNNING", y$1);
-  var y$2 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().White$1);
-  var jsx$5 = new $c_T2().init___O__O("ANSWERED", y$2);
-  var y$3 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Cyan$1);
-  var jsx$4 = new $c_T2().init___O__O("DUPLICATE", y$3);
-  var y$4 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Magenta$1);
-  var jsx$3 = new $c_T2().init___O__O("ACCEPTED", y$4);
-  var y$5 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Yellow$1);
-  var jsx$2 = new $c_T2().init___O__O("REJECTED", y$5);
-  var y$6 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Red$1);
-  var jsx$1 = new $c_T2().init___O__O("TIMEOUT", y$6);
-  var y$7 = this.getHex__Lorg_scalajs_dom_ext_Color__T($m_Lorg_scalajs_dom_ext_Color$().Black$1);
-  var array = [jsx$7, jsx$6, jsx$5, jsx$4, jsx$3, jsx$2, jsx$1, new $c_T2().init___O__O("CANCELLED", y$7)];
-  var this$23 = new $c_scm_MapBuilder().init___sc_GenMap($m_sci_Map$EmptyMap$());
-  matchEnd4: {
-    var i = 0;
-    var len = $uI(array["length"]);
-    while ((i < len)) {
-      var index = i;
-      var arg1 = array[index];
-      this$23.$$plus$eq__T2__scm_MapBuilder($as_T2(arg1));
-      i = ((1 + i) | 0)
-    };
-    break matchEnd4
-  };
-  this.palette$1 = $as_sci_Map(this$23.elems$1);
-  return this
-});
-$c_Lfront_AIDBrowserScripts$.prototype.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM = (function() {
-  var parentDiv = this.d$1["getElementById"]("tasks-states");
-  var this$2 = this.taskStatesCount$1;
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
-    var t = $as_T2(t$2);
-    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
-  }));
-  var this$1 = $m_sci_Iterable$();
-  var bf = this$1.ReusableCBFInstance$2;
-  var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
-  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
-  var array = [];
-  var jsx$4 = this$3.jsCtor$2;
-  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
-  matchEnd5: {
-    var jsx$2;
-    var jsx$2 = array;
-    break matchEnd5
-  };
-  var jsx$1 = [jsx$3]["concat"](jsx$2);
-  var chart = jsx$4["apply"]((void 0), jsx$1);
-  return $g["React"]["render"](chart, parentDiv)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$palette__O = (function() {
-  return this.palette$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$d__O = (function() {
-  return this.d$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$update__scm_Map__O__F1__O = (function(m, k, f) {
-  return this.update__scm_Map__O__F1__scm_Map(m, k, f)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__O = (function() {
-  return this.tasksMap$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$getHex__Lorg_scalajs_dom_ext_Color__O = (function(c) {
-  return this.getHex__Lorg_scalajs_dom_ext_Color__T(c)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskStates__O = (function() {
-  return this.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__O = (function() {
-  return this.questionNames$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$createTh__T__I__O = (function(text, colspan) {
-  return this.createTh__T__I__Lorg_scalajs_dom_raw_Element(text, colspan)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$renderSelectBoxes__O = (function() {
-  this.renderSelectBoxes__V()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskAnswersCount__O = (function() {
-  return this.taskAnswersCount$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTimeline__O = (function() {
-  this.renderTimeline__V()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.main__V = (function() {
-  var consoleDebug = this.d$1["getElementById"]("console-debug");
-  var ws = new $g["WebSocket"]("ws://localhost:8128/");
-  $g["console"]["log"]("chat has been created");
-  this.renderTimelineLegend__V();
-  ws["onopen"] = (function(consoleDebug$1) {
-    return (function(event$2) {
-      $g["console"]["log"]("chat has been opened");
-      var p = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("p");
-      p["innerHTML"] = "chat has been opened";
-      consoleDebug$1["appendChild"](p);
-      return event$2
-    })
-  })(consoleDebug);
-  ws["onerror"] = (function(event$2$1) {
-    var jsx$1 = $g["console"];
-    var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["Failed: code: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$uI(event$2$1["colno"])]));
-    return jsx$1["log"](s)
-  });
-  ws["onmessage"] = (function(f) {
-    return (function(arg1) {
-      return f.apply__O__O(arg1)
-    })
-  })(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3().init___());
-  ws["onclose"] = (function(consoleDebug$1$1) {
-    return (function(event$2$2) {
-      $g["console"]["log"]("Connection to chat lost. You can try to rejoin manually.");
-      var p$1 = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("p");
-      p$1["innerHTML"] = "Connection to chat lost. You can try to rejoin manually.";
-      return consoleDebug$1$1["appendChild"](p$1)
-    })
-  })(consoleDebug)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.removeChildren__Lorg_scalajs_dom_raw_Element__V = (function(el) {
-  while ((el["firstChild"] !== null)) {
-    el["removeChild"](el["firstChild"])
-  }
-});
-$c_Lfront_AIDBrowserScripts$.prototype.createTableHeaders__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Node = (function(tab) {
-  var tr = this.d$1["createElement"]("tr");
-  tr["appendChild"](this.createTh__T__I__Lorg_scalajs_dom_raw_Element("Task Id", 1));
-  tr["appendChild"](this.createTh__T__I__Lorg_scalajs_dom_raw_Element("Last 60 seconds", 60));
-  return tab["appendChild"](tr)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM = (function() {
-  var parentDiv = this.d$1["getElementById"]("tasks-completion");
-  var this$2 = this.taskAnswersCount$1;
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
-    var t = $as_T2(t$2);
-    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
-  }));
-  var this$1 = $m_sci_Iterable$();
-  var bf = this$1.ReusableCBFInstance$2;
-  var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
-  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
-  var array = [];
-  var jsx$4 = this$3.jsCtor$2;
-  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
-  matchEnd5: {
-    var jsx$2;
-    var jsx$2 = array;
-    break matchEnd5
-  };
-  var jsx$1 = [jsx$3]["concat"](jsx$2);
-  var chart = jsx$4["apply"]((void 0), jsx$1);
-  return $g["React"]["render"](chart, parentDiv)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.createTd__T2__Lorg_scalajs_dom_raw_Element = (function(state) {
-  var td = this.d$1["createElement"]("td");
-  td["setAttribute"]("width", "1.5%");
-  td["setAttribute"]("style", "font-size: 10px");
-  td["setAttribute"]("bgcolor", $as_T(this.palette$1.apply__O__O(state.$$und2__O())));
-  return td
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayQuestionTasks__T__O = (function(question) {
-  this.displayQuestionTasks__T__V(question)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.update__scm_Map__O__F1__scm_Map = (function(m, k, f) {
-  var value = f.apply__O__O(m.apply__O__O(k));
-  return $s_scm_MapLike$class__updated__scm_MapLike__O__O__scm_Map(m, k, value)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$createTd__T2__O = (function(state) {
-  return this.createTd__T2__Lorg_scalajs_dom_raw_Element(state)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$removeChildren__Lorg_scalajs_dom_raw_Element__O = (function(el) {
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(el)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$createRow__O = (function() {
-  return this.createRow__Lorg_scalajs_dom_raw_Element()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.displayGeneralInfo__Lorg_scalajs_dom_raw_Node = (function() {
-  var generalInfo = this.d$1["getElementById"]("general-info");
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(generalInfo);
-  var firstRow = this.createRow__Lorg_scalajs_dom_raw_Element();
-  var this$1 = this.questionNames$1.size__I();
-  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of questions", ("" + this$1)));
-  var this$3 = this.tasksMap$1.size__I();
-  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of tasks", ("" + this$3)));
-  generalInfo["appendChild"](firstRow);
-  var this$6 = this.tasksMap$1;
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
-    var x$1 = $as_T2(x$1$2);
-    return $as_Lmodels_TaskSnapshotResponse(x$1.$$und2__O()).cost$1
-  }));
-  var this$5 = $m_sci_Iterable$();
-  var bf = this$5.ReusableCBFInstance$2;
-  var totalTasksCost = $uD($as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f, bf)).sum__s_math_Numeric__O($m_s_math_Numeric$DoubleIsFractional$()));
-  var avgTaskCost = (totalTasksCost / this.tasksMap$1.size__I());
-  var this$7 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
-  var roundedAvgTaskCost = this$7.decimal__D__Ljava_math_MathContext__s_math_BigDecimal(avgTaskCost, this$7.defaultMathContext$1).setScale__I__s_Enumeration$Value__s_math_BigDecimal(2, $m_s_math_BigDecimal$RoundingMode$().HALF$undUP$2);
-  var this$8 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
-  var roundedTotalTasksCost = this$8.decimal__D__Ljava_math_MathContext__s_math_BigDecimal(totalTasksCost, this$8.defaultMathContext$1).setScale__I__s_Enumeration$Value__s_math_BigDecimal(2, $m_s_math_BigDecimal$RoundingMode$().HALF$undUP$2);
-  var secondRow = this.createRow__Lorg_scalajs_dom_raw_Element();
-  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Average task cost", ("$" + roundedAvgTaskCost.bigDecimal$3.toString__T())));
-  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Total tasks cost", ("$" + roundedTotalTasksCost.bigDecimal$3.toString__T())));
-  return generalInfo["appendChild"](secondRow)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.createBlankTd__Lorg_scalajs_dom_raw_Element = (function() {
-  var td = this.d$1["createElement"]("td");
-  td["setAttribute"]("width", "1.5%");
-  td["setAttribute"]("style", "font-size: 9px");
-  return td
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTimelineLegend__O = (function() {
-  this.renderTimelineLegend__V()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__sci_Map__O = (function(x$1) {
-  this.tasksPerQuestionMap$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.getHex__Lorg_scalajs_dom_ext_Color__T = (function(c) {
-  return $m_sjsr_RuntimeString$().format__T__AO__T("#%02x%02x%02x", $makeNativeArrayWrapper($d_O.getArrayOf(), [c.r$1, c.g$1, c.b$1]))
-});
-$c_Lfront_AIDBrowserScripts$.prototype.createTh__T__I__Lorg_scalajs_dom_raw_Element = (function(text, colspan) {
-  var th = this.d$1["createElement"]("th");
-  th["setAttribute"]("style", "font-size: 9px");
-  th["setAttribute"]("colspan", ("" + colspan));
-  th["innerHTML"] = text;
-  return th
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__O = (function() {
-  return this.taskStatesCount$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskAnswers__O = (function() {
-  return this.renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.displayQuestionTasks__T__V = (function(question) {
-  var jsx$1 = $g["console"];
-  var s = ("logValue: " + question);
-  jsx$1["log"](s);
-  var t_select = this.d$1["getElementById"]("t_select");
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(t_select);
-  var this$3 = $as_sci_List(this.tasksPerQuestionMap$1.apply__O__O(question));
-  var these = this$3;
-  while ((!these.isEmpty__Z())) {
-    var arg1 = these.head__O();
-    var t = $as_T(arg1);
-    var select = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("option");
-    select["setAttribute"]("value", t);
-    select["innerHTML"] = t;
-    t_select["appendChild"](select);
-    var this$4 = these;
-    these = this$4.tail__sci_List()
-  };
-  this.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node($as_T($as_sc_IterableLike(this.tasksPerQuestionMap$1.apply__O__O(question)).head__O()))
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskAnswersCount__sci_Map__O = (function(x$1) {
-  this.taskAnswersCount$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.renderSelectBoxes__V = (function() {
-  this.d$1["getElementById"]("no_questions_and_tasks_warn")["setAttribute"]("style", "display: none");
-  this.d$1["getElementById"]("selects")["removeAttribute"]("style");
-  var q_select = this.d$1["getElementById"]("q_select");
-  q_select["setAttribute"]("onchange", "front.AIDBrowserScripts().displayQuestionTasks(value)");
-  var t_select = this.d$1["getElementById"]("t_select");
-  t_select["setAttribute"]("onchange", "front.AIDBrowserScripts().displayTaskInfo(value)");
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(q_select);
-  this.tasksPerQuestionMap$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(q_select$1) {
-    return (function(q$2) {
-      var q = $as_T2(q$2);
-      var select = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("option");
-      select["setAttribute"]("value", $as_T(q.$$und1__O()));
-      select["innerHTML"] = $as_T($m_Lfront_AIDBrowserScripts$().questionNames$1.apply__O__O(q.$$und1__O()));
-      return q_select$1["appendChild"](select)
-    })
-  })(q_select)));
-  var this$1 = this.tasksPerQuestionMap$1;
-  this.displayQuestionTasks__T__V($as_T($as_T2(this$1.iterator__sc_Iterator().next__O()).$$und1__O()))
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__sci_Map__O = (function(x$1) {
-  this.questionNames$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__sci_Map__O = (function(x$1) {
-  this.tasksMap$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node = (function(labelName, value) {
-  var div = this.d$1["createElement"]("div");
-  div["setAttribute"]("class", "bottom-margin");
-  div["setAttribute"]("style", "display: inline-block; width: 30%");
-  var label = this.d$1["createElement"]("label");
-  label["setAttribute"]("class", "control-label small");
-  label["innerHTML"] = labelName;
-  var innerDiv = this.d$1["createElement"]("div");
-  innerDiv["setAttribute"]("class", "controls readonly");
-  innerDiv["innerHTML"] = value;
-  div["appendChild"](label);
-  div["appendChild"](innerDiv);
-  return div
-});
-$c_Lfront_AIDBrowserScripts$.prototype.renderTimelineLegend__V = (function() {
-  var legend = this.d$1["getElementById"]("timeline-legend");
-  var span = this.d$1["createElement"]("span");
-  span["setAttribute"]("style", "font-size:9px;margin-right: 5px");
-  span["innerHTML"] = "Task States:";
-  legend["appendChild"](span);
-  this.palette$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(legend$1) {
-    return (function(color$2) {
-      var color = $as_T2(color$2);
-      var span$1 = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("span");
-      span$1["setAttribute"]("style", (("color:" + color.$$und2__O()) + ";font-size:9px;margin-right: 5px"));
-      span$1["innerHTML"] = $as_T(color.$$und1__O());
-      return legend$1["appendChild"](span$1)
-    })
-  })(legend)))
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$main__O = (function() {
-  this.main__V()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$createTableHeaders__Lorg_scalajs_dom_raw_Element__O = (function(tab) {
-  return this.createTableHeaders__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Node(tab)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__sci_Map__O = (function(x$1) {
-  this.taskStatesCount$1 = x$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayTaskInfo__T__O = (function(taskId) {
-  return this.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node(taskId)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__O = (function() {
-  return this.tasksPerQuestionMap$1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayGeneralInfo__O = (function() {
-  return this.displayGeneralInfo__Lorg_scalajs_dom_raw_Node()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node = (function(taskId) {
-  $g["console"]["log"](taskId);
-  this.d$1["getElementById"]("task-detail-id")["innerHTML"] = ((" (id = " + taskId) + ")");
-  var taskDetail = this.d$1["getElementById"]("task-detail");
-  var task = $as_Lmodels_TaskSnapshotResponse(this.tasksMap$1.apply__O__O(taskId));
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(taskDetail);
-  var firstRow = this.createRow__Lorg_scalajs_dom_raw_Element();
-  var this$3 = task.cost$1;
-  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Cost", ("" + this$3)));
-  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Created at", new $c_ju_Date().init___J($m_sjsr_RuntimeLong$().fromDouble__D__sjsr_RuntimeLong(task.created$undat$1)).toString__T()));
-  taskDetail["appendChild"](firstRow);
-  var secondRow = this.createRow__Lorg_scalajs_dom_raw_Element();
-  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("State", task.state$1));
-  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Changed at", new $c_ju_Date().init___J($m_sjsr_RuntimeLong$().fromDouble__D__sjsr_RuntimeLong(task.state$undchanged$undat$1)).toString__T()));
-  taskDetail["appendChild"](secondRow);
-  var thirdRow = this.createRow__Lorg_scalajs_dom_raw_Element();
-  thirdRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Worker", task.worker$undid$1));
-  thirdRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Answer", task.answer$1));
-  return taskDetail["appendChild"](thirdRow)
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$createBlankTd__O = (function() {
-  return this.createBlankTd__Lorg_scalajs_dom_raw_Element()
-});
-$c_Lfront_AIDBrowserScripts$.prototype.renderTimeline__V = (function() {
-  var tab = this.d$1["getElementById"]("timeline-tab");
-  this.removeChildren__Lorg_scalajs_dom_raw_Element__V(tab);
-  this.createTableHeaders__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_Node(tab);
-  var now = $m_jl_System$().currentTimeMillis__J().$$div__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I__I__I(1000, 0, 0));
-  var minuteAgo = new $c_sjsr_RuntimeLong().init___I__I__I(4194244, 4194303, 1048575).$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(now);
-  this.tasksTimelineData$1.foreach__F1__V(new $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1().init___Lorg_scalajs_dom_raw_Element__J(tab, minuteAgo))
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayInfoLabel__T__T__O = (function(labelName, value) {
-  return this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node(labelName, value)
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "d", {
-  "get": (function() {
-    return this.$$js$exported$prop$d__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksPerQuestionMap", {
-  "set": (function(arg$1) {
-    var prep0 = $as_sci_Map(arg$1);
-    this.$$js$exported$prop$tasksPerQuestionMap__sci_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$tasksPerQuestionMap__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "questionNames", {
-  "set": (function(arg$1) {
-    var prep0 = $as_sci_Map(arg$1);
-    this.$$js$exported$prop$questionNames__sci_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$questionNames__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksMap", {
-  "set": (function(arg$1) {
-    var prep0 = $as_sci_Map(arg$1);
-    this.$$js$exported$prop$tasksMap__sci_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$tasksMap__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskAnswersCount", {
-  "set": (function(arg$1) {
-    var prep0 = $as_sci_Map(arg$1);
-    this.$$js$exported$prop$taskAnswersCount__sci_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$taskAnswersCount__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskStatesCount", {
-  "set": (function(arg$1) {
-    var prep0 = $as_sci_Map(arg$1);
-    this.$$js$exported$prop$taskStatesCount__sci_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$taskStatesCount__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksTimelineData", {
-  "set": (function(arg$1) {
-    var prep0 = $as_scm_Map(arg$1);
-    this.$$js$exported$prop$tasksTimelineData__scm_Map__O(prep0)
-  }),
-  "get": (function() {
-    return this.$$js$exported$prop$tasksTimelineData__O()
-  }),
-  "enumerable": true
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "palette", {
-  "get": (function() {
-    return this.$$js$exported$prop$palette__O()
-  }),
-  "enumerable": true
-});
-$c_Lfront_AIDBrowserScripts$.prototype["getHex"] = (function(arg$1) {
-  var prep0 = $as_Lorg_scalajs_dom_ext_Color(arg$1);
-  return this.$$js$exported$meth$getHex__Lorg_scalajs_dom_ext_Color__O(prep0)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["displayQuestionTasks"] = (function(arg$1) {
-  var prep0 = $as_T(arg$1);
-  return this.$$js$exported$meth$displayQuestionTasks__T__O(prep0)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["displayInfoLabel"] = (function(arg$1, arg$2) {
-  var prep0 = $as_T(arg$1);
-  var prep1 = $as_T(arg$2);
-  return this.$$js$exported$meth$displayInfoLabel__T__T__O(prep0, prep1)
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "createRow", {
-  "get": (function() {
-    return this.$$js$exported$prop$createRow__O()
-  }),
-  "enumerable": true
-});
-$c_Lfront_AIDBrowserScripts$.prototype["displayTaskInfo"] = (function(arg$1) {
-  var prep0 = $as_T(arg$1);
-  return this.$$js$exported$meth$displayTaskInfo__T__O(prep0)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["removeChildren"] = (function(arg$1) {
-  var prep0 = arg$1;
-  return this.$$js$exported$meth$removeChildren__Lorg_scalajs_dom_raw_Element__O(prep0)
-});
-Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "renderSelectBoxes", {
-  "get": (function() {
-    return this.$$js$exported$prop$renderSelectBoxes__O()
-  }),
-  "enumerable": true
-});
-$c_Lfront_AIDBrowserScripts$.prototype["renderTaskAnswers"] = (function() {
-  return this.$$js$exported$meth$renderTaskAnswers__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["renderTaskStates"] = (function() {
-  return this.$$js$exported$meth$renderTaskStates__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["displayGeneralInfo"] = (function() {
-  return this.$$js$exported$meth$displayGeneralInfo__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["renderTimeline"] = (function() {
-  return this.$$js$exported$meth$renderTimeline__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["createTableHeaders"] = (function(arg$1) {
-  var prep0 = arg$1;
-  return this.$$js$exported$meth$createTableHeaders__Lorg_scalajs_dom_raw_Element__O(prep0)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["createTh"] = (function(arg$1, arg$2) {
-  var prep0 = $as_T(arg$1);
-  if ((arg$2 === null)) {
-    var prep1;
-    throw "Found null, expected Int"
-  } else {
-    var prep1 = $uI(arg$2)
-  };
-  return this.$$js$exported$meth$createTh__T__I__O(prep0, prep1)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["createBlankTd"] = (function() {
-  return this.$$js$exported$meth$createBlankTd__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["createTd"] = (function(arg$1) {
-  var prep0 = $as_T2(arg$1);
-  return this.$$js$exported$meth$createTd__T2__O(prep0)
-});
-$c_Lfront_AIDBrowserScripts$.prototype["renderTimelineLegend"] = (function() {
-  return this.$$js$exported$meth$renderTimelineLegend__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["main"] = (function() {
-  return this.$$js$exported$meth$main__O()
-});
-$c_Lfront_AIDBrowserScripts$.prototype["update"] = (function(arg$1, arg$2, arg$3) {
-  var prep0 = $as_scm_Map(arg$1);
-  var prep1 = arg$2;
-  var prep2 = $as_F1(arg$3);
-  return this.$$js$exported$meth$update__scm_Map__O__F1__O(prep0, prep1, prep2)
-});
-var $d_Lfront_AIDBrowserScripts$ = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$: 0
-}, false, "front.AIDBrowserScripts$", {
-  Lfront_AIDBrowserScripts$: 1,
-  O: 1,
-  sjs_js_JSApp: 1
-});
-$c_Lfront_AIDBrowserScripts$.prototype.$classData = $d_Lfront_AIDBrowserScripts$;
-var $n_Lfront_AIDBrowserScripts$ = (void 0);
-var $m_Lfront_AIDBrowserScripts$ = (function() {
-  if ((!$n_Lfront_AIDBrowserScripts$)) {
-    $n_Lfront_AIDBrowserScripts$ = new $c_Lfront_AIDBrowserScripts$().init___()
-  };
-  return $n_Lfront_AIDBrowserScripts$
-});
-$e["front"] = ($e["front"] || {});
-$e["front"]["AIDBrowserScripts"] = $m_Lfront_AIDBrowserScripts$;
-/** @constructor */
 var $c_Ljapgolly_scalajs_react_vdom_Implicits = (function() {
   $c_Ljapgolly_scalajs_react_vdom_LowPri.call(this);
   this.$$undreact$undattrBoolean$2 = null;
@@ -17025,6 +16544,562 @@ var $d_sr_Nothing$ = new $TypeData().initClass({
   Ljava_io_Serializable: 1
 });
 /** @constructor */
+var $c_Lfront_AIDBrowserScripts$ = (function() {
+  $c_O.call(this);
+  this.d$1 = null;
+  this.tasksPerQuestionMap$1 = null;
+  this.questionNames$1 = null;
+  this.tasksMap$1 = null;
+  this.taskAnswersCount$1 = null;
+  this.taskStatesCount$1 = null;
+  this.tasksTimelineData$1 = null;
+  this.stateColorPalette$1 = null
+});
+$c_Lfront_AIDBrowserScripts$.prototype = new $h_O();
+$c_Lfront_AIDBrowserScripts$.prototype.constructor = $c_Lfront_AIDBrowserScripts$;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$ = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$.prototype = $c_Lfront_AIDBrowserScripts$.prototype;
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksTimelineData__O = (function() {
+  return this.tasksTimelineData$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksTimelineData__scm_Map__O = (function(x$1) {
+  this.tasksTimelineData$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.init___ = (function() {
+  $n_Lfront_AIDBrowserScripts$ = this;
+  $s_Lfront_components_stateColors$class__$$init$__Lfront_components_stateColors__V(this);
+  this.d$1 = $g["document"];
+  this.tasksPerQuestionMap$1 = $m_sci_Map$EmptyMap$();
+  this.questionNames$1 = $m_sci_Map$EmptyMap$();
+  this.tasksMap$1 = $m_sci_Map$EmptyMap$();
+  this.taskAnswersCount$1 = $m_sci_Map$EmptyMap$();
+  this.taskStatesCount$1 = $m_sci_Map$EmptyMap$();
+  this.tasksTimelineData$1 = $as_scm_Map($m_scm_Map$().apply__sc_Seq__sc_GenMap($m_sci_Nil$()));
+  return this
+});
+$c_Lfront_AIDBrowserScripts$.prototype.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM = (function() {
+  var parentDiv = this.d$1["getElementById"]("tasks-states");
+  var this$2 = this.taskStatesCount$1;
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_T2(t$2);
+    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
+  }));
+  var this$1 = $m_sci_Iterable$();
+  var bf = this$1.ReusableCBFInstance$2;
+  var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
+  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
+  var array = [];
+  var jsx$4 = this$3.jsCtor$2;
+  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
+  matchEnd5: {
+    var jsx$2;
+    var jsx$2 = array;
+    break matchEnd5
+  };
+  var jsx$1 = [jsx$3]["concat"](jsx$2);
+  var chart = jsx$4["apply"]((void 0), jsx$1);
+  return $g["React"]["render"](chart, parentDiv)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.stateColorPalette__sci_Map = (function() {
+  return this.stateColorPalette$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$d__O = (function() {
+  return this.d$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$update__scm_Map__O__F1__O = (function(m, k, f) {
+  return this.update__scm_Map__O__F1__scm_Map(m, k, f)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__O = (function() {
+  return this.tasksMap$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskStates__O = (function() {
+  return this.renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__O = (function() {
+  return this.questionNames$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.updateQuestionNames__sc_Seq__V = (function(questionNamesTuples) {
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$12$2) {
+    var x$12 = $as_T2(x$12$2);
+    return $as_T(x$12.$$und1__O())
+  }));
+  var this$2 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionNamesTuples, f);
+  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2().init___();
+  var this$1 = $m_sci_Map$();
+  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$1);
+  this.questionNames$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f$1, bf))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateTasksPerQuestionMap__sc_Seq__O = (function(questionTaskTuples) {
+  this.updateTasksPerQuestionMap__sc_Seq__V(questionTaskTuples)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskAnswersCount__O = (function() {
+  return this.taskAnswersCount$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.createTh__T__I__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element = (function(text, colspan, d) {
+  return $s_Lfront_components_htmlDOMUtils$class__createTh__Lfront_components_htmlDOMUtils__T__I__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, text, colspan, d)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTimeline__O = (function() {
+  this.renderTimeline__V()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.main__V = (function() {
+  var ws = new $g["WebSocket"]("ws://localhost:8128/");
+  $g["console"]["log"]("App has been started");
+  ws["onopen"] = (function(event$2) {
+    $g["console"]["log"]("WS has been opened");
+    $m_Lfront_AIDBrowserScripts$().printToDebugConsole__T__Lorg_scalajs_dom_raw_Node("WS has been opened");
+    var this$5 = $m_Lfront_AIDBrowserScripts$();
+    var d = $m_Lfront_AIDBrowserScripts$().d$1;
+    $s_Lfront_components_htmlDOMUtils$class__renderTimelineLegend__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__V(this$5, d);
+    return event$2
+  });
+  ws["onerror"] = (function(event$2$1) {
+    var jsx$1 = $g["console"];
+    var s = new $c_s_StringContext().init___sc_Seq(new $c_sjs_js_WrappedArray().init___sjs_js_Array(["WS failed: code: ", ""])).s__sc_Seq__T(new $c_sjs_js_WrappedArray().init___sjs_js_Array([$uI(event$2$1["colno"])]));
+    return jsx$1["log"](s)
+  });
+  ws["onmessage"] = (function(f) {
+    return (function(arg1) {
+      return f.apply__O__O(arg1)
+    })
+  })(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3().init___());
+  ws["onclose"] = (function(event$2$2) {
+    $g["console"]["log"]("Connection to WS lost. You can try to rejoin manually.");
+    return $m_Lfront_AIDBrowserScripts$().printToDebugConsole__T__Lorg_scalajs_dom_raw_Node("Connection to WS lost. You can try to rejoin manually.")
+  })
+});
+$c_Lfront_AIDBrowserScripts$.prototype.renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM = (function() {
+  var parentDiv = this.d$1["getElementById"]("tasks-completion");
+  var this$2 = this.taskAnswersCount$1;
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_T2(t$2);
+    return new $c_Lfront_components_piechart$StringIntVal().init___T__I($as_T(t.$$und1__O()), $uI(t.$$und2__O()))
+  }));
+  var this$1 = $m_sci_Iterable$();
+  var bf = this$1.ReusableCBFInstance$2;
+  var args = $as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f, bf)).toList__sci_List();
+  var this$3 = $m_Lfront_components_piechart$().PieChart$1;
+  var array = [];
+  var jsx$4 = this$3.jsCtor$2;
+  var jsx$3 = this$3.mkProps__O__Ljapgolly_scalajs_react_package$WrapObj(args);
+  matchEnd5: {
+    var jsx$2;
+    var jsx$2 = array;
+    break matchEnd5
+  };
+  var jsx$1 = [jsx$3]["concat"](jsx$2);
+  var chart = jsx$4["apply"]((void 0), jsx$1);
+  return $g["React"]["render"](chart, parentDiv)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayQuestionTasks__T__O = (function(question) {
+  this.displayQuestionTasks__T__V(question)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.update__scm_Map__O__F1__scm_Map = (function(m, k, f) {
+  var value = f.apply__O__O(m.apply__O__O(k));
+  return $s_scm_MapLike$class__updated__scm_MapLike__O__O__scm_Map(m, k, value)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.printToDebugConsole__T__Lorg_scalajs_dom_raw_Node = (function(text) {
+  var consoleDebug = this.d$1["getElementById"]("console-debug");
+  var p = this.d$1["createElement"]("p");
+  p["innerHTML"] = text;
+  return consoleDebug["appendChild"](p)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.updateTaskStatesCount__Lmodels_Tasks__V = (function(parsedTasks) {
+  var jsx$2 = parsedTasks.tasks$1;
+  var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_Lmodels_TaskSnapshotResponse(t$2);
+    var $$this = t.state$1;
+    return new $c_T2().init___O__O($$this, t)
+  }));
+  var this$3 = $m_sc_Seq$();
+  var this$4 = $as_sc_TraversableLike(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$3.ReusableCBFInstance$2));
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
+    var x$6 = $as_T2(x$6$2);
+    return $as_T(x$6.$$und1__O())
+  }));
+  var this$6 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$4, f);
+  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3().init___();
+  var this$5 = $m_sci_Map$();
+  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$5);
+  this.taskStatesCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f$1, bf))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateTasksMap__Lmodels_Tasks__O = (function(parsedTasks) {
+  this.updateTasksMap__Lmodels_Tasks__V(parsedTasks)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderSelectBoxes__O = (function() {
+  this.renderSelectBoxes__V()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.displayGeneralInfo__Lorg_scalajs_dom_raw_Node = (function() {
+  var generalInfo = this.d$1["getElementById"]("general-info");
+  $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V(this, generalInfo);
+  var d = this.d$1;
+  var firstRow = $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, d);
+  var this$1 = this.questionNames$1.size__I();
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of questions", ("" + this$1)));
+  var this$3 = this.tasksMap$1.size__I();
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Number of tasks", ("" + this$3)));
+  generalInfo["appendChild"](firstRow);
+  var this$6 = this.tasksMap$1;
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$1$2) {
+    var x$1 = $as_T2(x$1$2);
+    return $as_Lmodels_TaskSnapshotResponse(x$1.$$und2__O()).cost$1
+  }));
+  var this$5 = $m_sci_Iterable$();
+  var bf = this$5.ReusableCBFInstance$2;
+  var totalTasksCost = $uD($as_sc_TraversableOnce($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f, bf)).sum__s_math_Numeric__O($m_s_math_Numeric$DoubleIsFractional$()));
+  var avgTaskCost = (totalTasksCost / this.tasksMap$1.size__I());
+  var this$7 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
+  var roundedAvgTaskCost = this$7.decimal__D__Ljava_math_MathContext__s_math_BigDecimal(avgTaskCost, this$7.defaultMathContext$1).setScale__I__s_Enumeration$Value__s_math_BigDecimal(2, $m_s_math_BigDecimal$RoundingMode$().HALF$undUP$2);
+  var this$8 = $m_s_package$().BigDecimal__s_math_BigDecimal$();
+  var roundedTotalTasksCost = this$8.decimal__D__Ljava_math_MathContext__s_math_BigDecimal(totalTasksCost, this$8.defaultMathContext$1).setScale__I__s_Enumeration$Value__s_math_BigDecimal(2, $m_s_math_BigDecimal$RoundingMode$().HALF$undUP$2);
+  var d$1 = this.d$1;
+  var secondRow = $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, d$1);
+  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Average task cost", ("$" + roundedAvgTaskCost.bigDecimal$3.toString__T())));
+  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Total tasks cost", ("$" + roundedTotalTasksCost.bigDecimal$3.toString__T())));
+  return generalInfo["appendChild"](secondRow)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__sci_Map__O = (function(x$1) {
+  this.tasksPerQuestionMap$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$printToDebugConsole__T__O = (function(text) {
+  return this.printToDebugConsole__T__Lorg_scalajs_dom_raw_Node(text)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateTaskStatesCount__Lmodels_Tasks__O = (function(parsedTasks) {
+  this.updateTaskStatesCount__Lmodels_Tasks__V(parsedTasks)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__O = (function() {
+  return this.taskStatesCount$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$renderTaskAnswers__O = (function() {
+  return this.renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.displayQuestionTasks__T__V = (function(question) {
+  var jsx$1 = $g["console"];
+  var s = ("logValue: " + question);
+  jsx$1["log"](s);
+  var t_select = this.d$1["getElementById"]("t_select");
+  $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V(this, t_select);
+  var this$3 = $as_sci_List(this.tasksPerQuestionMap$1.apply__O__O(question));
+  var these = this$3;
+  while ((!these.isEmpty__Z())) {
+    var arg1 = these.head__O();
+    var t = $as_T(arg1);
+    var select = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("option");
+    select["setAttribute"]("value", t);
+    select["innerHTML"] = t;
+    t_select["appendChild"](select);
+    var this$4 = these;
+    these = this$4.tail__sci_List()
+  };
+  this.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node($as_T($as_sc_IterableLike(this.tasksPerQuestionMap$1.apply__O__O(question)).head__O()))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskAnswersCount__sci_Map__O = (function(x$1) {
+  this.taskAnswersCount$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateTaskAnswersMap__Lmodels_Tasks__O = (function(parsedTasks) {
+  this.updateTaskAnswersMap__Lmodels_Tasks__V(parsedTasks)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.renderSelectBoxes__V = (function() {
+  var this$1 = this.tasksMap$1;
+  if ($s_sc_TraversableOnce$class__nonEmpty__sc_TraversableOnce__Z(this$1)) {
+    this.d$1["getElementById"]("no_questions_and_tasks_warn")["setAttribute"]("style", "display: none");
+    this.d$1["getElementById"]("selects")["removeAttribute"]("style");
+    var q_select = this.d$1["getElementById"]("q_select");
+    q_select["setAttribute"]("onchange", "front.AIDBrowserScripts().displayQuestionTasks(value)");
+    var t_select = this.d$1["getElementById"]("t_select");
+    t_select["setAttribute"]("onchange", "front.AIDBrowserScripts().displayTaskInfo(value)");
+    $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V(this, q_select);
+    this.tasksPerQuestionMap$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(q_select$1) {
+      return (function(q$2) {
+        var q = $as_T2(q$2);
+        var select = $m_Lfront_AIDBrowserScripts$().d$1["createElement"]("option");
+        select["setAttribute"]("value", $as_T(q.$$und1__O()));
+        select["innerHTML"] = $as_T($m_Lfront_AIDBrowserScripts$().questionNames$1.apply__O__O(q.$$und1__O()));
+        return q_select$1["appendChild"](select)
+      })
+    })(q_select)));
+    var this$2 = this.tasksPerQuestionMap$1;
+    this.displayQuestionTasks__T__V($as_T($as_T2(this$2.iterator__sc_Iterator().next__O()).$$und1__O()))
+  }
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$questionNames__sci_Map__O = (function(x$1) {
+  this.questionNames$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksMap__sci_Map__O = (function(x$1) {
+  this.tasksMap$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node = (function(labelName, value) {
+  var div = this.d$1["createElement"]("div");
+  div["setAttribute"]("class", "bottom-margin");
+  div["setAttribute"]("style", "display: inline-block; width: 30%");
+  var label = this.d$1["createElement"]("label");
+  label["setAttribute"]("class", "control-label small");
+  label["innerHTML"] = labelName;
+  var innerDiv = this.d$1["createElement"]("div");
+  innerDiv["setAttribute"]("class", "controls readonly");
+  innerDiv["innerHTML"] = value;
+  div["appendChild"](label);
+  div["appendChild"](innerDiv);
+  return div
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateQuestionNames__sc_Seq__O = (function(questionNamesTuples) {
+  this.updateQuestionNames__sc_Seq__V(questionNamesTuples)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$main__O = (function() {
+  this.main__V()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.updateTaskAnswersMap__Lmodels_Tasks__V = (function(parsedTasks) {
+  var jsx$2 = parsedTasks.tasks$1;
+  var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_Lmodels_TaskSnapshotResponse(t$2);
+    var $$this = t.answer$1;
+    return new $c_T2().init___O__O($$this, t)
+  }));
+  var this$3 = $m_sc_Seq$();
+  var this$4 = $as_sc_TraversableLike(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$3.ReusableCBFInstance$2));
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
+    var x$8 = $as_T2(x$8$2);
+    return $as_T(x$8.$$und1__O())
+  }));
+  var this$6 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$4, f);
+  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3().init___();
+  var this$5 = $m_sci_Map$();
+  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$5);
+  this.taskAnswersCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f$1, bf))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.updateTasksPerQuestionMap__sc_Seq__V = (function(questionTaskTuples) {
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
+    var x$3 = $as_T2(x$3$2);
+    return $as_T(x$3.$$und1__O())
+  }));
+  var this$2 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f);
+  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2().init___();
+  var this$1 = $m_sci_Map$();
+  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$1);
+  this.tasksPerQuestionMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$2, f$1, bf))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$taskStatesCount__sci_Map__O = (function(x$1) {
+  this.taskStatesCount$1 = x$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayTaskInfo__T__O = (function(taskId) {
+  return this.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node(taskId)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$prop$tasksPerQuestionMap__O = (function() {
+  return this.tasksPerQuestionMap$1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayGeneralInfo__O = (function() {
+  return this.displayGeneralInfo__Lorg_scalajs_dom_raw_Node()
+});
+$c_Lfront_AIDBrowserScripts$.prototype.displayTaskInfo__T__Lorg_scalajs_dom_raw_Node = (function(taskId) {
+  $g["console"]["log"](taskId);
+  this.d$1["getElementById"]("task-detail-id")["innerHTML"] = ((" (id = " + taskId) + ")");
+  var taskDetail = this.d$1["getElementById"]("task-detail");
+  var task = $as_Lmodels_TaskSnapshotResponse(this.tasksMap$1.apply__O__O(taskId));
+  $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V(this, taskDetail);
+  var d = this.d$1;
+  var firstRow = $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, d);
+  var this$3 = task.cost$1;
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Cost", ("" + this$3)));
+  firstRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Created at", new $c_ju_Date().init___J($m_sjsr_RuntimeLong$().fromDouble__D__sjsr_RuntimeLong(task.created$undat$1)).toString__T()));
+  taskDetail["appendChild"](firstRow);
+  var d$1 = this.d$1;
+  var secondRow = $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, d$1);
+  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("State", task.state$1));
+  secondRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Changed at", new $c_ju_Date().init___J($m_sjsr_RuntimeLong$().fromDouble__D__sjsr_RuntimeLong(task.state$undchanged$undat$1)).toString__T()));
+  taskDetail["appendChild"](secondRow);
+  var d$2 = this.d$1;
+  var thirdRow = $s_Lfront_components_htmlDOMUtils$class__createRow__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this, d$2);
+  thirdRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Worker", task.worker$undid$1));
+  thirdRow["appendChild"](this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node("Answer", task.answer$1));
+  return taskDetail["appendChild"](thirdRow)
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$updateTasksTimelineData__Lmodels_Tasks__O = (function(parsedTasks) {
+  parsedTasks.tasks$1.foreach__F1__V(new $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1().init___())
+});
+$c_Lfront_AIDBrowserScripts$.prototype.updateTasksMap__Lmodels_Tasks__V = (function(parsedTasks) {
+  var jsx$2 = parsedTasks.tasks$1;
+  var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2) {
+    var t = $as_Lmodels_TaskSnapshotResponse(t$2);
+    var $$this = t.task$undid$1;
+    return new $c_T2().init___O__O($$this, t)
+  }));
+  var this$3 = $m_sc_Seq$();
+  var this$4 = $as_sc_TraversableLike(jsx$2.map__F1__scg_CanBuildFrom__O(jsx$1, this$3.ReusableCBFInstance$2));
+  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
+    var x$10 = $as_T2(x$10$2);
+    return $as_T(x$10.$$und1__O())
+  }));
+  var this$6 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$4, f);
+  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3().init___();
+  var this$5 = $m_sci_Map$();
+  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$5);
+  this.tasksMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$6, f$1, bf))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.renderTimeline__V = (function() {
+  var tab = this.d$1["getElementById"]("timeline-tab");
+  $s_Lfront_components_htmlDOMUtils$class__removeAllElementChildren__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__V(this, tab);
+  var d = this.d$1;
+  $s_Lfront_components_htmlDOMUtils$class__createTableHeaders__Lfront_components_htmlDOMUtils__Lorg_scalajs_dom_raw_Element__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Node(this, tab, d);
+  var now = $m_jl_System$().currentTimeMillis__J().$$div__sjsr_RuntimeLong__sjsr_RuntimeLong(new $c_sjsr_RuntimeLong().init___I__I__I(1000, 0, 0));
+  var minuteAgo = new $c_sjsr_RuntimeLong().init___I__I__I(4194244, 4194303, 1048575).$$plus__sjsr_RuntimeLong__sjsr_RuntimeLong(now);
+  this.tasksTimelineData$1.foreach__F1__V(new $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1().init___Lorg_scalajs_dom_raw_Element__J(tab, minuteAgo))
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$$js$exported$meth$displayInfoLabel__T__T__O = (function(labelName, value) {
+  return this.displayInfoLabel__T__T__Lorg_scalajs_dom_raw_Node(labelName, value)
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "d", {
+  "get": (function() {
+    return this.$$js$exported$prop$d__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksPerQuestionMap", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$tasksPerQuestionMap__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$tasksPerQuestionMap__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "questionNames", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$questionNames__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$questionNames__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksMap", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$tasksMap__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$tasksMap__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskAnswersCount", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$taskAnswersCount__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$taskAnswersCount__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "taskStatesCount", {
+  "set": (function(arg$1) {
+    var prep0 = $as_sci_Map(arg$1);
+    this.$$js$exported$prop$taskStatesCount__sci_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$taskStatesCount__O()
+  }),
+  "enumerable": true
+});
+Object["defineProperty"]($c_Lfront_AIDBrowserScripts$.prototype, "tasksTimelineData", {
+  "set": (function(arg$1) {
+    var prep0 = $as_scm_Map(arg$1);
+    this.$$js$exported$prop$tasksTimelineData__scm_Map__O(prep0)
+  }),
+  "get": (function() {
+    return this.$$js$exported$prop$tasksTimelineData__O()
+  }),
+  "enumerable": true
+});
+$c_Lfront_AIDBrowserScripts$.prototype["displayQuestionTasks"] = (function(arg$1) {
+  var prep0 = $as_T(arg$1);
+  return this.$$js$exported$meth$displayQuestionTasks__T__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["displayInfoLabel"] = (function(arg$1, arg$2) {
+  var prep0 = $as_T(arg$1);
+  var prep1 = $as_T(arg$2);
+  return this.$$js$exported$meth$displayInfoLabel__T__T__O(prep0, prep1)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["displayTaskInfo"] = (function(arg$1) {
+  var prep0 = $as_T(arg$1);
+  return this.$$js$exported$meth$displayTaskInfo__T__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["renderSelectBoxes"] = (function() {
+  return this.$$js$exported$meth$renderSelectBoxes__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["renderTaskAnswers"] = (function() {
+  return this.$$js$exported$meth$renderTaskAnswers__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["renderTaskStates"] = (function() {
+  return this.$$js$exported$meth$renderTaskStates__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["displayGeneralInfo"] = (function() {
+  return this.$$js$exported$meth$displayGeneralInfo__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["renderTimeline"] = (function() {
+  return this.$$js$exported$meth$renderTimeline__O()
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateTasksPerQuestionMap"] = (function(arg$1) {
+  var prep0 = $as_sc_Seq(arg$1);
+  return this.$$js$exported$meth$updateTasksPerQuestionMap__sc_Seq__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["update"] = (function(arg$1, arg$2, arg$3) {
+  var prep0 = $as_scm_Map(arg$1);
+  var prep1 = arg$2;
+  var prep2 = $as_F1(arg$3);
+  return this.$$js$exported$meth$update__scm_Map__O__F1__O(prep0, prep1, prep2)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateTasksTimelineData"] = (function(arg$1) {
+  var prep0 = $as_Lmodels_Tasks(arg$1);
+  return this.$$js$exported$meth$updateTasksTimelineData__Lmodels_Tasks__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateTaskStatesCount"] = (function(arg$1) {
+  var prep0 = $as_Lmodels_Tasks(arg$1);
+  return this.$$js$exported$meth$updateTaskStatesCount__Lmodels_Tasks__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateTaskAnswersMap"] = (function(arg$1) {
+  var prep0 = $as_Lmodels_Tasks(arg$1);
+  return this.$$js$exported$meth$updateTaskAnswersMap__Lmodels_Tasks__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateTasksMap"] = (function(arg$1) {
+  var prep0 = $as_Lmodels_Tasks(arg$1);
+  return this.$$js$exported$meth$updateTasksMap__Lmodels_Tasks__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["updateQuestionNames"] = (function(arg$1) {
+  var prep0 = $as_sc_Seq(arg$1);
+  return this.$$js$exported$meth$updateQuestionNames__sc_Seq__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["printToDebugConsole"] = (function(arg$1) {
+  var prep0 = $as_T(arg$1);
+  return this.$$js$exported$meth$printToDebugConsole__T__O(prep0)
+});
+$c_Lfront_AIDBrowserScripts$.prototype["main"] = (function() {
+  return this.$$js$exported$meth$main__O()
+});
+var $d_Lfront_AIDBrowserScripts$ = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$: 0
+}, false, "front.AIDBrowserScripts$", {
+  Lfront_AIDBrowserScripts$: 1,
+  O: 1,
+  sjs_js_JSApp: 1,
+  Lfront_components_htmlDOMUtils: 1,
+  Lfront_components_stateColors: 1
+});
+$c_Lfront_AIDBrowserScripts$.prototype.$classData = $d_Lfront_AIDBrowserScripts$;
+var $n_Lfront_AIDBrowserScripts$ = (void 0);
+var $m_Lfront_AIDBrowserScripts$ = (function() {
+  if ((!$n_Lfront_AIDBrowserScripts$)) {
+    $n_Lfront_AIDBrowserScripts$ = new $c_Lfront_AIDBrowserScripts$().init___()
+  };
+  return $n_Lfront_AIDBrowserScripts$
+});
+$e["front"] = ($e["front"] || {});
+$e["front"]["AIDBrowserScripts"] = $m_Lfront_AIDBrowserScripts$;
+/** @constructor */
 var $c_Ljapgolly_scalajs_react_package$ReactComponentC$ReqProps = (function() {
   $c_Ljapgolly_scalajs_react_package$ReactComponentC$BaseCtor.call(this);
   this.jsCtor$2 = null;
@@ -18419,280 +18494,6 @@ var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4 = ne
 });
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$4;
 /** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__T2($as_T2(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.apply__T2__T2 = (function(x0$4) {
-  if ((x0$4 !== null)) {
-    var k = $as_T(x0$4.$$und1__O());
-    var v = $as_sc_Seq(x0$4.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$10$2) {
-      var x$10 = $as_T2(x$10$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$10.$$und2__O())
-    }));
-    var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
-  } else {
-    throw new $c_s_MatchError().init___O(x0$4)
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11;
-/** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.apply__O__O = (function(v1) {
-  this.apply__Lmodels_TaskSnapshotResponse__V($as_Lmodels_TaskSnapshotResponse(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.apply__Lmodels_TaskSnapshotResponse__V = (function(task) {
-  var x1 = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1.get__O__s_Option(task.task$undid$1);
-  if ($is_s_Some(x1)) {
-    var x2 = $as_s_Some(x1);
-    var t = $as_sci_List(x2.x$2);
-    if (($as_T2(t.head__O()).$$und1$mcD$sp__D() !== task.state$undchanged$undat$1)) {
-      var jsx$1 = $m_Lfront_AIDBrowserScripts$();
-      $m_Lfront_AIDBrowserScripts$();
-      var m = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1;
-      var k = task.task$undid$1;
-      var arg1 = m.apply__O__O(k);
-      var t$1 = $as_sci_List(arg1);
-      var x$11 = new $c_T2().init___O__O(task.state$undchanged$undat$1, task.state$1);
-      var value = new $c_sci_$colon$colon().init___O__sci_List(x$11, t$1);
-      jsx$1.tasksTimelineData$1 = $s_scm_MapLike$class__updated__scm_MapLike__O__O__scm_Map(m, k, value)
-    }
-  } else {
-    var x = $m_s_None$();
-    if ((x === x1)) {
-      var jsx$2 = $m_Lfront_AIDBrowserScripts$();
-      var this$8 = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1;
-      var $$this$1 = task.task$undid$1;
-      $m_sci_List$();
-      var $$this = task.state$undchanged$undat$1;
-      var y = task.state$1;
-      var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_T2().init___O__O($$this, y)]);
-      var this$6 = $m_sci_List$();
-      var cbf = this$6.ReusableCBFInstance$2;
-      var y$1 = $as_sci_List($s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(xs, cbf));
-      var kv = new $c_T2().init___O__O($$this$1, y$1);
-      jsx$2.tasksTimelineData$1 = $as_scm_Map($as_scm_Map($as_scg_Growable(this$8.empty__sc_Map()).$$plus$plus$eq__sc_TraversableOnce__scg_Growable($as_sc_TraversableOnce(this$8))).$$plus$eq__T2__scm_MapLike(kv))
-    } else {
-      throw new $c_s_MatchError().init___O(x1)
-    }
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12;
-/** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__T2($as_T2(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype.apply__T2__T2 = (function(x0$5) {
-  if ((x0$5 !== null)) {
-    var k = $as_T(x0$5.$$und1__O());
-    var v = $as_sc_Seq(x0$5.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$13$2) {
-      var x$13 = $as_T2(x$13$2);
-      return $as_T(x$13.$$und2__O())
-    }));
-    var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
-  } else {
-    throw new $c_s_MatchError().init___O(x0$5)
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15;
-/** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__T2($as_T2(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype.apply__T2__T2 = (function(x0$1) {
-  if ((x0$1 !== null)) {
-    var k = $as_T(x0$1.$$und1__O());
-    var v = $as_sc_Seq(x0$1.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
-      var x$4 = $as_T2(x$4$2);
-      return $as_T(x$4.$$und2__O())
-    }));
-    var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
-  } else {
-    throw new $c_s_MatchError().init___O(x0$1)
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2;
-/** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__T2($as_T2(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype.apply__T2__T2 = (function(x0$2) {
-  if ((x0$2 !== null)) {
-    var k = $as_T(x0$2.$$und1__O());
-    var v = $as_sc_Seq(x0$2.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$6$2) {
-      var x$6 = $as_T2(x$6$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$6.$$und2__O())
-    }));
-    var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
-  } else {
-    throw new $c_s_MatchError().init___O(x0$2)
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5;
-/** @constructor */
-var $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8 = (function() {
-  $c_sr_AbstractFunction1.call(this)
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype = new $h_sr_AbstractFunction1();
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8;
-/** @constructor */
-var $h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8 = (function() {
-  /*<skip>*/
-});
-$h_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype;
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype.apply__O__O = (function(v1) {
-  return this.apply__T2__T2($as_T2(v1))
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype.apply__T2__T2 = (function(x0$3) {
-  if ((x0$3 !== null)) {
-    var k = $as_T(x0$3.$$und1__O());
-    var v = $as_sc_Seq(x0$3.$$und2__O());
-    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$8$2) {
-      var x$8 = $as_T2(x$8$2);
-      return $as_Lmodels_TaskSnapshotResponse(x$8.$$und2__O())
-    }));
-    var this$1 = $m_sc_Seq$();
-    return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
-  } else {
-    throw new $c_s_MatchError().init___O(x0$3)
-  }
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype.init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1 = (function($$outer) {
-  return this
-});
-var $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8 = new $TypeData().initClass({
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8: 0
-}, false, "front.AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8", {
-  Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8: 1,
-  sr_AbstractFunction1: 1,
-  O: 1,
-  F1: 1,
-  s_Serializable: 1,
-  Ljava_io_Serializable: 1
-});
-$c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8;
-/** @constructor */
 var $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1 = (function() {
   $c_sr_AbstractFunction1.call(this);
   this.tab$1$2 = null;
@@ -18748,13 +18549,15 @@ $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1.prototype.apply__T2__Lorg_
     var count = 0;
     while ((i !== terminalElement$4)) {
       var arg1 = i;
-      var td$1 = $m_Lfront_AIDBrowserScripts$().createTd__T2__Lorg_scalajs_dom_raw_Element(state);
+      var this$8 = $m_Lfront_AIDBrowserScripts$();
+      var d = $m_Lfront_AIDBrowserScripts$().d$1;
+      var td$1 = $s_Lfront_components_htmlDOMUtils$class__createTd__Lfront_components_htmlDOMUtils__T2__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this$8, state, d);
       tr["appendChild"](td$1);
       count = ((1 + count) | 0);
       i = ((1 + i) | 0)
     };
-    var this$8 = these;
-    these = this$8.tail__sci_List()
+    var this$9 = these;
+    these = this$9.tail__sci_List()
   };
   var lastState = $as_T2($as_sc_IterableLike(taskData.$$und2__O()).head__O());
   var end$1 = ((59 - elem$1) | 0);
@@ -18769,7 +18572,9 @@ $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1.prototype.apply__T2__Lorg_
   var count$1 = 0;
   while ((i$1 !== terminalElement$4$1)) {
     var arg1$1 = i$1;
-    var td$2 = $m_Lfront_AIDBrowserScripts$().createTd__T2__Lorg_scalajs_dom_raw_Element(lastState);
+    var this$13 = $m_Lfront_AIDBrowserScripts$();
+    var d$1 = $m_Lfront_AIDBrowserScripts$().d$1;
+    var td$2 = $s_Lfront_components_htmlDOMUtils$class__createTd__Lfront_components_htmlDOMUtils__T2__Lorg_scalajs_dom_raw_HTMLDocument__Lorg_scalajs_dom_raw_Element(this$13, lastState, d$1);
     tr["appendChild"](td$2);
     count$1 = ((1 + count$1) | 0);
     i$1 = ((1 + i$1) | 0)
@@ -18788,44 +18593,300 @@ var $d_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1 = new $TypeData().init
 });
 $c_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$renderTimeline$1;
 /** @constructor */
-var $c_Lfront_components_colors$Color = (function() {
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype.apply__T2__T2 = (function(x0$5) {
+  if ((x0$5 !== null)) {
+    var k = $as_T(x0$5.$$und1__O());
+    var v = $as_sc_Seq(x0$5.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$13$2) {
+      var x$13 = $as_T2(x$13$2);
+      return $as_T(x$13.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$5)
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateQuestionNames$2", {
+  Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateQuestionNames$2;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype.apply__T2__T2 = (function(x0$3) {
+  if ((x0$3 !== null)) {
+    var k = $as_T(x0$3.$$und1__O());
+    var v = $as_sc_Seq(x0$3.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
+      var x$9 = $as_T2(x$9$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$9.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$3)
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3", {
+  Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateTaskAnswersMap$3;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype.apply__T2__T2 = (function(x0$2) {
+  if ((x0$2 !== null)) {
+    var k = $as_T(x0$2.$$und1__O());
+    var v = $as_sc_Seq(x0$2.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
+      var x$7 = $as_T2(x$7$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$7.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_SeqLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).size__I())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$2)
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateTaskStatesCount$3", {
+  Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateTaskStatesCount$3;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype.apply__T2__T2 = (function(x0$4) {
+  if ((x0$4 !== null)) {
+    var k = $as_T(x0$4.$$und1__O());
+    var v = $as_sc_Seq(x0$4.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$11$2) {
+      var x$11 = $as_T2(x$11$2);
+      return $as_Lmodels_TaskSnapshotResponse(x$11.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_IterableLike(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).head__O())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$4)
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateTasksMap$3", {
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksMap$3;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype.apply__O__O = (function(v1) {
+  return this.apply__T2__T2($as_T2(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype.apply__T2__T2 = (function(x0$1) {
+  if ((x0$1 !== null)) {
+    var k = $as_T(x0$1.$$und1__O());
+    var v = $as_sc_Seq(x0$1.$$und2__O());
+    var jsx$1 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$4$2) {
+      var x$4 = $as_T2(x$4$2);
+      return $as_T(x$4.$$und2__O())
+    }));
+    var this$1 = $m_sc_Seq$();
+    return new $c_T2().init___O__O(k, $as_sc_TraversableOnce(v.map__F1__scg_CanBuildFrom__O(jsx$1, this$1.ReusableCBFInstance$2)).toList__sci_List())
+  } else {
+    throw new $c_s_MatchError().init___O(x0$1)
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2", {
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksPerQuestionMap$2;
+/** @constructor */
+var $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1 = (function() {
+  $c_sr_AbstractFunction1.call(this)
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype = new $h_sr_AbstractFunction1();
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype.constructor = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1;
+/** @constructor */
+var $h_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1 = (function() {
+  /*<skip>*/
+});
+$h_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype = $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype;
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype.apply__O__O = (function(v1) {
+  this.apply__Lmodels_TaskSnapshotResponse__V($as_Lmodels_TaskSnapshotResponse(v1))
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype.apply__Lmodels_TaskSnapshotResponse__V = (function(task) {
+  var x1 = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1.get__O__s_Option(task.task$undid$1);
+  if ($is_s_Some(x1)) {
+    var x2 = $as_s_Some(x1);
+    var t = $as_sci_List(x2.x$2);
+    if (($as_T2(t.head__O()).$$und1$mcD$sp__D() !== task.state$undchanged$undat$1)) {
+      var jsx$1 = $m_Lfront_AIDBrowserScripts$();
+      $m_Lfront_AIDBrowserScripts$();
+      var m = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1;
+      var k = task.task$undid$1;
+      var arg1 = m.apply__O__O(k);
+      var t$1 = $as_sci_List(arg1);
+      var x$5 = new $c_T2().init___O__O(task.state$undchanged$undat$1, task.state$1);
+      var value = new $c_sci_$colon$colon().init___O__sci_List(x$5, t$1);
+      jsx$1.tasksTimelineData$1 = $s_scm_MapLike$class__updated__scm_MapLike__O__O__scm_Map(m, k, value)
+    }
+  } else {
+    var x = $m_s_None$();
+    if ((x === x1)) {
+      var jsx$2 = $m_Lfront_AIDBrowserScripts$();
+      var this$8 = $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1;
+      var $$this$1 = task.task$undid$1;
+      $m_sci_List$();
+      var $$this = task.state$undchanged$undat$1;
+      var y = task.state$1;
+      var xs = new $c_sjs_js_WrappedArray().init___sjs_js_Array([new $c_T2().init___O__O($$this, y)]);
+      var this$6 = $m_sci_List$();
+      var cbf = this$6.ReusableCBFInstance$2;
+      var y$1 = $as_sci_List($s_sc_TraversableLike$class__to__sc_TraversableLike__scg_CanBuildFrom__O(xs, cbf));
+      var kv = new $c_T2().init___O__O($$this$1, y$1);
+      jsx$2.tasksTimelineData$1 = $as_scm_Map($as_scm_Map($as_scg_Growable(this$8.empty__sc_Map()).$$plus$plus$eq__sc_TraversableOnce__scg_Growable($as_sc_TraversableOnce(this$8))).$$plus$eq__T2__scm_MapLike(kv))
+    } else {
+      throw new $c_s_MatchError().init___O(x1)
+    }
+  }
+});
+var $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1 = new $TypeData().initClass({
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1: 0
+}, false, "front.AIDBrowserScripts$$anonfun$updateTasksTimelineData$1", {
+  Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1: 1,
+  sr_AbstractFunction1: 1,
+  O: 1,
+  F1: 1,
+  s_Serializable: 1,
+  Ljava_io_Serializable: 1
+});
+$c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1.prototype.$classData = $d_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1;
+/** @constructor */
+var $c_Lfront_components_chartColors$Color = (function() {
   $c_O.call(this);
   this.r$1 = 0.0;
   this.g$1 = 0.0;
   this.b$1 = 0.0;
   this.alpha$1 = 0.0
 });
-$c_Lfront_components_colors$Color.prototype = new $h_O();
-$c_Lfront_components_colors$Color.prototype.constructor = $c_Lfront_components_colors$Color;
+$c_Lfront_components_chartColors$Color.prototype = new $h_O();
+$c_Lfront_components_chartColors$Color.prototype.constructor = $c_Lfront_components_chartColors$Color;
 /** @constructor */
-var $h_Lfront_components_colors$Color = (function() {
+var $h_Lfront_components_chartColors$Color = (function() {
   /*<skip>*/
 });
-$h_Lfront_components_colors$Color.prototype = $c_Lfront_components_colors$Color.prototype;
-$c_Lfront_components_colors$Color.prototype.productPrefix__T = (function() {
+$h_Lfront_components_chartColors$Color.prototype = $c_Lfront_components_chartColors$Color.prototype;
+$c_Lfront_components_chartColors$Color.prototype.productPrefix__T = (function() {
   return "Color"
 });
-$c_Lfront_components_colors$Color.prototype.init___D__D__D__D = (function(r, g, b, alpha) {
+$c_Lfront_components_chartColors$Color.prototype.init___D__D__D__D = (function(r, g, b, alpha) {
   this.r$1 = r;
   this.g$1 = g;
   this.b$1 = b;
   this.alpha$1 = alpha;
   return this
 });
-$c_Lfront_components_colors$Color.prototype.productArity__I = (function() {
+$c_Lfront_components_chartColors$Color.prototype.productArity__I = (function() {
   return 4
 });
-$c_Lfront_components_colors$Color.prototype.equals__O__Z = (function(x$1) {
+$c_Lfront_components_chartColors$Color.prototype.equals__O__Z = (function(x$1) {
   if ((this === x$1)) {
     return true
-  } else if ($is_Lfront_components_colors$Color(x$1)) {
-    var Color$1 = $as_Lfront_components_colors$Color(x$1);
+  } else if ($is_Lfront_components_chartColors$Color(x$1)) {
+    var Color$1 = $as_Lfront_components_chartColors$Color(x$1);
     return ((((this.r$1 === Color$1.r$1) && (this.g$1 === Color$1.g$1)) && (this.b$1 === Color$1.b$1)) && (this.alpha$1 === Color$1.alpha$1))
   } else {
     return false
   }
 });
-$c_Lfront_components_colors$Color.prototype.productElement__I__O = (function(x$1) {
+$c_Lfront_components_chartColors$Color.prototype.productElement__I__O = (function(x$1) {
   switch (x$1) {
     case 0: {
       return this.r$1;
@@ -18848,10 +18909,10 @@ $c_Lfront_components_colors$Color.prototype.productElement__I__O = (function(x$1
     }
   }
 });
-$c_Lfront_components_colors$Color.prototype.toString__T = (function() {
+$c_Lfront_components_chartColors$Color.prototype.toString__T = (function() {
   return $m_sr_ScalaRunTime$().$$undtoString__s_Product__T(this)
 });
-$c_Lfront_components_colors$Color.prototype.hashCode__I = (function() {
+$c_Lfront_components_chartColors$Color.prototype.hashCode__I = (function() {
   var acc = (-889275714);
   acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().doubleHash__D__I(this.r$1));
   acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().doubleHash__D__I(this.g$1));
@@ -18859,32 +18920,32 @@ $c_Lfront_components_colors$Color.prototype.hashCode__I = (function() {
   acc = $m_sr_Statics$().mix__I__I__I(acc, $m_sr_Statics$().doubleHash__D__I(this.alpha$1));
   return $m_sr_Statics$().finalizeHash__I__I__I(acc, 4)
 });
-$c_Lfront_components_colors$Color.prototype.productIterator__sc_Iterator = (function() {
+$c_Lfront_components_chartColors$Color.prototype.productIterator__sc_Iterator = (function() {
   return new $c_sr_ScalaRunTime$$anon$1().init___s_Product(this)
 });
-var $is_Lfront_components_colors$Color = (function(obj) {
-  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lfront_components_colors$Color)))
+var $is_Lfront_components_chartColors$Color = (function(obj) {
+  return (!(!((obj && obj.$classData) && obj.$classData.ancestors.Lfront_components_chartColors$Color)))
 });
-var $as_Lfront_components_colors$Color = (function(obj) {
-  return (($is_Lfront_components_colors$Color(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "front.components.colors$Color"))
+var $as_Lfront_components_chartColors$Color = (function(obj) {
+  return (($is_Lfront_components_chartColors$Color(obj) || (obj === null)) ? obj : $throwClassCastException(obj, "front.components.chartColors$Color"))
 });
-var $isArrayOf_Lfront_components_colors$Color = (function(obj, depth) {
-  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lfront_components_colors$Color)))
+var $isArrayOf_Lfront_components_chartColors$Color = (function(obj, depth) {
+  return (!(!(((obj && obj.$classData) && (obj.$classData.arrayDepth === depth)) && obj.$classData.arrayBase.ancestors.Lfront_components_chartColors$Color)))
 });
-var $asArrayOf_Lfront_components_colors$Color = (function(obj, depth) {
-  return (($isArrayOf_Lfront_components_colors$Color(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lfront.components.colors$Color;", depth))
+var $asArrayOf_Lfront_components_chartColors$Color = (function(obj, depth) {
+  return (($isArrayOf_Lfront_components_chartColors$Color(obj, depth) || (obj === null)) ? obj : $throwArrayCastException(obj, "Lfront.components.chartColors$Color;", depth))
 });
-var $d_Lfront_components_colors$Color = new $TypeData().initClass({
-  Lfront_components_colors$Color: 0
-}, false, "front.components.colors$Color", {
-  Lfront_components_colors$Color: 1,
+var $d_Lfront_components_chartColors$Color = new $TypeData().initClass({
+  Lfront_components_chartColors$Color: 0
+}, false, "front.components.chartColors$Color", {
+  Lfront_components_chartColors$Color: 1,
   O: 1,
   s_Product: 1,
   s_Equals: 1,
   s_Serializable: 1,
   Ljava_io_Serializable: 1
 });
-$c_Lfront_components_colors$Color.prototype.$classData = $d_Lfront_components_colors$Color;
+$c_Lfront_components_chartColors$Color.prototype.$classData = $d_Lfront_components_chartColors$Color;
 /** @constructor */
 var $c_Lfront_components_piechart$$anonfun$1 = (function() {
   $c_sr_AbstractFunction1.call(this)
@@ -18963,10 +19024,10 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
     var jsx$20 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$11, v$1, ev$1);
     var jsx$19 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stop$4;
     var this$14 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
-    var jsx$17 = $m_Lfront_components_colors$();
+    var jsx$17 = $m_Lfront_components_chartColors$();
     var this$12 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
     var n = $uI(arg1$2["index"]);
-    var v$2 = jsx$17.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$12, n)));
+    var v$2 = jsx$17.string__Lfront_components_chartColors$Color__T($as_Lfront_components_chartColors$Color($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$12, n)));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$2 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
     var jsx$18 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$14, v$2, ev$2);
@@ -18976,11 +19037,11 @@ $c_Lfront_components_piechart$$anonfun$1.prototype.apply__sci_List__Ljapgolly_sc
     var jsx$16 = jsx$19.apply__sc_Seq__Ljapgolly_scalajs_react_vdom_ReactTag(new $c_sjs_js_WrappedArray().init___sjs_js_Array([jsx$18, new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$16, "0%", ev$3)]));
     var jsx$15 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stop$4;
     var this$19 = $m_Ljapgolly_scalajs_react_vdom_package$svg$all$().stopColor$4;
-    var jsx$13 = $m_Lfront_components_colors$();
-    var jsx$12 = $m_Lfront_components_colors$().lighten$1;
+    var jsx$13 = $m_Lfront_components_chartColors$();
+    var jsx$12 = $m_Lfront_components_chartColors$().lighten$1;
     var this$17 = $m_Lfront_components_piechart$().front$components$piechart$$palette$1;
     var n$1 = $uI(arg1$2["index"]);
-    var v$3 = jsx$13.string__Lfront_components_colors$Color__T($as_Lfront_components_colors$Color(jsx$12.apply__O__O($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$17, n$1))));
+    var v$3 = jsx$13.string__Lfront_components_chartColors$Color__T($as_Lfront_components_chartColors$Color(jsx$12.apply__O__O($s_sc_LinearSeqOptimized$class__apply__sc_LinearSeqOptimized__I__O(this$17, n$1))));
     $m_Ljapgolly_scalajs_react_vdom_package$svg$all$();
     var ev$4 = $m_Ljapgolly_scalajs_react_vdom_Scalatags$().stringAttrX$1;
     var jsx$14 = new $c_Ljapgolly_scalajs_react_vdom_Scalatags$AttrPair().init___Ljapgolly_scalajs_react_vdom_Attr__O__Ljapgolly_scalajs_react_vdom_Scalatags$AttrValue(this$19, v$3, ev$4);
@@ -25253,100 +25314,18 @@ $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply$mcV
   }));
   var this$7 = $m_sc_Seq$();
   var questionNamesTuples = $as_sc_Seq(jsx$4.map__F1__scg_CanBuildFrom__O(jsx$3, this$7.ReusableCBFInstance$2));
-  var jsx$5 = $m_Lfront_AIDBrowserScripts$();
-  var f = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$3$2) {
-    var x$3 = $as_T2(x$3$2);
-    return $as_T(x$3.$$und1__O())
-  }));
-  var this$9 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionNamesTuples, f);
-  var f$1 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$2().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$8 = $m_sci_Map$();
-  var bf = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$8);
-  jsx$5.questionNames$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$9, f$1, bf));
-  var jsx$8 = $m_Lfront_AIDBrowserScripts$();
-  var jsx$7 = parsedTasks.tasks$1;
-  var jsx$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2$2) {
-    var t$3 = $as_Lmodels_TaskSnapshotResponse(t$2$2);
-    var $$this$2 = t$3.task$undid$1;
-    return new $c_T2().init___O__O($$this$2, t$3)
-  }));
-  var this$12 = $m_sc_Seq$();
-  var this$13 = $as_sc_TraversableLike(jsx$7.map__F1__scg_CanBuildFrom__O(jsx$6, this$12.ReusableCBFInstance$2));
-  var f$2 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$5$2) {
-    var x$5 = $as_T2(x$5$2);
-    return $as_T(x$5.$$und1__O())
-  }));
-  var this$15 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$13, f$2);
-  var f$3 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$5().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$14 = $m_sci_Map$();
-  var bf$1 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$14);
-  jsx$8.tasksMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$15, f$3, bf$1));
-  var jsx$11 = $m_Lfront_AIDBrowserScripts$();
-  var jsx$10 = parsedTasks.tasks$1;
-  var jsx$9 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2$3) {
-    var t$4 = $as_Lmodels_TaskSnapshotResponse(t$2$3);
-    var $$this$3 = t$4.answer$1;
-    return new $c_T2().init___O__O($$this$3, t$4)
-  }));
-  var this$18 = $m_sc_Seq$();
-  var this$19 = $as_sc_TraversableLike(jsx$10.map__F1__scg_CanBuildFrom__O(jsx$9, this$18.ReusableCBFInstance$2));
-  var f$4 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$7$2) {
-    var x$7 = $as_T2(x$7$2);
-    return $as_T(x$7.$$und1__O())
-  }));
-  var this$21 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$19, f$4);
-  var f$5 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$8().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$20 = $m_sci_Map$();
-  var bf$2 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$20);
-  jsx$11.taskAnswersCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$21, f$5, bf$2));
-  var jsx$14 = $m_Lfront_AIDBrowserScripts$();
-  var jsx$13 = parsedTasks.tasks$1;
-  var jsx$12 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(t$2$4) {
-    var t$5 = $as_Lmodels_TaskSnapshotResponse(t$2$4);
-    var $$this$4 = t$5.state$1;
-    return new $c_T2().init___O__O($$this$4, t$5)
-  }));
-  var this$24 = $m_sc_Seq$();
-  var this$25 = $as_sc_TraversableLike(jsx$13.map__F1__scg_CanBuildFrom__O(jsx$12, this$24.ReusableCBFInstance$2));
-  var f$6 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$9$2) {
-    var x$9 = $as_T2(x$9$2);
-    return $as_T(x$9.$$und1__O())
-  }));
-  var this$27 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(this$25, f$6);
-  var f$7 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$11().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$26 = $m_sci_Map$();
-  var bf$3 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$26);
-  jsx$14.taskStatesCount$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$27, f$7, bf$3));
-  parsedTasks.tasks$1.foreach__F1__V(new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$12().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this));
-  var x = ("taskTimeLineData size is " + $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1.size__I());
-  var this$29 = $m_s_Console$();
-  var this$30 = this$29.outVar$2;
-  $as_Ljava_io_PrintStream(this$30.tl$1.get__O()).println__O__V(x);
-  $m_Lfront_AIDBrowserScripts$().tasksTimelineData$1.foreach__F1__V(new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$2) {
-    var this$32 = $m_s_Console$();
-    var this$33 = this$32.outVar$2;
-    $as_Ljava_io_PrintStream(this$33.tl$1.get__O()).println__O__V(x$2)
-  })));
-  var this$35 = $m_s_Console$();
-  var this$36 = this$35.outVar$2;
-  $as_Ljava_io_PrintStream(this$36.tl$1.get__O()).println__O__V("end of timeline data");
+  $m_Lfront_AIDBrowserScripts$().updateQuestionNames__sc_Seq__V(questionNamesTuples);
+  $m_Lfront_AIDBrowserScripts$().updateTasksPerQuestionMap__sc_Seq__V(questionTaskTuples);
+  $m_Lfront_AIDBrowserScripts$().updateTasksMap__Lmodels_Tasks__V(parsedTasks);
+  $m_Lfront_AIDBrowserScripts$().updateTaskAnswersMap__Lmodels_Tasks__V(parsedTasks);
+  $m_Lfront_AIDBrowserScripts$().updateTaskStatesCount__Lmodels_Tasks__V(parsedTasks);
+  $m_Lfront_AIDBrowserScripts$();
+  parsedTasks.tasks$1.foreach__F1__V(new $c_Lfront_AIDBrowserScripts$$anonfun$updateTasksTimelineData$1().init___());
   $m_Lfront_AIDBrowserScripts$().renderTimeline__V();
   $m_Lfront_AIDBrowserScripts$().renderTaskAnswers__Ljapgolly_scalajs_react_ReactComponentM();
   $m_Lfront_AIDBrowserScripts$().renderTaskStates__Ljapgolly_scalajs_react_ReactComponentM();
   $m_Lfront_AIDBrowserScripts$().displayGeneralInfo__Lorg_scalajs_dom_raw_Node();
-  var jsx$15 = $m_Lfront_AIDBrowserScripts$();
-  var f$8 = new $c_sjsr_AnonFunction1().init___sjs_js_Function1((function(x$12$2) {
-    var x$12 = $as_T2(x$12$2);
-    return $as_T(x$12.$$und1__O())
-  }));
-  var this$38 = $s_sc_TraversableLike$class__groupBy__sc_TraversableLike__F1__sci_Map(questionTaskTuples, f$8);
-  var f$9 = new $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1$$anonfun$apply$mcV$sp$15().init___Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1(this);
-  var this$37 = $m_sci_Map$();
-  var bf$4 = new $c_scg_GenMapFactory$MapCanBuildFrom().init___scg_GenMapFactory(this$37);
-  jsx$15.tasksPerQuestionMap$1 = $as_sci_Map($s_sc_TraversableLike$class__map__sc_TraversableLike__F1__scg_CanBuildFrom__O(this$38, f$9, bf$4));
-  if ((!$m_Lfront_AIDBrowserScripts$().tasksMap$1.isEmpty__Z())) {
-    $m_Lfront_AIDBrowserScripts$().renderSelectBoxes__V()
-  }
+  $m_Lfront_AIDBrowserScripts$().renderSelectBoxes__V()
 });
 $c_Lfront_AIDBrowserScripts$$anonfun$main$3$$anonfun$apply$1.prototype.apply__O = (function() {
   this.apply$mcV$sp__V()

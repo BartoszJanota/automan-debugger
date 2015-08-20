@@ -8,21 +8,34 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <style>
-        .top-div { height: 20%; }
-        .center-div { height: 40% }
-        .controls.readonly
-        {
+        .top-div {
+            height: 20%;
+        }
+
+        .center-div {
+            height: 40%
+        }
+
+        .controls.readonly {
             padding-top: 0px;
             color: #999999;
         }
-        .top-margin { margin-top:8px; }
-        .left-margin { margin-left:40px; }
-        .bottom-margin { margin-bottom:10px; }
+
+        .top-margin {
+            margin-top: 8px;
+        }
+
+        .left-margin {
+            margin-left: 40px;
+        }
+
+        .bottom-margin {
+            margin-bottom: 10px;
+        }
 
         table, th, td {
             border: 1px solid black;
         }
-
     </style>
 </head>
 <body style="height: 600px">
@@ -30,7 +43,9 @@
 <div class="container col-md-8 small" style="height: 100%">
     <div class="row">
         <h6>Navigate through your program's Questions and Tasks</h6>
-        <h6 id="no_questions_and_tasks_warn"><small>No Questions and Tasks to be displayed, check your AutoMan program</small></h6>
+        <h6 id="no_questions_and_tasks_warn">
+            <small>No Questions and Tasks to be displayed, check your AutoMan program</small>
+        </h6>
         <div id="selects" style="display: none">
             <div style="display: inline-block">
                 <select class="form-control " id="q_select" style="font-size: 10px; height: 60%">
@@ -49,7 +64,7 @@
             <li id="tab-predictions"><a data-toggle="tab" href="#tasks-predictions">Predictions</a></li>
         </ul>
 
-        <div class="tab-content" id ="tab-contents">
+        <div class="tab-content" id="tab-contents">
             <div id="tasks-completion" class="tab-pane fade in active">
                 <h6>Tasks Completion</h6>
             </div>
@@ -63,7 +78,9 @@
     </div>
     <div id="div-task-details" class="row center-div">
         <hr>
-        <h6>Task Details <small id="task-detail-id"></small></h6>
+        <h6>Task Details
+            <small id="task-detail-id"></small>
+        </h6>
         <div id="task-detail"></div>
     </div>
     <div class="row center-div">
@@ -73,7 +90,7 @@
             <li id="tab-console"><a data-toggle="tab" href="#console-debug">Console</a></li>
         </ul>
 
-        <div class="tab-content" id ="general-tab-contents">
+        <div class="tab-content" id="general-tab-contents">
             <div id="general" class="tab-pane fade in active">
                 <div id="general-info" class="top-margin"></div>
             </div>

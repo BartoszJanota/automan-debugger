@@ -3,7 +3,7 @@ package front.components
 /**
  * Created by bj on 23.07.15.
  */
-object colors {
+object chartColors {
   case class Color(r: Double, g: Double, b: Double, alpha: Double = 1)
 
   def cut(x: Double) = x.floor min 255
