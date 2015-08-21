@@ -1,38 +1,34 @@
-package edu.umass.cs.plasma.automandebugger.idea.browser
+package edu.umass.cs.plasma.automandebugger.idea
 
+import java.awt.BorderLayout
 import java.awt.event.{ActionEvent, ActionListener}
-import java.awt.{Dimension, BorderLayout}
-import java.io._
-import java.util
-import java.util.Map.Entry
-import java.util.Scanner
 import javafx.application.Platform
-import javafx.beans.value.{ObservableValue, ChangeListener}
+import javafx.beans.value.{ChangeListener, ObservableValue}
 import javafx.concurrent.Worker
+import javafx.concurrent.Worker.State
 import javafx.embed.swing.JFXPanel
-import javafx.scene.{Group, Scene}
 import javafx.scene.web.{WebEngine, WebView}
+import javafx.scene.{Group, Scene}
 import javafx.stage.Stage
 import javax.swing._
-import javafx.concurrent.Worker.State;
 
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.wm.{ToolWindow, ToolWindowFactory}
-import com.typesafe.config.{ConfigValue, Config, ConfigFactory}
-import edu.umass.cs.plasma.automandebugger.idea.browser.IdeaPluginToolBrowserWindow.Tab
+import com.typesafe.config.ConfigFactory
+import edu.umass.cs.plasma.automandebugger.idea.AutoDebugger.Tab
 import net.ceedubs.ficus.Ficus._
 
 /**
  * Created by bj on 13.07.15.
  */
 
-object IdeaPluginToolBrowserWindow {
+object AutoDebugger {
 
   case class Tab(id: String, visible: Boolean)
 
 }
 
-class IdeaPluginToolBrowserWindow extends ToolWindowFactory {
+class AutoDebugger extends ToolWindowFactory {
   override def createToolWindowContent(project: Project, toolWindow: ToolWindow)= {
 
     val component: JComponent = toolWindow.getComponent
