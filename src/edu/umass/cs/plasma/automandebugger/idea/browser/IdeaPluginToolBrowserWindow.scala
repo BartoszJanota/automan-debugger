@@ -11,7 +11,7 @@ import javafx.beans.value.{ObservableValue, ChangeListener}
 import javafx.concurrent.Worker
 import javafx.embed.swing.JFXPanel
 import javafx.scene.{Group, Scene}
-import javafx.scene.web.WebView
+import javafx.scene.web.{WebEngine, WebView}
 import javafx.stage.Stage
 import javax.swing._
 import javafx.concurrent.Worker.State;
@@ -26,13 +26,14 @@ import net.ceedubs.ficus.Ficus._
  * Created by bj on 13.07.15.
  */
 
-object IdeaPluginToolBrowserWindow{
+object IdeaPluginToolBrowserWindow {
+
   case class Tab(id: String, visible: Boolean)
+
 }
 
-class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
-  override def createToolWindowContent(project: Project, toolWindow: ToolWindow): Unit = {
-
+class IdeaPluginToolBrowserWindow extends ToolWindowFactory {
+  override def createToolWindowContent(project: Project, toolWindow: ToolWindow)= {
 
     val component: JComponent = toolWindow.getComponent
 
@@ -43,9 +44,8 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val jfxPanel: JFXPanel = new JFXPanel()
     //jfxPanel.setPreferredSize(new Dimension(500, 800))
     jfxPanel.setSize(500, 800)
-
+    
     Platform.setImplicitExit(false)
-
     Platform.runLater(new Runnable {
       override def run(): Unit = {
         loadPage(jfxPanel)
@@ -67,7 +67,6 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
       }
     })
 
-
     mainPanel.add(refreshButton, BorderLayout.SOUTH)
     component.add(mainPanel, BorderLayout.CENTER)
   }
@@ -83,43 +82,43 @@ class IdeaPluginToolBrowserWindow extends ToolWindowFactory{
     val root = new Group()
     val scene = new Scene(root, 500, 800)
     stage.setScene(scene)
+
     val webView = new WebView()
-
     val webEngine = webView.getEngine
-    val text = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/index.html")).mkString
-    val debuggerJsFastopt = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-fastopt.js")).mkString
-    val debuggerJsLauncher = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-launcher.js")).mkString
-    val debuggerJsDeps = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/automan-debugger-frontend-jsdeps.js")).mkString
-
+    val index = loadTextResource("/index.html")
     webEngine.setJavaScriptEnabled(true)
-    webEngine.loadContent(text)
-    val children = root.getChildren
-    children.add(webView)
+    webEngine.loadContent(index)
+    root.getChildren.add(webView)
 
     webEngine.getLoadWorker.stateProperty.addListener(new ChangeListener[State]() {
       override def changed(observableValue: ObservableValue[_ <: State], t: State, t1: State): Unit = {
         if (t1 == Worker.State.SUCCEEDED) {
-          webEngine.executeScript(debuggerJsDeps)
-          webEngine.executeScript(debuggerJsFastopt)
-          webEngine.executeScript(debuggerJsLauncher)
+          webEngine.executeScript(loadTextResource("/automan-debugger-frontend-jsdeps.js"))
+          webEngine.executeScript(loadTextResource("/automan-debugger-frontend-fastopt.js"))
+          webEngine.executeScript(loadTextResource("/automan-debugger-frontend-launcher.js"))
 
-          val tabsToBeHidden: List[Tab] = getConfig
-          tabsToBeHidden.filter(!_.visible)foreach{ tab =>
-              webEngine.getDocument.getElementById(tab.id).setAttribute("style", "display:none")
-          }
+          loadConfigAndHideTabs(webEngine)
         }
-
       }
     })
     jfxPanel.setScene(scene)
   }
 
-  def getConfig: List[Tab] = {
-    val configFile = scala.io.Source.fromInputStream(getClass.getResourceAsStream("/application.conf")).mkString
-    val config = ConfigFactory.parseString(configFile)
+  def loadConfigAndHideTabs(webEngine: WebEngine): Unit = {
+    val tabsToBeHidden: List[Tab] = getTabsVisibilityConfig
+    tabsToBeHidden.filter(!_.visible) foreach { tab =>
+      webEngine.getDocument.getElementById(tab.id).setAttribute("style", "display:none")
+    }
+  }
 
+  def loadTextResource(path: String): String = {
+    scala.io.Source.fromInputStream(getClass.getResourceAsStream(path)).mkString
+  }
+
+  def getTabsVisibilityConfig: List[Tab] = {
     import net.ceedubs.ficus.readers.ArbitraryTypeReader._
-    val tabs: List[Tab] = config.as[List[Tab]]("aid.tabs")
-    tabs
+
+    val configFile = loadTextResource("/application.conf")
+    ConfigFactory.parseString(configFile).as[List[Tab]]("aid.tabs")
   }
 }

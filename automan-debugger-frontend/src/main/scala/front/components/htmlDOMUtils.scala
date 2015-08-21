@@ -54,4 +54,8 @@ trait htmlDOMUtils extends stateColors{
       legend appendChild span
     }
   }
+
+  def roundUpAndAddCurrency(predictedCost: Double): String = {
+    "$" + BigDecimal(predictedCost).setScale(2, BigDecimal.RoundingMode.HALF_UP).toString
+  }
 }

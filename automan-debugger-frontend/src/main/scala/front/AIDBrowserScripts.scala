@@ -103,6 +103,35 @@ object AIDBrowserScripts extends js.JSApp with htmlDOMUtils{
     }
   }
 
+  //TODO: this method is not complete, it is mocked right now
+  def renderPredictions() = {
+    val parentDiv = d getElementById "tasks-predictions-data"
+    removeAllElementChildren(parentDiv)
+
+    if (taskAnswersCount.nonEmpty){
+
+      val topAnswer = taskAnswersCount.toList.sortBy(-_._2).head
+
+      val firstRow = createRow(d)
+      firstRow appendChild displayInfoLabel("Top Answer", topAnswer._1)
+      //mocked time, it needs to be estimated somehow
+      firstRow appendChild displayInfoLabel("How much time the question is going to take", "17 seconds")
+      parentDiv appendChild firstRow
+
+      val totalTasksCost: Double = tasksMap.map(_._2.cost).sum
+
+      //mocked function, it needs to be estimated somehow
+      val predictedCost = totalTasksCost * 1.17
+      val roundedPredictedCost = roundUpAndAddCurrency(predictedCost)
+
+      val secondRow = createRow(d)
+      //mocked num of tasks, it needs to be estimated somehow
+      secondRow appendChild displayInfoLabel("How much the question will cost", roundedPredictedCost)
+      secondRow appendChild displayInfoLabel("How many more tasks AutoMan will need to schedule", "7")
+      parentDiv appendChild secondRow
+    }
+  }
+
   def renderTaskAnswers() = {
     val parentDiv = d getElementById "tasks-completion"
     val args: List[StringIntVal] = taskAnswersCount.map(t => StringIntVal(t._1, t._2)).toList
@@ -130,12 +159,12 @@ object AIDBrowserScripts extends js.JSApp with htmlDOMUtils{
     val totalTasksCost: Double = tasksMap.map(_._2.cost).sum
     val avgTaskCost = totalTasksCost / tasksMap.size
 
-    val roundedAvgTaskCost = BigDecimal(avgTaskCost).setScale(2, BigDecimal.RoundingMode.HALF_UP)
-    val roundedTotalTasksCost = BigDecimal(totalTasksCost).setScale(2, BigDecimal.RoundingMode.HALF_UP)
+    val roundedAvgTaskCost = roundUpAndAddCurrency(avgTaskCost)
+    val roundedTotalTasksCost = roundUpAndAddCurrency(totalTasksCost)
 
     val secondRow = createRow(d)
-    secondRow appendChild displayInfoLabel("Average task cost", "$" + roundedAvgTaskCost.toString)
-    secondRow appendChild displayInfoLabel("Total tasks cost", "$" + roundedTotalTasksCost.toString)
+    secondRow appendChild displayInfoLabel("Average task cost", roundedAvgTaskCost)
+    secondRow appendChild displayInfoLabel("Total tasks cost", roundedTotalTasksCost)
     generalInfo appendChild secondRow
   }
 
@@ -270,6 +299,7 @@ object AIDBrowserScripts extends js.JSApp with htmlDOMUtils{
         renderTimeline()
         renderTaskAnswers()
         renderTaskStates()
+        renderPredictions()
         displayGeneralInfo()
         renderSelectBoxes()
       }
