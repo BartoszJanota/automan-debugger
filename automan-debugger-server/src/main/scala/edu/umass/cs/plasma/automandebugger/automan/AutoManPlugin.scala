@@ -1,25 +1,20 @@
 package edu.umass.cs.plasma.automandebugger.automan
 
-import akka.actor.{ActorSystem, Props}
-import akka.io.IO
-import akka.pattern.ask
+import akka.actor.ActorSystem
 import edu.umass.cs.automan.core.logging.TaskSnapshot
 import edu.umass.cs.automan.core.{AutomanAdapter, Plugin}
-import edu.umass.cs.plasma.automandebugger.automan.WSClient._
-import edu.umass.cs.plasma.automandebugger.automan.actors.DebugServerActor
 import edu.umass.cs.plasma.automandebugger.automan.ws.WebSocketUtils
-import edu.umass.cs.plasma.automandebugger.models.{TaskSnapshotJsonProtocol, Tasks, TaskSnapshotResponse}
+import edu.umass.cs.plasma.automandebugger.models.{TaskSnapshotJsonProtocol, TaskSnapshotResponse, Tasks}
 import io.backchat.hookup.HookupServer
-import spray.can.Http
-
 
 import scala.concurrent.duration._
 
 /**
  * Created by bj on 24.06.15.
  */
-object AutoManPlugin{
+object AutoManPlugin {
   def plugin = classOf[AutoManPlugin]
+
   var mostRecentAutomanState: List[TaskSnapshotResponse] = List.empty
 }
 
@@ -33,8 +28,6 @@ class AutoManPlugin extends Plugin with WebSocketUtils {
 
   override def startup(adapter: AutomanAdapter): Unit = {
     println("Hello from AID Plugin!")
-    val debugServerActor = system.actorOf(Props(classOf[DebugServerActor], adapter), "DebugServerActor")
-    IO(Http) ? Http.Bind(debugServerActor, interface = "localhost", port = 8888)
 
     server onStop {
       println("AID Server has stopped")
@@ -42,8 +35,8 @@ class AutoManPlugin extends Plugin with WebSocketUtils {
     server onStart {
       println("AID Server has started")
     }
-    server.start
 
+    server.start
   }
 
   override def shutdown(): Unit = {
@@ -52,11 +45,11 @@ class AutoManPlugin extends Plugin with WebSocketUtils {
 
   override def state_updates(tasks: List[TaskSnapshot[_]]): Unit = {
     //tasks.foreach{t => println(TaskSnapshotResponse.applyFromTaskSnapshot(t).toString)}
-    AutoManPlugin.mostRecentAutomanState = tasks.map{ taskSnapshot =>
+    AutoManPlugin.mostRecentAutomanState = tasks.map { taskSnapshot =>
       TaskSnapshotResponse.applyFromTaskSnapshot(taskSnapshot)
     }
 
-    if (AID.isActive){
+    if (AID.isActive) {
       println("AID Server state_update has been called now!\nReceived " + tasks.size + " tasks updates")
       client.send(TasksJson.write(Tasks(AutoManPlugin.mostRecentAutomanState)).toString)
     } else {

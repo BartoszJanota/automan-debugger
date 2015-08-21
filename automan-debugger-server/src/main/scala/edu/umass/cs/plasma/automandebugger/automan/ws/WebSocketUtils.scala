@@ -16,16 +16,18 @@ trait WebSocketUtils {
     def receive = {
       case Connected ⇒
         AID.isActive = true
-        println("client connected")
+        println("AID client connected")
         send(TasksJson.write(Tasks(AutoManPlugin.mostRecentAutomanState)).toString)
-        println("just sent most recent AutoMan state")
+        println("Just sent most recent AutoMan state")
       case Disconnected(_) ⇒
         AID.isActive = false
-        println("client disconnected")
-      case m @ Error(exOpt) ⇒
+        println("AID client disconnected")
+      case m@Error(exOpt) ⇒
         AID.isActive = false
         System.err.println("Received an error: " + m)
-        exOpt foreach { _.printStackTrace(System.err) }
+        exOpt foreach {
+          _.printStackTrace(System.err)
+        }
       case m: TextMessage ⇒
         println(m)
         send(m)
@@ -35,7 +37,8 @@ trait WebSocketUtils {
     }
   }
 
-  object AID{
-     var isActive = false
+  object AID {
+    var isActive = false
   }
+
 }
