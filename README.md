@@ -23,7 +23,7 @@ I'll describe them later.
 ####Open project
 
 I assume you have you IntelliJ IDEA 14 opened. Now go to *File -> Open...* and choose */automan-debugger* folder.
-IntelliJ shoudl open this project automatically as an IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby *automan-debugger* in the project View.
+IntelliJ should open this project automatically as an IntelliJ Platform Plugin. You can validate this - you should see a plugin icon nearby *automan-debugger* in the project View.
 
 ###Try AID
 
@@ -33,6 +33,15 @@ This zip file contains all you need to run AID: compiled Scala code, config file
 ####Install AID
 
 `automan-debugger-scala.zip` file is an Intellij IDEA Plugin. To see how it works you need to install it firstly. Open *Settings -> Plugins* tab and then click *Install plugin from disk...*, navigate to the root of this repo and choose `automan-debugger-scala.zip`. Click OK and agree to restart your IntelliJ IDEA.
+
+#####If you are on the Mac OS
+
+IntelliJ IDEA on the Mac OS uses a custom JDK derived from the OpenJDK.  As of this writing (April 25, 2016), the OpenJDK does not ship with JavaFX.  You will need to do two things to use AID on the Mac:
+
+1. Install Oracle's JDK 1.8.
+1. Start IDEA, click on *Help -> Find Action...*, type `boot`, select *Switch IDE boot JDK...*, and then choose *jdk1.8.x_xx.jdk*.
+
+Failing to switch to Oracle's JDK will result in a `java.lang.NoClassDefFoundError: javafx/embed/swing/JFXPanel` message.
 
 ###How to run AID plugin once you have it installed
 
