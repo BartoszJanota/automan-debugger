@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="automan_2.11">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/automan_2.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
