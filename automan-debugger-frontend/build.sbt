@@ -20,7 +20,7 @@ resolvers ++= Seq(
 libraryDependencies ++= Seq(
   "org.scala-js" %%% "scalajs-dom" % "0.8.0",
   "com.lihaoyi" %%% "utest" % "0.3.0" % "test",
-  "edu.umass.cs" %% "automan" % "0.1.8-SNAPSHOT",
+  "edu.umass.cs" %% "automan" % "1.1.8-SNAPSHOT",
   "com.lihaoyi" %%% "upickle" % "0.2.8",
   "eu.unicredit" %%% "paths-scala-js" % "0.3.2",
   "com.github.japgolly.scalajs-react" %%% "core" % "0.9.0",
