@@ -1,0 +1,16 @@
+<component name="libraryTable">
+  <library name="org.scala-js:scalajs-library_2.10:0.6.9" type="repository">
+    <properties maven-id="org.scala-js:scalajs-library_2.10:0.6.9" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-js/scalajs-library_2.10/0.6.9/scalajs-library_2.10-0.6.9.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-library/2.10.6/scala-library-2.10.6.jar!/" />
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-lang/scala-reflect/2.10.6/scala-reflect-2.10.6.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-js/scalajs-library_2.10/0.6.9/scalajs-library_2.10-0.6.9-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/scala-js/scalajs-library_2.10/0.6.9/scalajs-library_2.10-0.6.9-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
