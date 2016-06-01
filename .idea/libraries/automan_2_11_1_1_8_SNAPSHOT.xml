@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="automan_2.11_1.1.8-SNAPSHOT">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/local/edu.umass.cs/automan_2.11/1.1.8-SNAPSHOT/jars/automan_2.11.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/local/edu.umass.cs/automan_2.11/1.1.8-SNAPSHOT/srcs/automan_2.11-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
